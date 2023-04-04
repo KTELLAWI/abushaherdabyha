@@ -3,12 +3,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://kotlin.bintray.com/kotlinx' }
     }
 
     dependencies {
         classpath 'com.google.gms:google-services:4.3.10'
-        classpath 'com.android.tools.build:gradle:7.4.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
