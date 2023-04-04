@@ -89,18 +89,19 @@ class BasicSelection extends StatelessWidget {
                     ),
                     decoration: type == 'color'
                         ? BoxDecoration(
-                            color: item!.toUpperCase() == value!.toUpperCase()
-                                ? HexColor(kNameToHex[item
-                                        .toString()
-                                        .replaceAll(' ', '_')
-                                        .toLowerCase()] ??
-                                    '#000000')
-                                : HexColor(kNameToHex[item
-                                            .toString()
-                                            .replaceAll(' ', '_')
-                                            .toLowerCase()] ??
-                                        '#ffffff')
-                                    .withOpacity(0.6),
+                            color:HexColor(item!),
+                            // item!.toUpperCase() == value!.toUpperCase()
+                            //     ? HexColor(kNameToHex[item
+                            //             .toString()
+                            //             .replaceAll(' ', '_')
+                            //             .toLowerCase()] ??
+                            //         '#000000')
+                            //     : HexColor(kNameToHex[item
+                            //                 .toString()
+                            //                 .replaceAll(' ', '_')
+                            //                 .toLowerCase()] ??
+                            //             '#ffffff')
+                            //         .withOpacity(0.6),
                             borderRadius: BorderRadius.circular(25),
                             border: Border.all(
                               width: 1.0,

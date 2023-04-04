@@ -249,7 +249,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartDiscount": MessageLookupByLibrary.simpleMessage("خصم على السلة"),
         "cash": MessageLookupByLibrary.simpleMessage("نقدا"),
         "categories": MessageLookupByLibrary.simpleMessage("التصنيفات"),
-        "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
+        "category": MessageLookupByLibrary.simpleMessage("التصنيفات"),
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "changePrinter": MessageLookupByLibrary.simpleMessage("تغيير الطابعة"),
         "changedCurrencyTo": m4,

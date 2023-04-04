@@ -17,6 +17,7 @@ class AdditionalInformation extends StatelessWidget {
     var lang = Provider.of<AppModel>(context).langCode;
 
     return Column(
+      crossAxisAlignment:CrossAxisAlignment.start,
       children: [
         ...List.generate(
           listInfo.length,
@@ -54,15 +55,20 @@ class AdditionalInformation extends StatelessWidget {
         : attribute.label?.toLowerCase();
 
     return Container(
+                width: MediaQuery.of(context).size.width,
+
       color: color,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child:
+        //Text("ff")
+         Row(
+          mainAxisAlignment:MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(width: 10),
             Expanded(
-              flex: 4,
+              flex: 0,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Align(

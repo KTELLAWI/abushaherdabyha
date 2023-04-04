@@ -1,5 +1,5 @@
 Map<String, dynamic> environment ={
-  "appConfig": "https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
   "serverConfig": {
     "url": "https://bojee.codlar.com",
     "type": "woo",
@@ -101,7 +101,7 @@ Map<String, dynamic> environment ={
     "EnableBottomAddToCart": false,
     "inAppWebView": false,
     "EnableWOOCSCurrencySwitcher": false,
-    "enableProductBackdrop": false,
+    "enableProductBackdrop": true,
     "categoryImageMenu": true,
     "EnableDigitsMobileLogin": false,
     "OnBoardOnlyShowFirstTime": true,
@@ -188,20 +188,10 @@ Map<String, dynamic> environment ={
   },
   "onBoardingData": [
     {
-      "title": "Warmly Welcome!",
-      "image": "assets/images/fogg-delivery-1.png",
-      "desc": "Fluxstore is on the way to serve you. "
+      "title": "ابدأ التسوق مع بوجي ",
+      "image": "assets/images/3.png",
+      "desc": ""
     },
-    {
-      "title": "Connect Surrounding World",
-      "image": "assets/images/fogg-uploading-1.png",
-      "desc": "See all things happening around you just by a click in your phone. Fast, convenient and clean."
-    },
-    {
-      "title": "Let's Get Started",
-      "image": "assets/images/fogg-order-completed.png",
-      "desc": "Waiting no more, let's see what we get!"
-    }
   ],
   "adConfig": {
     "enable": false,
@@ -759,7 +749,7 @@ Map<String, dynamic> environment ={
     "enableAudioSupport": false
   },
   "productVariantLayout": {
-    "color22": "color",
+    "color": "color",
     "size": "box",
     "height": "option",
     "color-image": "image"
@@ -782,13 +772,13 @@ Map<String, dynamic> environment ={
   },
   "productVariantLanguage": {
     "en": {
-      "color22": "Color",
+      "color": "Color",
       "size": "Size",
       "height": "Height",
       "color-image": "image"
     },
     "ar": {
-      "color22": "اللون",
+      "color": "اللون",
       "black":"الأسود",
       "size": "الحجم",
       "height": "ارتفاع",
@@ -858,7 +848,7 @@ Map<String, dynamic> environment ={
     "enable": true,
     "duration": 2000,
     "type": "static",
-    "image": "https://trello.com/1/cards/63587806a57fae002ab4b20f/attachments/6427849e099c24e9a2d25c13/download/splashscreen.png",
+    "image": "https://trello.com/1/cards/63587806a57fae002ab4b20f/attachments/642b6c581bd9b2a65a5d9caa/download/splashscreen.png",
     "animationName": "fluxstore",
     "boxFit": "contain",
     "backgroundColor": "#ffffff",

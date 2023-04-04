@@ -58,8 +58,8 @@ class MainTabsState extends CustomOverlayState<MainTabs>
   final List<Widget> _tabView = [];
   Map saveIndexTab = {};
   Map<String, String?> childTabName = {};
-  int currentTabIndex = 0;
-  int defaultTabIndex = 0;
+  int currentTabIndex = 2;
+  int defaultTabIndex = 2;
 
   List<TabBarMenuConfig> get tabData =>
       Provider.of<AppModel>(context, listen: false).appConfig!.tabBar;

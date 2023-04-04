@@ -250,6 +250,9 @@ class _CategoryCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
+ if(category!.id=="16"){
+    return SizedBox();
+  }
     return GestureDetector(
       onTap: onTap,
       child: LayoutBuilder(

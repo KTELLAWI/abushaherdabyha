@@ -137,8 +137,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> with ChangeLanguage {
             color: kGrey600,
           ),
           foregroundImageFit: BoxFit.fitWidth,
-          centerWidget: isLastItem
-              ? renderLoginWidget(data[i]['image'])
+          centerWidget: !isLastItem
+              ? Text("")//renderLoginWidget(data[i]['image'])
               : FluxImage(
                   imageUrl: data[i]['image'],
                   fit: BoxFit.fitWidth,
@@ -155,7 +155,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> with ChangeLanguage {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
+      body:
+       Stack(
         children: [
           Consumer<AppModel>(builder: (context, _, __) {
             return Container(
@@ -163,28 +164,28 @@ class _OnBoardScreenState extends State<OnBoardScreen> with ChangeLanguage {
               child: IntroSlider(
                 key: UniqueKey(),
                 listContentConfig: getSlides(data),
-                renderSkipBtn: Text(
-                  S.of(context).skip,
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                ),
+                // renderSkipBtn: Text(
+                //   S.of(context).skip,
+                //   style: TextStyle(color: Theme.of(context).primaryColor),
+                // ),
                 renderDoneBtn: Text(
                   isRequiredLogin ? '' : S.of(context).done,
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
-                renderPrevBtn: Text(
-                  S.of(context).prev,
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                ),
+                // renderPrevBtn: Text(
+                //   S.of(context).prev,
+                //   style: TextStyle(color: Theme.of(context).primaryColor),
+                // ),
                 renderNextBtn: Text(
                   S.of(context).next,
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
-                isShowDoneBtn: !isRequiredLogin,
+                // isShowDoneBtn: !isRequiredLogin,
                 onDonePress: onTapDone,
               ),
             );
           }),
-          iconLanguage(),
+          //iconLanguage(),
         ],
       ),
     );

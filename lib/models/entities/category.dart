@@ -325,7 +325,7 @@ class Category {
           categories.add(Category.fromJson(item));
         }
       }
-      return categories;
+      return categories.reversed.toList();
     }
   }
 }
