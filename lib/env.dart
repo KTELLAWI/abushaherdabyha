@@ -1,6 +1,6 @@
 Map<String, dynamic> environment ={
-  "appConfig":"lib/config/config_ar.json",
-  //"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig"://"lib/config/config_ar.json",
+  "https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
   "serverConfig": {
     "url": "https://bojee.codlar.com",
     "type": "woo",
