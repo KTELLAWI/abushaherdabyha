@@ -32,7 +32,7 @@ class _BrandListLayoutState extends State<BrandListLayout> with AppBarMixin {
   late String langCode = Provider.of<AppModel>(context, listen: false).langCode;
 
   BrandConfig? get config => widget.args?.config;
-
+  
   final _controller = ScrollController();
   var _isLoading = false;
   var _isEnd = false;

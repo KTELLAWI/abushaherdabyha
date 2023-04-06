@@ -325,7 +325,7 @@ class WooCommerceService extends BaseServices {
     try {
       var listAttributes = <SubAttribute>[];
 
-      var url = 'products/attributes/$id/terms?page=$page&per_page=10';
+      var url = 'products/attributes/$id/terms?page=$page&per_page=20';
 
       if (lang != null && kAdvanceConfig.isMultiLanguages) {
         url += '&lang=$lang';

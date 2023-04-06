@@ -4,6 +4,7 @@ export 'cart/cart_screen.dart';
 export 'cart/my_cart_screen.dart';
 export 'cart/widgets/coupon_list.dart';
 export 'categories/categories_screen.dart';
+export 'categories/brand.dart';
 export 'categories/category_search_screen.dart';
 export 'categories/layouts/card.dart';
 export 'categories/layouts/column.dart';

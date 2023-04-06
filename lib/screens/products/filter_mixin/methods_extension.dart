@@ -37,7 +37,7 @@ extension ProductsFilterMixinMethodExtension on ProductsFilterMixin {
     }
 
     // set attribute
-    if (filterAttrModel.selectedAttr != null &&
+    if (filterAttrModel.selectedAttr2 != null &&
         filterAttrModel.indexSelectedAttr != -1 &&
         filterAttrModel.lstProductAttribute != null) {
       var selectedAttr = filterAttrModel.indexSelectedAttr <
@@ -80,9 +80,9 @@ extension ProductsFilterMixinMethodExtension on ProductsFilterMixin {
     for (var i = 0; i < filterAttrModel.lstCurrentSelectedTerms.length; i++) {
       if (filterAttrModel.lstCurrentSelectedTerms[i]) {
         if (showName) {
-          terms += '${filterAttrModel.lstCurrentAttr[i].name},';
+          terms += '${filterAttrModel.lstCurrentAttr2[i].name},';
         } else {
-          terms += '${filterAttrModel.lstCurrentAttr[i].id},';
+          terms += '${filterAttrModel.lstCurrentAttr2[i].id},';
         }
       }
     }

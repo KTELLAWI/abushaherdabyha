@@ -46,6 +46,7 @@ class RouteList {
 
   // Category
   static const String category = 'category';
+  static const String  brandtab = 'brandtab';
 
   // Category
   static const String categorySearch = 'category-search';

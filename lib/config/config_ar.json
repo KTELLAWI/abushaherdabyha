@@ -247,54 +247,38 @@
     ],
     "Setting":{
     "TabBarConfig":{
-    "enableOnTop":false,
-    "color":null,
-    "radiusTopLeft":0,
-    "paddingRight":0,
-    "radiusTopRight":0,
-    "TabBarIndicator":{
-    "strokeWidth":null,
-    "color":null,
-    "horizontalPadding":0,
-    "topRightRadius":null,
-    "tabPosition":"bottom",
-    "bottomRightRadius":null,
-    "bottomLeftRadius":null,
-    "topLeftRadius":null,
-    "paintingStyle":"fill",
-    "distanceFromCenter":null,
-    "radius":null,
-    "verticalPadding":null,
-    "height":null
-    },
-    "marginRight":0,
-    "paddingBottom":0,
-    "indicatorStyle":"material",
     "enable":true,
-    "radiusBottomRight":0,
-    "iconSize":25,
-    "showFloatingClip":true,
-    "paddingTop":0,
     "isSafeArea":true,
-    "TabBarFloating":{
-    "elevation":0,
-    "color":"ffd4af37",
-    "width":null,
-    "floatingType":"rectangle",
-    "location":"centerDocked",
-    "position":2,
-    "radius":50,
-    "height":null
-    },
-    "showFloating":true,
-    "colorActiveIcon":"ffd4af37",
+    "color":null,
     "colorCart":null,
-    "radiusBottomLeft":0,
-    "marginLeft":0,
     "colorIcon":"ff7a7b7f",
-    "marginBottom":0,
+    "colorActiveIcon":"ffd4af37",
+    "iconSize":25,
+    "indicatorStyle":"material",
+    "showFloatingClip":true,
+    "showFloating":true,
+    "enableOnTop":false,
+    "radiusTopLeft":0,
+    "radiusTopRight":0,
+    "radiusBottomLeft":0,
+    "radiusBottomRight":0,
     "paddingLeft":0,
-    "marginTop":0
+    "paddingRight":0,
+    "paddingBottom":0,
+    "paddingTop":0,
+    "marginTop":0,
+    "marginBottom":0,
+    "marginLeft":0,
+    "marginRight":0,
+    "TabBarFloating":{
+    "position":2,
+    "radius":25,
+    "color":"ffd4af37",
+    "location":"centerDocked",
+    "width":null,
+    "height":null,
+    "elevation":5,
+    "floatingType":"rectangle"}
     },
     "FontFamily":"Cairo",
     "FontHeader":"Cairo",
@@ -307,8 +291,7 @@
     "TabBar":[
     {
     "layout":"category",
-    "icon":"assets/icons/tabs/icon-category.png",
-    
+    "icon":"https://bojee.codlar.com/wp-content/uploads/2023/04/CATEGOREI.png",
     "pos":100,
     "visible":true,
     "defaultTab":false,
@@ -319,49 +302,56 @@
     "21",
     "17"],
     "parallax":false,
-    "parallaxImageRatio":1.2
+    "parallaxImageRatio":1.2,
+    "key":"vhv6e1i28o"
     },
     {
-    "layout":"static",
-    "data":{
-    "container":{
-    "image":{
-    "width":1,
-    "align":{
-    "x":1,
-    "y":1
-    },
-    "url":"https://images.unsplash.com/photo-1584352587534-5763683125b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80",
-    "height":0.5
-    },
-    "header":{
-    "padding":{
-    "horizontal":20,
-    "vertical":10
-    },
-    "color":"#FFFFFF",
-    "background":"#000000",
-    "text":"About US",
-    "align":{
-    "x":-1,
-    "y":0.8}
-    },
-    "height":0.5
-    },
-    "description":"This is description",
-    "id":1,
-    "subHeader":"This is sub heading"
-    },
-    "pos":200,
+    "layout":"brandtab",
+	"pos":200,
     "defaultTab":false,
-    "icon":"assets/icons/tabs/brand.png"
-   
+    "icon":"https://bojee.codlar.com/wp-content/uploads/2023/04/brand.png",
+    "key":"70jwpux1a9",
+    "configs":{
+	"HorizonLayout":[
+	{
+	"isSafeArea":true,
+	"showSearch":false,
+	"usePrimaryColor":true,
+	"borderInput":false,
+	"title":"العلامات التجارية",
+	"alignment":"centerRight",
+	"fontWeight":400,
+	"fontSize":25,
+	"textOpacity":1,
+	"marginLeft":0,
+	"marginRight":0,
+	"marginBottom":15,
+	"marginTop":15,
+	"paddingLeft":5,
+	"paddingRight":15,
+	"paddingTop":0,
+	"paddingBottom":0,
+	"height":44,
+	"rotate":[],
+	"minWidth":0,
+	"layout":"header_text",
+	"pos":100
+	},
+	{
+	"layout":"brand",
+	"isBrandNameShown":true,
+	"isLogoCornerRounded":true,
+	"isPreviewing":true,
+	"pos":200
+	}
+	]}
+    
     },
     {
     "layout":"home",
     "pos":300,
-    "icon":"assets/icons/tabs/icon-home.png"
-    
+    "icon":"assets/icons/tabs/icon-home.png",
+    "key":"70jwpux1a9"
     },
     {
     "layout":"profile",
@@ -372,17 +362,18 @@
     "background":"https://trello.com/1/cards/63587806a57fae002ab4b20f/attachments/642a4b5241ed466e8ee1396a/download/slider-01.jpg",
     "defaultTab":false,
     "icon":"assets/icons/tabs/icon-user.png",
-    
     "subGeneralSetting":{
     "privacy":{
-    "pageId":22}}
+    "pageId":22}
+    },
+    "key":"70jwpux1a9"
     },
     {
     "layout":"cart",
     "pos":500,
     "defaultTab":false,
-    "icon":"assets/icons/tabs/icon-cart2.png"
-    
+    "icon":"assets/icons/tabs/icon-cart2.png",
+    "key":"70jwpux1a9"
     }
     ],
     "Drawer":{

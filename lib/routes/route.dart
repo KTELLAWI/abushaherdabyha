@@ -79,6 +79,7 @@ class Routes {
     RouteList.currencies: (context) => CurrenciesScreen(),
     RouteList.biometrics: (context) => BiometricsScreen(),
     RouteList.category: (context) => const CategoriesScreen(),
+    RouteList.brandtab: (context) => const BrandCategories(),
     RouteList.flutterflow: (context) => const FlutterFlowScreen(),
     // RouteList.openai: (context) => const OpenAIScreen(),
     RouteList.audioPlaylist: (context) =>
@@ -627,7 +628,8 @@ class Routes {
           final brandArgs = arguments;
           return _buildRoute(
             settings,
-            (context) => BrandListLayout(args: brandArgs),
+            (context) =>
+             BrandListLayout(args: brandArgs),
           );
         }
         return _errorRoute();

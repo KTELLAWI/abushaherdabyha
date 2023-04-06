@@ -20,6 +20,7 @@ import '../../services/index.dart';
 import '../../widgets/asymmetric/asymmetric_view.dart';
 import '../../widgets/backdrop/backdrop.dart';
 import '../../widgets/backdrop/backdrop_menu.dart';
+import '../../widgets/backdrop/backdrop_menu2.dart';
 import '../../widgets/product/product_bottom_sheet.dart';
 import '../../widgets/product/product_list.dart';
 import '../common/app_bar_mixin.dart';
@@ -190,6 +191,14 @@ class ProductsScreenState extends State<ProductsScreen>
                 width: width),
         backLayer: 
         BackdropMenu(
+          onFilter: onFilter,
+          categoryId: categoryId,
+          tagId: tagId,
+          sortBy: filterSortBy,
+          listingLocationId: listingLocationId,
+        ),
+          backLayer2: 
+        BackdropMenu2(
           onFilter: onFilter,
           categoryId: categoryId,
           tagId: tagId,

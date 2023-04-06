@@ -44,7 +44,7 @@ class _StaticSplashScreenState extends BaseScreen<StaticSplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.backgroundColor,
+      backgroundColor: Colors.transparent ,//widget.backgroundColor,
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(

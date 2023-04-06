@@ -1,5 +1,6 @@
 Map<String, dynamic> environment ={
-  "appConfig":"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"lib/config/config_ar.json",
+  //"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
   "serverConfig": {
     "url": "https://bojee.codlar.com",
     "type": "woo",
@@ -47,11 +48,11 @@ Map<String, dynamic> environment ={
     "kIsResizeImage": false,
     "httpCache": false,
     "DefaultCurrency": {
-    "symbol": "\$",
+    "symbol": "رس",
     "decimalDigits": 2,
     "symbolBeforeTheNumber": true,
-    "currency": "USD",
-    "currencyCode": "usd",
+    "currency": "SAR",
+    "currencyCode": "sar",
     "smallestUnitRate": 100,
     },
     "DefaultStoreViewCode": "",

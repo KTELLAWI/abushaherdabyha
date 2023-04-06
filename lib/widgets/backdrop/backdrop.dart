@@ -13,7 +13,11 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
+import 'filters/container_filter.dart';
+import 'package:provider/provider.dart';
+import '../../models/index.dart'
+    show AppModel;
 import '../../common/config.dart';
 import '../../common/constants.dart';
 import '../../modules/dynamic_layout/helper/helper.dart';
@@ -140,6 +144,7 @@ class _BackdropTitle extends AnimatedWidget {
 class Backdrop extends StatefulWidget {
   final Widget frontLayer;
   final Widget backLayer;
+  final Widget? backLayer2;
   final Widget frontTitle;
   final Widget backTitle;
   final Widget? appbarCategory;
@@ -159,6 +164,7 @@ class Backdrop extends StatefulWidget {
     required this.frontTitle,
     required this.backTitle,
     required this.controller,
+    this.backLayer2,
     this.appbarCategory,
     this.showFilter = true,
     this.isBlog = false,
@@ -176,6 +182,7 @@ class _BackdropState extends State<Backdrop>
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
   late AnimationController _controller;
   late Animation<RelativeRect> _layerAnimation;
+  bool viewStyle = false;
 
   /// background color
   bool get useBackgroundColor =>
@@ -337,7 +344,7 @@ class _BackdropState extends State<Backdrop>
                                 color: labelColor,
                               ),
                     )),
-            child: widget.backLayer,
+            child:viewStyle ? widget!.backLayer2! :widget.backLayer,
           ),
         ),
         PositionedTransition(
@@ -348,9 +355,121 @@ class _BackdropState extends State<Backdrop>
             child: widget.frontLayer,
           ),
         ),
+// Container(
+//   //color:Colors.blue,
+//   child:SizedBox(
+//   height:MediaQuery.of(context).size.width,
+// //  color:Colors.black,
+//   child:Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: <Widget>[
+//     ...renderLayout()
+//   ]
+// )
+// )
+// )
       ],
+      
     );
   }
+
+    PopupMenuItem<String> _buildMenuItem(
+      IconData icon, String label, String value,
+      [bool isSelect = false]) {
+    final menuItemStyle = TextStyle(
+      fontSize: 13.0,
+      color: isSelect
+          ? Theme.of(context).primaryColor
+          : Theme.of(context).colorScheme.secondary,
+      height: 24.0 / 15.0,
+    );
+    return PopupMenuItem<String>(
+      value: value,
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 24.0),
+            child: Icon(icon,
+                color: isSelect
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).colorScheme.secondary,
+                size: 17),
+          ),
+          Text(label, style: menuItemStyle),
+        ],
+      ),
+    );
+  }
+  List<Widget> renderLayout() {
+    return [
+      const SizedBox(height: 10),
+      Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: Text(
+          "طريقة العرض",
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+        ),
+      ),
+      const SizedBox(height: 5.0),
+
+      /// render layout
+      Selector<AppModel, String>(
+        selector: (context, AppModel _) => _.productListLayout,
+        builder: (context, String selectLayout, _) {
+          return Container(
+          //  margin:EdgeInsets.only(top:-15),
+            width:MediaQuery.of(context).size.width,
+            color:Colors.red,
+            child: Wrap(
+            children: <Widget>[
+              const SizedBox(width: 8),
+              for (var item
+                  in widget.isBlog ? kBlogListLayout : kProductListLayout)
+                Tooltip(
+                  message: item['layout']!,
+                  child: GestureDetector(
+                    onTap: () => Provider.of<AppModel>(context, listen: false)
+                        .updateProductListLayout(item['layout']),
+                    child: SizedBox(
+                      width: 70,
+                      height: 70,
+                      child: ContainerFilter(
+                        padding: const EdgeInsets.all(8),
+                        margin: const EdgeInsets.only(
+                          bottom: 15,
+                          left: 8,
+                          right: 8,
+                          top: 15,
+                        ),
+                        isSelected: selectLayout == item['layout'],
+                        child: Image.asset(
+                          item['image']!,
+                          color: selectLayout == item['layout']
+                              ? (widget.isBlog &&
+                                      !kAdvanceConfig.enableProductBackdrop
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor)
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .secondary
+                                  .withOpacity(0.3),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+            ],
+          )
+          );
+         
+        },
+      ),
+    ];
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -393,6 +512,67 @@ class _BackdropState extends State<Backdrop>
                   ),
                   onPressed: () => widget.onTapShareButton?.call(),
                 ),
+                  IconButton(
+                  icon: Icon(
+                    Icons.album,
+                    size: 18.0,
+                    color: labelColor,
+                  ),
+                  onPressed:() {
+                       // renderLayout();
+
+                      setState((){
+                    viewStyle= true;
+                  });
+                    _toggleBackdropLayerVisibility();
+                   }
+                 
+                ),
+
+                ////////////
+          
+          // PopupMenuButton<String>(
+          //   icon: const Icon(CupertinoIcons.sort_down,
+          //       color: Colors.white, size: 18),
+          //   // onSelected: (String item) {
+          //   //   _selectSort = item;
+          //   //   widget.onSort!(item);
+          //   // },
+          //   itemBuilder: (BuildContext context) => 
+          //       //?
+          //       //  <PopupMenuItem<String>>[
+          //       //     _buildMenuItem(CupertinoIcons.calendar, "S.of(context).date",
+          //       //         'date',),
+          //           // ...(Config().type != ConfigType.magento
+          //           //     ? [
+          //           //         _buildMenuItem(
+          //           //             CupertinoIcons.star,
+          //           //             S.of(context).featured,
+          //           //             'featured',
+          //           //             _selectSort == 'featured'),
+          //           //         _buildMenuItem(
+          //           //             CupertinoIcons.money_dollar,
+          //           //             S.of(context).byPrice,
+          //           //             'price',
+          //           //             _selectSort == 'price')
+          //           //       ]
+          //           //     : []),
+          //         //   _buildMenuItem(CupertinoIcons.percent, "S.of(context).onSale",
+          //         //       'on_sale',),
+          //         // ]
+          //        <PopupMenuItem<String>>[
+          //           _buildMenuItem(
+          //             CupertinoIcons.sort_down,
+          //             "S.of(context).dateASC",
+          //             'asc',
+          //           ),
+          //           _buildMenuItem(
+          //             CupertinoIcons.sort_up,
+          //            " S.of(context).DateDESC",
+          //             'desc',
+          //           ),
+          //         ],
+          //  ),
               if (widget.showFilter)
                 IconButton(
                     icon: AnimatedIcon(
@@ -400,7 +580,14 @@ class _BackdropState extends State<Backdrop>
                       progress: _controller,
                     ),
                     color: labelColor,
-                    onPressed: _toggleBackdropLayerVisibility),
+                    onPressed: () {
+                      setState((){
+                    viewStyle= false;
+                  });
+                    _toggleBackdropLayerVisibility();
+                  }
+                    //_toggleBackdropLayerVisibility
+                    ),
             ],
           ),
         if (!ServerConfig().isListingType && widget.appbarCategory != null)
