@@ -9,8 +9,8 @@ workflows:
         FLUTTER_VERSION: 3.7.8
         APP_NAME: bojeeglass
         KEYSTORE_PATH: key.jks
-        KEYSTORE_PASSWORD: 123456d
-        KEY_ALIAS: keys
+        KEYSTORE_PASSWORD: 123456
+        KEY_ALIAS: key
         KEY_PASSWORD: 123456
     scripts:
       - name: Install Flutter
