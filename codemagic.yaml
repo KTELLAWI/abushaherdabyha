@@ -1,0 +1,41 @@
+# Codemagic YAML
+
+workflows:
+  main:
+    name: Build and Test
+    environment:
+      vars:
+        FLUTTER_CHANNEL: stable
+        FLUTTER_VERSION: 3.7.8
+        APP_NAME: bojeeglass
+        KEYSTORE_PATH: key.jks
+        KEYSTORE_PASSWORD: 123456d
+        KEY_ALIAS: keys
+        KEY_PASSWORD: 123456
+    scripts:
+      - name: Install Flutter
+        script: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends git wget curl unzip lib32stdc++6 libstdc++6 > /dev/null
+          wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz
+          tar xf flutter_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz
+          export PATH="$PATH:`pwd`/flutter/bin"
+          flutter precache
+          flutter doctor -v
+      - name: Build Android APK
+        script: |
+          flutter build apk --release --split-per-abi --flavor production
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $KEYSTORE_PATH -storepass $KEYSTORE_PASSWORD -keypass $KEY_PASSWORD $APP_NAME/build/app/outputs/apk/release/app-armeabi-v7a-release.apk $KEY_ALIAS
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $KEYSTORE_PATH -storepass $KEYSTORE_PASSWORD -keypass $KEY_PASSWORD $APP_NAME/build/app/outputs/apk/release/app-arm64-v8a-release.apk $KEY_ALIAS
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $KEYSTORE_PATH -storepass $KEYSTORE_PASSWORD -keypass $KEY_PASSWORD $APP_NAME/build/app/outputs/apk/release/app-x86_64-release.apk $KEY_ALIAS
+          zipalign -v 4 $APP_NAME/build/app/outputs/apk/release/app-armeabi-v7a-release.apk $APP_NAME-armeabi-v7a-release.apk
+          zipalign -v 4 $APP_NAME/build/app/outputs/apk/release/app-arm64-v8a-release.apk $APP_NAME-arm64-v8a-release.apk
+          zipalign -v 4 $APP_NAME/build/app/outputs/apk/release/app-x86_64-release.apk $APP_NAME-x86_64-release.apk
+          mv $APP_NAME-armeabi-v7a-release.apk $BITRISE_DEPLOY_DIR/
+          mv $APP_NAME-arm64-v8a-release.apk $BITRISE_DEPLOY_DIR/
+          mv $APP_NAME-x86_64-release.apk $BITRISE_DEPLOY_DIR/
+      - name: Build Android AAB
+        script: |
+          flutter build appbundle --release --flavor production
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $KEYSTORE_PATH -storepass $KEYSTORE_PASSWORD -keypass $KEY_PASSWORD $APP_NAME/build/app/outputs/bundle/release/app-release.aab $KEY_ALIAS
+          mv $APP_NAME/build/app/outputs/bundle/release/app-release.aab $BITRISE_DEPLOY_DIR/
