@@ -131,7 +131,7 @@ android {
         release {
             keyAlias envProperties['keyAlias']
             keyPassword envProperties['keyPassword']
-            storeFile rootProject.file('../configs/' + envProperties['storeFile'])
+            storeFile rootProject.file('../android/key.jks')
             storePassword envProperties['storePassword']
         }
     }
