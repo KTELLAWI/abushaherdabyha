@@ -18,7 +18,7 @@ import 'filters/container_filter.dart';
 import 'filters/filter_option_item.dart';
 import 'filters/listing_menu.dart';
 import 'filters/tag_menu.dart';
-import 'title_and_child_widget.dart ';
+import 'title_and_child_widget.dart';
 
 class BackdropMenu extends StatefulWidget {
   final Function({
