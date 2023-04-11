@@ -312,15 +312,22 @@ class _BackdropMenuState extends State<BackdropMenu> {
         //           ),
         //     ),
         //     children: [
-            // SingleChildScrollView(
-            //     child:
-              Column(
-                  mainAxisSize: MainAxisSize.max,
+            //  Container(
+            //      child:
+             // Column(
+                 // mainAxisSize: MainAxisSize.max,
 
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
+               // crossAxisAlignment: CrossAxisAlignment.stretch,
+              //  children: <Widget>[
+               //  Flexible (
+                 // flex:12, 
+      //              controller: widget.controller,
+      // physics :AlwaysScrollableScrollPhysics(),
+      //            // behavior :HitTestBehavior.translucent,
+                 // child:
+
                   Container(
-                    height: 400 ,//list.length > 4 ? 100 :50,
+                    height: MediaQuery.of(context).size.height /2,// 300 ,//list.length > 4 ? 100 :50,
                     margin: const EdgeInsets.only(left: 10.0),
                     //constraints: const BoxConstraints(maxHeight: 100),
                     child: 
@@ -440,8 +447,8 @@ class _BackdropMenuState extends State<BackdropMenu> {
                     //   shrinkWrap: true,
                     //   crossAxisCount:0, ///list.length > 4 ? 2 : 1,
                     //   children: list,
-                    // ),
-                  ),
+                   //  ),
+                  );
                 //   value.isFirstLoad
                 //       ? Center(
                 //           child: Container(
@@ -524,9 +531,10 @@ class _BackdropMenuState extends State<BackdropMenu> {
                 //                   ],
                 //                 ),
                 //         ),
-                ],
+              //  ],
              /// ),
-              );
+            //  ),
+             // );
            // ],
           //);
         }
@@ -556,8 +564,9 @@ class _BackdropMenuState extends State<BackdropMenu> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       controller: widget.controller,
+      physics :AlwaysScrollableScrollPhysics(),
       child: Column(  
-      //  mainAxisSize: MainAxisSize.max,
+       // mainAxisSize: MainAxisSize.max,
 
 
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -621,6 +630,8 @@ class _BackdropMenuState extends State<BackdropMenu> {
         //         ),
            
           if (widget.showCategory)
+          // Flexible(
+          //   child:
             CategoryMenu(
               isUseBlog: widget.isUseBlog,
               onFilter: (category) =>
@@ -633,6 +644,8 @@ class _BackdropMenuState extends State<BackdropMenu> {
               ),
               }
             ),
+          //),
+            
            // renderAttributes(),
 
           /// render Apply button

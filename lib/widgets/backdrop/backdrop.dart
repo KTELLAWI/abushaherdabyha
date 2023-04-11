@@ -336,20 +336,20 @@ String _selectSort = 'date';
       fit: StackFit.expand,
       children: <Widget>[
         Container(
-          color: backgroundColor,
+          color:Colors.white, //backgroundColor,
           child: Theme(
             data: Theme.of(context).copyWith(
                 colorScheme: Theme.of(context).colorScheme.copyWith(
-                      secondary: labelColor,
+                      secondary:Colors.black //labelColor,
                     ),
                 textTheme: Theme.of(context).textTheme.copyWith(
                       titleMedium:
                           Theme.of(context).textTheme.titleMedium?.copyWith(
-                                color: labelColor,
+                                color: Colors.black //labelColor,
                               ),
                       titleLarge:
                           Theme.of(context).textTheme.titleLarge?.copyWith(
-                                color: labelColor,
+                                color: Colors.black //labelColor,
                               ),
                     )),
             child:viewStyle ? widget!.backLayer2! :widget.backLayer,
