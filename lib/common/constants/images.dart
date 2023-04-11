@@ -2,9 +2,9 @@ part of '../constants.dart';
 
 const kProductListLayout = [
   {'layout': 'list', 'image': 'assets/icons/tabs/icon-list.png'},
-  {'layout': 'columns', 'image': 'assets/icons/tabs/icon-columns.png'},
-  {'layout': 'card', 'image': 'assets/icons/tabs/icon-card.png'},
-  {'layout': 'horizontal', 'image': 'assets/icons/tabs/icon-horizon.png'},
+  // {'layout': 'columns', 'image': 'assets/icons/tabs/icon-columns.png'},
+  // {'layout': 'card', 'image': 'assets/icons/tabs/icon-card.png'},
+  // {'layout': 'horizontal', 'image': 'assets/icons/tabs/icon-horizon.png'},
   {'layout': 'listTile', 'image': 'assets/icons/tabs/icon-lists.png'},
 ];
 

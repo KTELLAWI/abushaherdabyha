@@ -4,7 +4,7 @@ import '../../../models/entities/index.dart';
 import '../../../widgets/common/flux_image.dart';
 
 class CategoryColumnItem extends StatelessWidget {
-  final Category category;
+  final  category;
 
   const CategoryColumnItem(this.category);
 

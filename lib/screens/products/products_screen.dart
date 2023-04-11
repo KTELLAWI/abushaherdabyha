@@ -126,6 +126,7 @@ class ProductsScreenState extends State<ProductsScreen>
       if (mounted) {
         resetFilter();
         onRefresh();
+         setState((){});
       }
     });
   }

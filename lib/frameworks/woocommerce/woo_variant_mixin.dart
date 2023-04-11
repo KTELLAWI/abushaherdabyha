@@ -250,6 +250,7 @@ mixin WooVariantMixin on ProductVariantMixin {
     List<ProductVariation> variations,
   ) {
     var listWidget = <Widget>[];
+    bool? attrslug=false;
 
     final checkProductAttribute = product.attributes?.isNotEmpty ?? false;
     if (checkProductAttribute) {
@@ -278,31 +279,74 @@ mixin WooVariantMixin on ProductVariantMixin {
                 _getValidAttributeOptions(attrClone, mapAttribute, variations);
           }
 
-          var selectedValue = mapAttribute[attrClone.name] ?? '';
+          var selectedValue = mapAttribute[attrClone.name!] ?? '';
+         //  List<String>  newoptions;
+          //String ss =attr!.cleanSlug!;
+            if(attr!.name!.contains('c22')  ){
+              attrslug=true  ;
 
-          final attrType = kProductVariantLayout[attr.cleanSlug ?? attr.name] ??
+
+            }else{
+              attrslug=false;
+            } 
+
+          final attrType = attrslug ? "color" : kProductVariantLayout[ attr!.name] ??
               kProductVariantLayout[attr.name?.toLowerCase()] ??
               'box';
+              
+            //     if(attr!.name!.contains('c22')  ){
+            //   attrType='color';
 
-          // print('🎉 🎉 🎉 Debug the attribute layout');
-          // print(attr.name);
-          // print(attrType);
+
+            // }
+
+          print('🎉 🎉 🎉 Debug the attribute layout');
+          print(attr.name);
+            print(selectedValue);
+          print(attrType);
+           print(attrslug);
+          // print(options);
 
           /// For product variation swatches (image)
-          Map<String?, String?>? imageUrls;
+          
+           Map<String?, String?>? imageUrls;
+   
           if (attrType == 'image') {
             imageUrls = {};
             for (var option in attr.options!) {
+              
+              print(option['description'].toString());
               if (option['description'].toString().contains('http')) {
                 imageUrls[option['name']] = option['description'];
               }
             }
           }
+          List<String>?  newoptions=[];
+               if (attrType == 'color') {
+              // 
+            for (var option in attr.options!) {
+              newoptions!.add(option['description']);
+
+              
+          // selectedValue = mapAttribute[attrslug] ?? '';
+              
+              // print("OPtions##############################");
+              // print(option['description'].toString());
+              // if (option['description'].toString().contains('http')) {
+              //   imageUrls[option['name']] = option['description'];
+              // }
+            }
+             print(newoptions);
+         //   options=newoptions;
+
+          }
 
           listWidget.add(
             BasicSelection(
-              imageUrls: imageUrls,
+             imageUrls: imageUrls,
               options: options,
+             newoptions:newoptions,
+             // color:itemcolor
               title: kProductVariantLanguage[lang] != null
                   ? kProductVariantLanguage[lang]
                           [attr.cleanSlug ?? attr.name] ??

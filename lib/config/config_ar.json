@@ -254,7 +254,7 @@
     "colorIcon":"ff7a7b7f",
     "colorActiveIcon":"ffd4af37",
     "iconSize":25,
-    "indicatorStyle":"material",
+    "indicatorStyle":"none",
     "showFloatingClip":true,
     "showFloating":true,
     "enableOnTop":false,
@@ -270,6 +270,21 @@
     "marginBottom":0,
     "marginLeft":0,
     "marginRight":0,
+    "TabBarIndicator":{
+    "height":null,
+    "tabPosition":"bottom",
+    "topRightRadius":null,
+    "topLeftRadius":null,
+    "bottomRightRadius":null,
+    "bottomLeftRadius":null,
+    "color":null,
+    "horizontalPadding":null,
+    "verticalPadding":null,
+    "strokeWidth":null,
+    "radius":null,
+    "distanceFromCenter":null,
+    "paintingStyle":null
+    },
     "TabBarFloating":{
     "position":2,
     "radius":25,
@@ -303,55 +318,54 @@
     "17"],
     "parallax":false,
     "parallaxImageRatio":1.2,
-    "key":"vhv6e1i28o"
+    "key":"3yi7aklwd1"
     },
     {
     "layout":"brandtab",
-	"pos":200,
+    "pos":200,
     "defaultTab":false,
     "icon":"https://bojee.codlar.com/wp-content/uploads/2023/04/brand.png",
-    "key":"70jwpux1a9",
+    "key":"3yi7aklwd1",
     "configs":{
-	"HorizonLayout":[
-	{
-	"isSafeArea":true,
-	"showSearch":false,
-	"usePrimaryColor":true,
-	"borderInput":false,
-	"title":"العلامات التجارية",
-	"alignment":"centerRight",
-	"fontWeight":400,
-	"fontSize":25,
-	"textOpacity":1,
-	"marginLeft":0,
-	"marginRight":0,
-	"marginBottom":15,
-	"marginTop":15,
-	"paddingLeft":5,
-	"paddingRight":15,
-	"paddingTop":0,
-	"paddingBottom":0,
-	"height":44,
-	"rotate":[],
-	"minWidth":0,
-	"layout":"header_text",
-	"pos":100
-	},
-	{
-	"layout":"brand",
-	"isBrandNameShown":true,
-	"isLogoCornerRounded":true,
-	"isPreviewing":true,
-	"pos":200
-	}
-	]}
-    
+    "HorizonLayout":[
+    {
+    "isSafeArea":true,
+    "showSearch":false,
+    "usePrimaryColor":true,
+    "borderInput":false,
+    "title":"العلامات التجارية",
+    "alignment":"centerRight",
+    "fontWeight":400,
+    "fontSize":25,
+    "textOpacity":1,
+    "marginLeft":0,
+    "marginRight":0,
+    "marginBottom":15,
+    "marginTop":15,
+    "paddingLeft":5,
+    "paddingRight":15,
+    "paddingTop":0,
+    "paddingBottom":0,
+    "height":44,
+    "rotate":[],
+    "minWidth":0,
+    "layout":"header_text",
+    "pos":100
+    },
+    {
+    "layout":"brand",
+    "isBrandNameShown":true,
+    "isLogoCornerRounded":true,
+    "isPreviewing":true,
+    "pos":200
+    }
+    ]}
     },
     {
     "layout":"home",
     "pos":300,
     "icon":"assets/icons/tabs/icon-home.png",
-    "key":"70jwpux1a9"
+    "key":"3yi7aklwd1"
     },
     {
     "layout":"profile",
@@ -366,14 +380,14 @@
     "privacy":{
     "pageId":22}
     },
-    "key":"70jwpux1a9"
+    "key":"3yi7aklwd1"
     },
     {
     "layout":"cart",
     "pos":500,
     "defaultTab":false,
     "icon":"assets/icons/tabs/icon-cart2.png",
-    "key":"70jwpux1a9"
+    "key":"3yi7aklwd1"
     }
     ],
     "Drawer":{

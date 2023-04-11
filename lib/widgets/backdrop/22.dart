@@ -18,8 +18,9 @@ import 'filters/container_filter.dart';
 import 'filters/filter_option_item.dart';
 import 'filters/listing_menu.dart';
 import 'filters/tag_menu.dart';
+import 'title_and_child_widget.dart ';
 
-class BackdropMenu2 extends StatefulWidget {
+class BackdropMenu extends StatefulWidget {
   final Function({
     dynamic minPrice,
     dynamic maxPrice,
@@ -43,7 +44,7 @@ class BackdropMenu2 extends StatefulWidget {
   final bool showSort;
   final bool showLayout;
 
-  const BackdropMenu2({
+  const BackdropMenu({
     Key? key,
     this.onFilter,
     this.categoryId,
@@ -62,10 +63,10 @@ class BackdropMenu2 extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<BackdropMenu2> createState() => _BackdropMenu2State();
+  State<BackdropMenu> createState() => _BackdropMenuState();
 }
 
-class _BackdropMenu2State extends State<BackdropMenu2> {
+class _BackdropMenuState extends State<BackdropMenu> {
   double minPrice = 0.0;
   double maxPrice = 0.0;
   String? currentSlug;
@@ -104,6 +105,57 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
     }
   }
 
+  Future<Widget> generateWidget( item,value) async {
+  await value.getSubAtrr(id:item.id);
+  return TitleAndChildWidget(
+  title: item.name!.toUpperCase(),
+  child:  Container(
+    key: ValueKey<int>(item.id),
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 5,
+                                  ),
+                                  child: Wrap(
+                                          children: [
+                                            ...List.generate(
+                                              value.lstCurrentAttr2.length,
+                                              (index) {
+                                                return Container(
+                                                    key: ValueKey<int>(index),
+                                                  margin: const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                                  child: FilterChip(
+                                                    selectedColor:
+                                                        Theme.of(context).primaryColor,
+                                                    backgroundColor: Theme.of(context)
+                                                        .primaryColorLight
+                                                        .withOpacity(0.3),
+                                                    label: Text(value
+                                                        .lstCurrentAttr2[index].name!),
+                                                  selected: value
+                                                .lstCurrentSelectedTerms[index],
+                                                   onSelected: (val) async {
+                                                   await value.setTerms(item.id,index);
+                                                    // value.updateAttributeSelectedItem(
+                                                    //    index, val);
+                                                   _onFilter();
+                                                   printLog('ssssssssssss');
+                                                   printLog(index);
+                                                   
+                                                   },
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ]
+                                  )
+                                  ),
+);
+  
+  
+}
+
+
   void _onFilter({
     String? categoryId,
     String? categoryName,
@@ -127,7 +179,7 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
       Padding(
         padding: const EdgeInsets.only(left: 15),
         child: Text(
-          "طريقة العرض",
+          S.of(context).layout,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.w700,
               ),
@@ -265,147 +317,198 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
     );
   }
 
+  Future<List<Widget>> generateWidgets(
+  items,
+   value,
+) async {
+  final widgets = <Widget>[];
+  for (final item in items) {
+    final widget = await generateWidget(item, value);
+    widgets.add(widget);
+  }
+  return widgets;
+}
+
   Widget renderAttributes() {
+  
     return Consumer<FilterAttributeModel>(
       builder: (context, value, child) {
-        if (value.lstProductAttribute?.isNotEmpty ?? false) {
-          var list = List<Widget>.generate(
-            value.lstProductAttribute!.length,
-            (index) {
-              final item = value.lstProductAttribute![index];
-              return FilterOptionItem(
-                enabled: !value.isLoading,
-                onTap: () {
-                  currentSlug = item.slug;
-                  value.getAttr(id: item.id);
-                },
-                title: item.name!.toUpperCase(),
-                isValid: value.indexSelectedAttr != -1,
-                selected: value.indexSelectedAttr == index,
-              );
-            },
+         return FutureBuilder<List<Widget>>(
+        future: generateWidgets(value.lstProductAttribute!, value),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            // Display a loading indicator while waiting for the list to be generated
+            return Center(
+              child: CircularProgressIndicator(
+                color:Colors.blue
+              ),
+            );
+           
+          } else if (snapshot.hasError) {
+            // Display an error message if the list generation failed
+            return Text('Error generating list: ${snapshot.error}');
+          } else {
+            // Use the generated list of widgets as the return value of the builder function
+            return Column(
+              crossAxisAlignment:CrossAxisAlignment.start,
+              children: snapshot.data ?? [],
+            );
+          }
+        },
+      );
+
+
+
+},
           );
-          return ExpansionWidget(
-            showDivider: true,
-            padding: const EdgeInsets.only(
-              left: 15,
-              right: 15,
-              top: 15,
-              bottom: 10,
-            ),
-            title: Text(
-              S.of(context).attributes,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-            ),
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Container(
-                    height: list.length > 4 ? 100 : 50,
-                    margin: const EdgeInsets.only(left: 10.0),
-                    constraints: const BoxConstraints(maxHeight: 100),
-                    child: GridView.count(
-                      scrollDirection: Axis.horizontal,
-                      childAspectRatio: 0.4,
-                      shrinkWrap: true,
-                      crossAxisCount: list.length > 4 ? 2 : 1,
-                      children: list,
-                    ),
-                  ),
-                  value.isFirstLoad
-                      ? Center(
-                          child: Container(
-                            margin: const EdgeInsets.only(
-                              top: 10.0,
-                            ),
-                            width: 25.0,
-                            height: 25.0,
-                            child: const CircularProgressIndicator(
-                              strokeWidth: 2.0,
-                            ),
-                          ),
-                        )
-                      : Container(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 5,
-                          ),
-                          child: value.indexSelectedAttr == -1 ||
-                                  value.lstCurrentAttr.isEmpty
-                              ? const SizedBox()
-                              : Wrap(
-                                  children: [
-                                    ...List.generate(
-                                      value.lstCurrentAttr.length,
-                                      (index) {
-                                        return Container(
-                                          margin: const EdgeInsets.symmetric(
-                                              horizontal: 5),
-                                          child: FilterChip(
-                                            selectedColor:
-                                                Theme.of(context).primaryColor,
-                                            backgroundColor: Theme.of(context)
-                                                .primaryColorLight
-                                                .withOpacity(0.3),
-                                            label: Text(value
-                                                .lstCurrentAttr[index].name!),
-                                            selected: value
-                                                .lstCurrentSelectedTerms[index],
-                                            onSelected: (val) {
-                                              value.updateAttributeSelectedItem(
-                                                  index, val);
-                                              _onFilter();
-                                            },
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    if (value.isLoadingMore)
-                                      SizedBox(
-                                        width: 70,
-                                        height: 50,
-                                        child: Center(
-                                          child: JumpingDots(
-                                            innerPadding: 2,
-                                            radius: 6,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    if (!value.isLoadingMore && !value.isEnd)
-                                      FilterChip(
-                                        selectedColor:
-                                            Theme.of(context).primaryColor,
-                                        backgroundColor: Theme.of(context)
-                                            .primaryColorLight
-                                            .withOpacity(0.3),
-                                        label: Text(S.of(context).more),
-                                        selected: false,
-                                        onSelected: (val) {
-                                          value.getAttr(
-                                              id: value
-                                                  .lstProductAttribute![
-                                                      value.indexSelectedAttr]
-                                                  .id);
-                                        },
-                                      )
-                                  ],
-                                ),
-                        ),
-                ],
-              )
-            ],
-          );
-        }
-        return const SizedBox();
-      },
-    );
   }
+        // if (value.lstProductAttribute?.isNotEmpty ?? false) {
+        //   var list = List<Widget>.generate (
+        //     value.lstProductAttribute!.length,
+        //     (index) => 
+            //generateWidget(value.lstProductAttribute![index],value),
+            // {
+            //   final item = value.lstProductAttribute![index];
+            //     Widget tool =  generateWidget(item,value);
+            // return  tool;
+                // value.getSubAtrr(id:item.id);
+             // return
+              // FilterOptionItem(
+              //   enabled: !value.isLoading,
+              //   onTap: () {
+              //     currentSlug = item.slug;
+              //     value.getAttr(id: item.id);
+              //   },
+              //   title: item.name!.toUpperCase(),
+              //   isValid: value.indexSelectedAttr != -1,
+              //   selected: value.indexSelectedAttr == index,
+              // );
+           
+  //         return ExpansionWidget(
+  //           showDivider: true,
+  //           padding: const EdgeInsets.only(
+  //             left: 15,
+  //             right: 15,
+  //             top: 15,
+  //             bottom: 10,
+  //           ),
+  //           title: Text(
+  //             S.of(context).attributes,
+  //             style: Theme.of(context).textTheme.titleLarge!.copyWith(
+  //                   fontWeight: FontWeight.w700,
+  //                 ),
+  //           ),
+  //           children: [
+  //             Column(
+  //               crossAxisAlignment: CrossAxisAlignment.stretch,
+  //               children: <Widget>[
+  //                 ...list
+  //                 // Container(
+
+  //                 //   height: list.length > 4 ? 100 : 50,
+  //                 //   margin: const EdgeInsets.only(left: 10.0),
+  //                 //   constraints: const BoxConstraints(maxHeight: 100),
+  //                 //   child: GridView.count(
+  //                 //     scrollDirection: Axis.horizontal,
+  //                 //     childAspectRatio: 0.4,
+  //                 //     shrinkWrap: true,
+  //                 //     crossAxisCount: list.length > 4 ? 2 : 1,
+  //                 //     children: list,
+  //                 //   ),
+  //                 // ),
+  //                 // value.isFirstLoad
+  //                 //     ? Center(
+  //                 //         child: Container(
+  //                 //           margin: const EdgeInsets.only(
+  //                 //             top: 10.0,
+  //                 //           ),
+  //                 //           width: 25.0,
+  //                 //           height: 25.0,
+  //                 //           child: const CircularProgressIndicator(
+  //                 //             strokeWidth: 2.0,
+  //                 //           ),
+  //                 //         ),
+  //                 //       )
+  //                 //     : 
+  //               //       Container(
+  //               //           margin: const EdgeInsets.symmetric(
+  //               //             horizontal: 10,
+  //               //             vertical: 5,
+  //               //           ),
+  //               //           child: value.indexSelectedAttr == -1 ||
+  //               //                   value.lstCurrentAttr.isEmpty
+  //               //               ? const SizedBox()
+  //               //               : Wrap(
+  //               //                   children: [
+  //               //                     ...List.generate(
+  //               //                       value.lstCurrentAttr.length,
+  //               //                       (index) {
+  //               //                         return Container(
+  //               //                           margin: const EdgeInsets.symmetric(
+  //               //                               horizontal: 5),
+  //               //                           child: FilterChip(
+  //               //                             selectedColor:
+  //               //                                 Theme.of(context).primaryColor,
+  //               //                             backgroundColor: Theme.of(context)
+  //               //                                 .primaryColorLight
+  //               //                                 .withOpacity(0.3),
+  //               //                             label: Text(value
+  //               //                                 .lstCurrentAttr[index].name!),
+  //               //                             selected: value
+  //               //                                 .lstCurrentSelectedTerms[index],
+  //               //                             onSelected: (val) {
+  //               //                               value.updateAttributeSelectedItem(
+  //               //                                   index, val);
+  //               //                               _onFilter();
+  //               //                             },
+  //               //                           ),
+  //               //                         );
+  //               //                       },
+  //               //                     ),
+  //               //                     if (value.isLoadingMore)
+  //               //                       SizedBox(
+  //               //                         width: 70,
+  //               //                         height: 50,
+  //               //                         child: Center(
+  //               //                           child: JumpingDots(
+  //               //                             innerPadding: 2,
+  //               //                             radius: 6,
+  //               //                             color: Theme.of(context)
+  //               //                                 .colorScheme
+  //               //                                 .primary,
+  //               //                           ),
+  //               //                         ),
+  //               //                       ),
+  //               //                     if (!value.isLoadingMore && !value.isEnd)
+  //               //                       FilterChip(
+  //               //                         selectedColor:
+  //               //                             Theme.of(context).primaryColor,
+  //               //                         backgroundColor: Theme.of(context)
+  //               //                             .primaryColorLight
+  //               //                             .withOpacity(0.3),
+  //               //                         label: Text(S.of(context).more),
+  //               //                         selected: false,
+  //               //                         onSelected: (val) {
+  //               //                           value.getAttr(
+  //               //                               id: value
+  //               //                                   .lstProductAttribute![
+  //               //                                       value.indexSelectedAttr]
+  //               //                                   .id);
+  //               //                         },
+  //               //                       )
+  //               //                   ],
+  //               //                 ),
+  //               //         ),
+  //                ],
+  //             )
+  //           ],
+  //         );
+  //       }
+  //       return const SizedBox();
+  //     },
+  //   );
+  // }
+  
 
   Widget renderFilterSortBy() {
     if (!widget.showSort) return const SizedBox();
@@ -426,8 +529,8 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
 
   @override
   Widget build(BuildContext context) {
-    return
-    // Text('ff');
+    return 
+    //Text('ff');
     
      SingleChildScrollView(
       controller: widget.controller,
@@ -436,7 +539,7 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
         children: <Widget>[
           if (Layout.isDisplayDesktop(context))
             SizedBox(
-              height: 10,
+              height: 100,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -467,26 +570,26 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
               ),
             ),
 
-          if (widget.showLayout) ...renderLayout(),
+         // if (widget.showLayout) ...renderLayout(),
 
-          if ((!ServerConfig().isListingType)) renderFilterSortBy(),
+        //  if ((!ServerConfig().isListingType)) renderFilterSortBy(),
 
-          if (ServerConfig().isListingType)
-            BackDropListingMenu(onFilter: _onFilter),
+          // if (ServerConfig().isListingType)
+          //   BackDropListingMenu(onFilter: _onFilter),
 
-          // if (!ServerConfig().isListingType &&
-          //     ServerConfig().type != ConfigType.shopify &&
-          //     widget.showPrice) ...[
-          //   renderPriceSlider(),
-          //   renderAttributes(),
-          // ],
+          if (!ServerConfig().isListingType &&
+              ServerConfig().type != ConfigType.shopify &&
+              widget.showPrice) ...[
+            renderPriceSlider(),
+            renderAttributes(),
+          ],
 
-          // /// filter by tags
-          // widget.isUseBlog
-          //     ? const SizedBox()
-          //     : BackDropTagMenu(
-          //         onChanged: (tagId) => _onFilter(tagId: tagId),
-          //       ),
+          /// filter by tags
+          widget.isUseBlog
+              ? const SizedBox()
+              : BackDropTagMenu(
+                  onChanged: (tagId) => _onFilter(tagId: tagId),
+                ),
 
           // if (widget.showCategory)
           //   CategoryMenu(
@@ -497,7 +600,7 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
           //     ),
           //   ),
 
-          // /// render Apply button
+          /// render Apply button
           // if (!ServerConfig().isListingType &&
           //     kAdvanceConfig.enableProductBackdrop)
           //   Padding(
@@ -543,7 +646,7 @@ class _BackdropMenu2State extends State<BackdropMenu2> {
           //     ),
           //   ),
 
-          // const SizedBox(height: 70),
+          const SizedBox(height: 70),
         ],
       ),
     );

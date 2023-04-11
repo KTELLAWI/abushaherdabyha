@@ -11,25 +11,32 @@ enum VariantLayout { inline, dropdown }
 class BasicSelection extends StatelessWidget {
   final Map<String?, String?>? imageUrls;
   final List<String?> options;
+  final List<String?>? newoptions;
   final String? value;
   final String? title;
   final String? type;
   final Function? onChanged;
   final VariantLayout? layout;
+ // final Map<String?, String?>? colors;
+
 
   const BasicSelection(
       {required this.options,
+      this.newoptions,
       required this.title,
       required this.value,
       this.type,
       this.layout,
       this.onChanged,
-      this.imageUrls});
+      this.imageUrls,
+      });
 
   @override
   Widget build(BuildContext context) {
     var primaryColor = Theme.of(context).primaryColor;
+//
 
+// printLog(options[0].['description'].toString());
     if (const ['option', 'dropdown'].contains(type)) {
       return OptionSelection(
         options: options,
@@ -72,12 +79,16 @@ class BasicSelection extends StatelessWidget {
           spacing: 0.0,
           runSpacing: 12.0,
           children: <Widget>[
-            for (var item in options)
+            for (int i=0 ; i < options!.length; i++)
+              //var item in options)
+            //  var index = Object.keys(options).indexOf(item)
+              //var i; i <= options.length; i++)
+            //item in options)
               GestureDetector(
-                onTap: () => onChanged!(item),
+                onTap: () => onChanged!(options[i].toString()),
                 behavior: HitTestBehavior.opaque,
                 child: Tooltip(
-                  message: item.toString(),
+                  message: "item.toString(),",
                   verticalOffset: 32,
                   preferBelow: false,
                   child: AnimatedContainer(
@@ -89,7 +100,12 @@ class BasicSelection extends StatelessWidget {
                     ),
                     decoration: type == 'color'
                         ? BoxDecoration(
-                            color:HexColor(item!),
+                            color:
+                              options[i].toString() == value ? 
+                              HexColor(newoptions![i].toString()):// HexColor('#ffffff'):
+                            //  HexColor(newoptions![i]) : 
+                             HexColor(newoptions![i].toString()), //: HexColor('#ff3234'),
+                           // ,
                             // item!.toUpperCase() == value!.toUpperCase()
                             //     ? HexColor(kNameToHex[item
                             //             .toString()
@@ -112,9 +128,12 @@ class BasicSelection extends StatelessWidget {
                             ),
                           )
                         : BoxDecoration(
-                            color: item!.toUpperCase() == value!.toUpperCase()
+                            color:
+                            options![i]!.toUpperCase() == value!.toUpperCase()
+                            // item!.toUpperCase() == value!.toUpperCase()
                                 ? primaryColor
-                                : Colors.transparent,
+                                : 
+                                Colors.transparent,
                             borderRadius: BorderRadius.circular(5.0),
                             border: Border.all(
                               color: Theme.of(context)
@@ -127,13 +146,15 @@ class BasicSelection extends StatelessWidget {
                         ? SizedBox(
                             height: 25,
                             width: 25,
-                            child: item == value
+                            child: options[i] == value
+                            // item == value
                                 ? const Icon(
                                     Icons.check,
                                     color: Colors.white,
                                     size: 16,
                                   )
-                                : const SizedBox(),
+                                : 
+                            const SizedBox(),
                           )
                         : Container(
                             constraints: const BoxConstraints(minWidth: 40),
@@ -143,12 +164,14 @@ class BasicSelection extends StatelessWidget {
                               padding:
                                   const EdgeInsets.only(top: 10, bottom: 10),
                               child: Text(
-                                item,
+                                 options![i]!,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: item == value
+                                  color:options[i].toString() == value
+                                  //  item == value
                                       ? Colors.white
-                                      : Theme.of(context).colorScheme.secondary,
+                                      : 
+                                      Theme.of(context).colorScheme.secondary,
                                   fontSize: 14,
                                 ),
                               ),
@@ -285,6 +308,7 @@ class ColorSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     if (layout == VariantLayout.dropdown) {
       return GestureDetector(
         onTap: () => showOptions(context),

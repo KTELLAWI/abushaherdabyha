@@ -211,7 +211,8 @@ class _SimpleLayoutState extends State<SimpleLayout>
                           padding: const EdgeInsets.symmetric(horizontal: 15.0),
                           child: AnimatedSize(
                             duration: const Duration(milliseconds: 300),
-                            child: ProductCommonInfo(
+                            child: 
+                            ProductCommonInfo(
                               product: widget.product,
                               isLoading: widget.isLoading,
                               wrapSliver: false,
@@ -219,16 +220,16 @@ class _SimpleLayoutState extends State<SimpleLayout>
                           ),
                         ),
                       ),
-                    if (!Services().widget.enableShoppingCart(
-                            product.copyWith(isRestricted: false)) &&
-                        product.shortDescription != null &&
-                        product.shortDescription!.isNotEmpty)
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                          child: ProductShortDescription(product),
-                        ),
-                      ),
+                    // if (!Services().widget.enableShoppingCart(
+                    //         product.copyWith(isRestricted: false)) &&
+                    //     product.shortDescription != null &&
+                    //     product.shortDescription!.isNotEmpty)
+                    //   SliverToBoxAdapter(
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    //       child: ProductShortDescription(product),
+                    //     ),
+                    //   ),
                     SliverToBoxAdapter(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(

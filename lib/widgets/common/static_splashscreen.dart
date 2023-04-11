@@ -47,12 +47,12 @@ class _StaticSplashScreenState extends BaseScreen<StaticSplashScreen> {
       backgroundColor: Colors.transparent ,//widget.backgroundColor,
       body: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.only(
-          top: widget.paddingTop,
-          bottom: widget.paddingBottom,
-          left: widget.paddingLeft,
-          right: widget.paddingRight,
-        ),
+        // padding: EdgeInsets.only(
+        //   top: widget.paddingTop,
+        //   bottom: widget.paddingBottom,
+        //   left: widget.paddingLeft,
+        //   right: widget.paddingRight,
+        // ),
         child: LayoutBuilder(
           builder: (context, constraints) {
             return FluxImage(

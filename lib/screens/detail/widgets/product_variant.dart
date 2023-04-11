@@ -311,9 +311,10 @@ class _StateProductVariant extends State<ProductVariant> {
 
     return Column(
       children: <Widget>[
-        ...getProductTitleWidget(),
+      //  ...getProductTitleWidget(),
         if (!isVariationLoading) ...getProductAttributeWidget(),
         ...getProductAddonsWidget(),
+        ...getProductTitleWidget(),
         ...getBuyButtonWidget(),
       ],
     );

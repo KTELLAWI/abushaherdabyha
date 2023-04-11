@@ -1,6 +1,6 @@
 Map<String, dynamic> environment ={
-  "appConfig"://"lib/config/config_ar.json",
-  "https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"lib/config/config_ar.json",
+  //"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
   "serverConfig": {
     "url": "https://bojee.codlar.com",
     "type": "woo",
@@ -48,7 +48,7 @@ Map<String, dynamic> environment ={
     "kIsResizeImage": false,
     "httpCache": false,
     "DefaultCurrency": {
-    "symbol": "رس",
+    "symbol": "ر.س",
     "decimalDigits": 2,
     "symbolBeforeTheNumber": true,
     "currency": "SAR",
@@ -849,7 +849,7 @@ Map<String, dynamic> environment ={
     "enable": true,
     "duration": 2000,
     "type": "static",
-    "image": "https://trello.com/1/cards/63587806a57fae002ab4b20f/attachments/642b6c581bd9b2a65a5d9caa/download/splashscreen.png",
+    "image": "assets/images/splashscreen.png",
     "animationName": "fluxstore",
     "boxFit": "contain",
     "backgroundColor": "#ffffff",

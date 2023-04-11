@@ -3,6 +3,7 @@ import 'package:inspireui/inspireui.dart' show Skeleton;
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 import '../../../common/enums/load_state.dart';
+import 'widgets/category_column_item1.dart';
 
 import '../../../common/config.dart';
 import '../../../common/constants.dart';
@@ -15,6 +16,14 @@ import '../../../widgets/common/parallax_image.dart';
 import '../../../widgets/common/refresh_scroll_physics.dart';
 import '../index.dart';
 import '../../../modules/dynamic_layout/config/brand_config.dart';
+const _kCrossAxisCount = 3;
+
+const _kDefaultGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+  crossAxisCount: _kCrossAxisCount,
+  mainAxisSpacing: 4.0,
+  crossAxisSpacing: 4.0,
+  childAspectRatio: 0.75,
+);
 
 class BrandCategories extends StatefulWidget {
 //   static const String type = 'card';
@@ -35,8 +44,12 @@ class BrandCategories extends StatefulWidget {
 }
 
 class _StateBrandCategories extends BaseScreen<BrandCategories> {
+  late final ScrollController scrollController =  ScrollController();
      @override
   void initState() {
+     // @override
+  //late final ScrollController scrollController = widget.scrollController ?? ScrollController();
+
     Future.delayed(Duration.zero, () {
       final model = Provider.of<BrandLayoutModel>(context, listen: false);
       final langCode = Provider.of<AppModel>(context, listen: false).langCode;
@@ -180,22 +193,27 @@ Widget build(BuildContext context) {
       // ),
     ],
   ),
-        body:Container(
-          child:
-                 ListView.builder(
-          //controller: _scrollController,
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          physics: const RefreshScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          itemCount: model.brands!.length,//categories.length,
-          itemBuilder: (_, index) {
-          var  brand= model.brands[index];
-      
-            return 
-         
-              _CategoryCardItem(
-                brand,
-                onTap: () => FluxNavigate.pushNamed(
+        body:
+        CustomScrollView(
+              controller: scrollController,
+              physics: const RefreshScrollPhysics(),
+              slivers: [
+                // CupertinoSliverRefreshControl(
+                //   onRefresh: () async {
+                //    // await model.refresh();
+                //   },
+                // ),
+        // :Container(
+        //   child:
+          SliverGrid(
+                        gridDelegate: _kDefaultGridDelegate,
+                        delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                           // final category = data[index];
+                            final  brand = model.brands[index];
+                            return GestureDetector(
+                              onTap: () {
+                                FluxNavigate.pushNamed(
                                 RouteList.backdrop,
                                 arguments: BackDropArguments(
                                   config: config?.toJson(),
@@ -204,11 +222,59 @@ Widget build(BuildContext context) {
                                   brandImg: brand.image,
                                   // data: snapshot.data,
                                 ),
-                              ),
-              );
-          }
-           ),
-          
+                              );
+                                // FluxNavigate.pushNamed(
+                                //   RouteList.backdrop,
+                                //   arguments: BackDropArguments(
+                                //     cateId: category.id,
+                                //     cateName: category.name,
+                                //   ),
+                                // );
+                              },
+                              child: CategoryColumnItem1(brand),
+                            );
+                          },
+                         childCount:model.brands.length 
+                          // model.brands.length 
+                          // +
+                          //     (model.brands.length  % _kCrossAxisCount == 0
+                          //         ? _kCrossAxisCount
+                          //         : _kCrossAxisCount -
+                          //             (model.brands.length  % _kCrossAxisCount)),
+                        ),
+                      ),
+
+
+
+
+
+          //        ListView.builder(
+          // //controller: _scrollController,
+          // padding: const EdgeInsets.symmetric(vertical: 8),
+          // physics: const RefreshScrollPhysics(),
+          // scrollDirection: Axis.vertical,
+          // itemCount: model.brands!.length,//categories.length,
+          // itemBuilder: (_, index) {
+          // var  brand= model.brands[index];
+      
+          //   return 
+         
+          //     _CategoryCardItem(
+          //       brand,
+          //       onTap: () => FluxNavigate.pushNamed(
+          //                       RouteList.backdrop,
+          //                       arguments: BackDropArguments(
+          //                         config: config?.toJson(),
+          //                         brandId: brand.id,
+          //                         brandName: brand.name,
+          //                         brandImg: brand.image,
+          //                         // data: snapshot.data,
+          //                       ),
+          //                     ),
+          //     );
+          // }
+          //  ),
+              ]  
         )
       
       );

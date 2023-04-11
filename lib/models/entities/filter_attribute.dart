@@ -3,10 +3,16 @@ class FilterAttribute {
   String? slug;
   String? name;
 
+  
+
   FilterAttribute.fromJson(Map parsedJson) {
     id = parsedJson['id'];
     slug = parsedJson['slug'];
     name = parsedJson['name'];
+  }
+      @override
+    String toString() {
+    return '{name: $name, slug: $slug, id: $id}';
   }
 }
 

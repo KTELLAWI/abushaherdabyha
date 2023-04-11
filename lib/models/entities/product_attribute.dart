@@ -11,7 +11,7 @@ class ProductAttribute {
   bool? isVisible;
   bool? isVariation;
 
-  String? get cleanSlug => slug?.replaceAll('pa_', '');
+  String? get cleanSlug => slug?.replaceAll('pa_', '') ;
   bool? isDefault;
   bool? isActive = false;
 

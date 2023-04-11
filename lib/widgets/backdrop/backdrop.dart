@@ -20,6 +20,7 @@ import '../../models/index.dart'
     show AppModel;
 import '../../common/config.dart';
 import '../../common/constants.dart';
+import '../../generated/l10n.dart';
 import '../../modules/dynamic_layout/helper/helper.dart';
 import '../../services/service_config.dart';
 import 'backdrop_constants.dart';
@@ -153,6 +154,9 @@ class Backdrop extends StatefulWidget {
   final bool isBlog;
   final VoidCallback? onTapShareButton;
   final bool hasAppBar;
+  final String selectSort;
+   final Function? onSort;
+  
 
   /// This color is pick from the Horizontal Config on Home Screen
   /// use to override the Backdrop color
@@ -171,6 +175,9 @@ class Backdrop extends StatefulWidget {
     this.bgColor,
     this.onTapShareButton,
     this.hasAppBar = false,
+    this.selectSort = 'date',
+    this.onSort,
+
   });
 
   @override
@@ -183,7 +190,7 @@ class _BackdropState extends State<Backdrop>
   late AnimationController _controller;
   late Animation<RelativeRect> _layerAnimation;
   bool viewStyle = false;
-
+String _selectSort = 'date';
   /// background color
   bool get useBackgroundColor =>
       productFilterColor?.useBackgroundColor ?? false;
@@ -228,6 +235,7 @@ class _BackdropState extends State<Backdrop>
   void initState() {
     super.initState();
     _controller = widget.controller;
+    _selectSort = widget.selectSort;
   }
 
   @override
@@ -512,9 +520,11 @@ class _BackdropState extends State<Backdrop>
                   ),
                   onPressed: () => widget.onTapShareButton?.call(),
                 ),
+             
+                if (widget.showFilter)
                   IconButton(
                   icon: Icon(
-                    Icons.album,
+                    CupertinoIcons.sort_down,
                     size: 18.0,
                     color: labelColor,
                   ),
@@ -528,38 +538,85 @@ class _BackdropState extends State<Backdrop>
                    }
                  
                 ),
+                /////
+
+          //       if ((!ServerConfig().isListingType) ^ (ServerConfig().type == ConfigType.shopify) 
+          //       //&&
+          //   //widget.showSort
+          //   )
+          // PopupMenuButton<String>(
+          //   icon: const Icon(CupertinoIcons.sort_down,
+          //       color: Colors.white, size: 18),
+          //   onSelected: (String item) {
+          //     _selectSort = item;
+          //     widget.onSort!(item);
+          //   },
+          //   itemBuilder: (BuildContext context) => (!ServerConfig().isWordPress)
+          //       ? <PopupMenuItem<String>>[
+          //           _buildMenuItem(CupertinoIcons.calendar, S.of(context).date,
+          //               'date', _selectSort == 'date'),
+          //           ...(ServerConfig().type != ConfigType.magento
+          //               ? [
+          //                   _buildMenuItem(
+          //                       CupertinoIcons.star,
+          //                       S.of(context).featured,
+          //                       'featured',
+          //                       _selectSort == 'featured'),
+          //                   _buildMenuItem(
+          //                       CupertinoIcons.money_dollar,
+          //                       S.of(context).byPrice,
+          //                       'price',
+          //                       _selectSort == 'price')
+          //                 ]
+          //               : []),
+          //           _buildMenuItem(CupertinoIcons.percent, S.of(context).onSale,
+          //               'on_sale', _selectSort == 'on_sale'),
+          //         ]
+          //       : <PopupMenuItem<String>>[
+          //           _buildMenuItem(
+          //             CupertinoIcons.sort_down,
+          //             S.of(context).dateASC,
+          //             'asc',
+          //           ),
+          //           _buildMenuItem(
+          //             CupertinoIcons.sort_up,
+          //             "S.of(context).DateDESC",
+          //             'desc',
+          //           ),
+          //         ],
+          // ),
 
                 ////////////
           
           // PopupMenuButton<String>(
           //   icon: const Icon(CupertinoIcons.sort_down,
           //       color: Colors.white, size: 18),
-          //   // onSelected: (String item) {
-          //   //   _selectSort = item;
-          //   //   widget.onSort!(item);
-          //   // },
-          //   itemBuilder: (BuildContext context) => 
-          //       //?
-          //       //  <PopupMenuItem<String>>[
-          //       //     _buildMenuItem(CupertinoIcons.calendar, "S.of(context).date",
-          //       //         'date',),
-          //           // ...(Config().type != ConfigType.magento
-          //           //     ? [
-          //           //         _buildMenuItem(
-          //           //             CupertinoIcons.star,
-          //           //             S.of(context).featured,
-          //           //             'featured',
-          //           //             _selectSort == 'featured'),
-          //           //         _buildMenuItem(
-          //           //             CupertinoIcons.money_dollar,
-          //           //             S.of(context).byPrice,
-          //           //             'price',
-          //           //             _selectSort == 'price')
-          //           //       ]
-          //           //     : []),
-          //         //   _buildMenuItem(CupertinoIcons.percent, "S.of(context).onSale",
-          //         //       'on_sale',),
-          //         // ]
+            // onSelected: (String item) {
+            //   _selectSort = item;
+            //   widget.onSort!(item);
+            // },
+            // itemBuilder: (BuildContext context) => 
+                //?
+                //  <PopupMenuItem<String>>[
+                //     _buildMenuItem(CupertinoIcons.calendar, "S.of(context).date",
+                //         'date',),
+                    // ...(ServerConfig().type != ConfigType.magento
+                    //     ? [
+                    //         _buildMenuItem(
+                    //             CupertinoIcons.star,
+                    //             S.of(context).featured,
+                    //             'featured',
+                    //             _selectSort == 'featured'),
+                    //         _buildMenuItem(
+                    //             CupertinoIcons.money_dollar,
+                    //             S.of(context).byPrice,
+                    //             'price',
+                    //             _selectSort == 'price')
+                    //       ]
+                    //     : []),
+                  //   _buildMenuItem(CupertinoIcons.percent, "S.of(context).onSale",
+                  //       'on_sale',),
+                  // ]
           //        <PopupMenuItem<String>>[
           //           _buildMenuItem(
           //             CupertinoIcons.sort_down,
