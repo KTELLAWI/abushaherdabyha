@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import '../../screens/base_screen.dart';
 import 'flux_image.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:flutter/services.dart';
 
 class StaticSplashScreen extends StatefulWidget {
   final String? imagePath;
@@ -73,7 +75,11 @@ Future<void> checkInternetConnection() async {
           textDirection: TextDirection.rtl,),
           actions: <Widget>[
             TextButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                exit(0);
+                //  Navigator.of(context).pop();
+                //   SystemNavigator.pop();
+              },
               child: Text('خروج'),
             ),
            
@@ -147,6 +153,7 @@ Future<void> checkInternetConnection() async {
     return Scaffold(
       backgroundColor:widget.backgroundColor,
       body: Container(
+        width:MediaQuery.of(context).size.width,
         //alignment: Alignment.center,
         // padding: EdgeInsets.only(
         //   top: widget.paddingTop,
@@ -159,8 +166,8 @@ Future<void> checkInternetConnection() async {
             return FluxImage(
               imageUrl: widget.imagePath!,
               fit: widget.boxFit,
-              height: constraints.maxHeight,
-              width: constraints.maxWidth,
+              height: MediaQuery.of(context).size.height,//constraints.maxHeight,
+              width: MediaQuery.of(context).size.width,//constraints.maxWidth,
             );
           },
         ),
