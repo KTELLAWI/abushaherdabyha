@@ -264,7 +264,10 @@ class MainTabsState extends CustomOverlayState<MainTabs>
       bottomNavigationBar: isTabBarEnabled
           ? (showFloating
               ? BottomAppBar(
-                  shape: isClip ? const CircularNotchedRectangle() : null,
+                color:Colors.black,
+                 clipBehavior: Clip.antiAlias,
+                  shape: CircularNotchedRectangle(),
+                //  shape: isClip ? const CircularNotchedRectangle() : null,
                   child: tabBarMenu(),
                 )
               : tabBarMenu())
@@ -583,7 +586,7 @@ extension TabBarMenuExtention on MainTabsState {
       ..colorActiveIcon = HexColor('FF672D')
       ..indicatorStyle = IndicatorStyle.none
       ..showFloating = true
-      ..showFloatingClip = false
+      ..showFloatingClip = true
       ..tabBarFloating = TabBarFloatingConfig(
         color: HexColor('FF672D'),
         // width: 65,
@@ -599,7 +602,7 @@ extension TabBarMenuExtention on MainTabsState {
       ..colorActiveIcon = HexColor('FF672D')
       ..indicatorStyle = IndicatorStyle.none
       ..showFloating = true
-      ..showFloatingClip = false
+      ..showFloatingClip = true
       ..tabBarFloating = TabBarFloatingConfig(
         color: HexColor('FF672D'),
         width: 70,

@@ -127,11 +127,12 @@ class _AsymmetricViewState extends State<AsymmetricView> {
       );
     }
 
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.fromLTRB(0.0, 4.0, 16.0, 44.0),
-      physics: const AlwaysScrollableScrollPhysics(),
-      children: _buildColumns(context, products),
-    );
+    return Text("ddd");
+    // ListView(
+    //   scrollDirection: Axis.horizontal,
+    //   padding: const EdgeInsets.fromLTRB(0.0, 4.0, 16.0, 44.0),
+    //   physics: const AlwaysScrollableScrollPhysics(),
+    //   children: _buildColumns(context, products),
+    // );
   }
 }

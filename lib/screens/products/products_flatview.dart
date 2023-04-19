@@ -185,73 +185,74 @@ class _ProductFlatViewState extends State<ProductFlatView> with ProductsMixin {
   @override
   Widget build(BuildContext context) {
     /// using for the Search Screen UX
-    if (widget.enableSearchHistory) {
-      return ProductSearchView(
-        hasAppBar: widget.hasAppBar,
-        builder: widget.builder,
-        onSearch: widget.onSearch,
-        bottomSheet: widget.bottomSheet,
-        titleFilter: widget.titleFilter,
-        onSort: widget.onSort,
-        onFilter: widget.onFilter,
-        autoFocusSearch: widget.autoFocusSearch,
-      );
-    }
+    // if (widget.enableSearchHistory) {
+    //   return ProductSearchView(
+    //     hasAppBar: widget.hasAppBar,
+    //     builder: widget.builder,
+    //     onSearch: widget.onSearch,
+    //     bottomSheet: widget.bottomSheet,
+    //     titleFilter: widget.titleFilter,
+    //     onSort: widget.onSort,
+    //     onFilter: widget.onFilter,
+    //     autoFocusSearch: widget.autoFocusSearch,
+    //   );
+    // }
 
-    return Container(
-      color: Theme.of(context).colorScheme.background,
-      child: Column(
-        children: [
-          AppBar(
-              primary: !widget.hasAppBar,
-              titleSpacing: 0,
-              backgroundColor: Theme.of(context).colorScheme.background,
-              leading: Navigator.of(context).canPop()
-                  ? CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      child: const Icon(CupertinoIcons.back),
-                      onPressed: () => Navigator.of(context).pop(),
-                    )
-                  : null,
-              title: Padding(
-                padding: EdgeInsets.only(
-                    left: Navigator.of(context).canPop() ? 0 : 15),
-                child: CupertinoSearchTextField(
-                  onChanged: onSearch,
-                  onSubmitted: onSearch,
-                  placeholder: S.of(context).searchForItems,
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ),
-              actions: [
-                Selector<UserModel, bool>(
-                  selector: (context, provider) => provider.loggedIn,
-                  builder: (context, loggedIn, child) {
-                    return _buildMoreWidget(loggedIn);
-                  },
-                ),
-                const SizedBox(width: 4),
-              ]),
-          Expanded(
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    _getStickyWidget(),
-                    Expanded(child: widget.builder),
-                  ],
-                ),
-                Align(
-                  alignment: Tools.isRTL(context)
-                      ? Alignment.bottomLeft
-                      : Alignment.bottomRight,
-                  child: widget.bottomSheet,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+    return Text("ddd");
+    // Container(
+    //   color: Theme.of(context).colorScheme.background,
+    //   child: Column(
+    //     children: [
+    //       AppBar(
+    //           primary: !widget.hasAppBar,
+    //           titleSpacing: 0,
+    //           backgroundColor: Theme.of(context).colorScheme.background,
+    //           leading: Navigator.of(context).canPop()
+    //               ? CupertinoButton(
+    //                   padding: EdgeInsets.zero,
+    //                   child: const Icon(CupertinoIcons.back),
+    //                   onPressed: () => Navigator.of(context).pop(),
+    //                 )
+    //               : null,
+    //           title: Padding(
+    //             padding: EdgeInsets.only(
+    //                 left: Navigator.of(context).canPop() ? 0 : 15),
+    //             child: CupertinoSearchTextField(
+    //               onChanged: onSearch,
+    //               onSubmitted: onSearch,
+    //               placeholder: S.of(context).searchForItems,
+    //               style: Theme.of(context).textTheme.bodySmall,
+    //             ),
+    //           ),
+    //           actions: [
+    //             Selector<UserModel, bool>(
+    //               selector: (context, provider) => provider.loggedIn,
+    //               builder: (context, loggedIn, child) {
+    //                 return _buildMoreWidget(loggedIn);
+    //               },
+    //             ),
+    //             const SizedBox(width: 4),
+    //           ]),
+    //       // Expanded(
+    //       //   child: Stack(
+    //       //     children: [
+    //       //       Column(
+    //       //         children: [
+    //       //           _getStickyWidget(),
+    //       //           Expanded(child: widget.builder),
+    //       //         ],
+    //       //       ),
+    //       //       // Align(
+    //       //       //   alignment: Tools.isRTL(context)
+    //       //       //       ? Alignment.bottomLeft
+    //       //       //       : Alignment.bottomRight,
+    //       //       //   child: widget.bottomSheet,
+    //       //       // ),
+    //       //     ],
+    //       //   ),
+    //       // ),
+    //     ],
+    //   ),
+    // );
   }
 }

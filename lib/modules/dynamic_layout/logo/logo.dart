@@ -171,7 +171,7 @@ class Logo extends StatelessWidget {
                   child: Stack(
                     children: <Widget>[
                       LogoIcon(
-                        menuIcon: config.cartIcon ?? MenuIcon(name: 'bag'),
+                        menuIcon: config.cartIcon ?? MenuIcon(name: 'cart'),
                         onTap: onCheckout,
                         config: config,
                       ),

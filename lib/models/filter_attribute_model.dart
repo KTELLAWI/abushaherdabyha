@@ -233,7 +233,7 @@ class FilterAttributeModel with ChangeNotifier, LanguageMixin {
       final theSameId = selectedAttr == id;
       if (!_isLoading) {
         _isLoading = true;
-        notifyListeners();
+       notifyListeners();
       }
       final page = theSameId ? ++_currentPage : _currentPage = 1;
       final data = await _service.api.getSubAttributes(
@@ -242,6 +242,7 @@ class FilterAttributeModel with ChangeNotifier, LanguageMixin {
         page: page,
       )!;
       selectedAttr = id;
+      
       if (theSameId) {
         lstCurrentAttr.addAll(data);
       } else {

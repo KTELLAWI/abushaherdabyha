@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:connectivity/connectivity.dart';
 
 import 'common/config.dart';
 import 'common/constants.dart';

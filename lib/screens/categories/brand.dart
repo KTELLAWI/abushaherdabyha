@@ -19,10 +19,10 @@ import '../../../modules/dynamic_layout/config/brand_config.dart';
 const _kCrossAxisCount = 3;
 
 const _kDefaultGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-  crossAxisCount: _kCrossAxisCount,
-  mainAxisSpacing: 4.0,
-  crossAxisSpacing: 4.0,
-  childAspectRatio: 0.75,
+  crossAxisCount: 2,//_kCrossAxisCount,
+  mainAxisSpacing: 8.0,//4
+  crossAxisSpacing: 0.0,//4
+  childAspectRatio: 1.75,//0.75
 );
 
 class BrandCategories extends StatefulWidget {

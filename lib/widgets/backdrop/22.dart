@@ -333,8 +333,12 @@ class _BackdropMenuState extends State<BackdropMenu> {
   
     return Consumer<FilterAttributeModel>(
       builder: (context, value, child) {
-         return FutureBuilder<List<Widget>>(
-        future: generateWidgets(value.lstProductAttribute!, value),
+    // var  catId = catId!= null ? catId : categoryId;
+        var lst1 =List.from(value.lstProductAttribute!);
+        var lst2= lst1.where((item)=>item.slug.contains("19")).toList();
+         return 
+         FutureBuilder<List<Widget>>(
+        future: generateWidgets(lst2, value),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             // Display a loading indicator while waiting for the list to be generated

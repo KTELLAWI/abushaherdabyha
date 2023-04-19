@@ -150,7 +150,7 @@ class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate {
                         children: <Widget>[
                           for (int i = 0; i < model.paymentMethods.length; i++)
                             model.paymentMethods[i].enabled!
-                                ? Services().widget.renderPaymentMethodItem(
+                                ? Services().widget.renderPaymentMethodItem (
                                     context, model.paymentMethods[i], (i) {
                                     setState(() {
                                       selectedId = i;

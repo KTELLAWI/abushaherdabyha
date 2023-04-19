@@ -6,6 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import cloud_firestore
+import connectivity_macos
 import devicelocale
 import facebook_auth_desktop
 import firebase_analytics
@@ -29,6 +30,7 @@ import wakelock_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FLTFirebaseFirestorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseFirestorePlugin"))
+  ConnectivityPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlugin"))
   DevicelocalePlugin.register(with: registry.registrar(forPlugin: "DevicelocalePlugin"))
   FacebookAuthDesktopPlugin.register(with: registry.registrar(forPlugin: "FacebookAuthDesktopPlugin"))
   FLTFirebaseAnalyticsPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseAnalyticsPlugin"))

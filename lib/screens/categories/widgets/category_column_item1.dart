@@ -14,17 +14,14 @@ class CategoryColumnItem1 extends StatelessWidget {
       fit: StackFit.expand,
       children: <Widget>[
         LayoutBuilder(builder: (context, constraints) {
-          return FluxImage(
-            imageUrl: category.image!,
-            fit: BoxFit.contain,
-            width: constraints.maxWidth,
-          );
-        }),
-        Container(
-            decoration: BoxDecoration(
+          return Container(
+                      margin:EdgeInsets.only(right:5,left:5,top:3),
+                      //padding:EdgeInsets.only(top:45),
+
+                 decoration: BoxDecoration(
                   // color: const Color.fromRGBO(255, 255,0, 0.1),
                // color:Colors.white,
-                          borderRadius: BorderRadius.circular(0.0),
+                          borderRadius: BorderRadius.circular(15.0),
 
 //                 boxShadow:[
 // BoxShadow(
@@ -34,9 +31,19 @@ class CategoryColumnItem1 extends StatelessWidget {
 //                         //    0.5
 //                         ),],
 
-            //    border: Border.all(
-            //       color: Theme.of(context).primaryColor, width: 0.5)
+               border: Border.all(
+                  color: Theme.of(context).primaryColor, width: 1.0)
             ),
+            child:  FluxImage(
+            imageUrl: category!.image!,
+            fit: BoxFit.contain,
+            width: constraints.minWidth,
+          )
+          );
+        
+        }),
+        Container(
+       
           
       
           child: Text(""),

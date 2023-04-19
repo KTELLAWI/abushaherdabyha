@@ -138,6 +138,7 @@ dependencies:
   video_player: 2.6.0
   google_mobile_ads: 2.3.0
   speech_to_text: 6.1.1
+  connectivity: ^3.0.6
 
   # UI
   flutter_spinkit: 5.1.0
@@ -216,6 +217,7 @@ dependencies:
       ref: c26ff9ba6b524f79ea160bb1d65d14fa86668e13
   in_app_purchase: 3.1.5
   flutter_launcher_icons: ^0.12.0
+  internet_connection_checker: ^1.0.0+1
 
 
   ###---- Some extra feature is disable by default -----###

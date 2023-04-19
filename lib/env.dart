@@ -1,6 +1,6 @@
 Map<String, dynamic> environment ={
-  "appConfig":"lib/config/config_ar.json",
-  //"https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig"://"lib/config/config_ar.json",
+  "https://bojee.codlar.com/wp-content/uploads/flutter_config_files/config_ar.json",
   "serverConfig": {
     "url": "https://bojee.codlar.com",
     "type": "woo",
@@ -27,7 +27,7 @@ Map<String, dynamic> environment ={
   },
   "storeIdentifier": {
     "disable": true,
-    "android": "com.inspireui.fluxstore",
+    "android": "com.bojeestore.digistacks",
     "ios": "1469772800"
   },
   "advanceConfig": {
@@ -102,7 +102,7 @@ Map<String, dynamic> environment ={
     "EnableBottomAddToCart": false,
     "inAppWebView": false,
     "EnableWOOCSCurrencySwitcher": false,
-    "enableProductBackdrop": true,
+    "enableProductBackdrop": false,
     "categoryImageMenu": true,
     "EnableDigitsMobileLogin": false,
     "OnBoardOnlyShowFirstTime": true,
@@ -259,7 +259,7 @@ Map<String, dynamic> environment ={
     "shortDynamicLinkEnable": true,
     "uriPrefix": "https://fluxstoreinspireui.page.link",
     "link": "https://mstore.io/",
-    "androidPackageName": "com.inspireui.fluxstore",
+    "androidPackageName": "com.bojeestore.digistacks",
     "androidAppMinimumVersion": 1,
     "iOSBundleId": "com.inspireui.mstore.flutter",
     "iOSAppMinimumVersion": "1.0.1",

@@ -141,9 +141,9 @@ class _ProductListState extends State<ProductList> {
     if (kProductDetail.showQuantityInList) {
       itemHeight += 30;
     }
-    if (kProductCard.showCartButton) {
-      itemHeight += 30;
-    }
+    // if (kProductCard.showCartButton) {
+    //   itemHeight += 30;
+    // }
 
     childAspectRatio = widthContent /
         (widthContent * (widget.ratioProductImage ?? 1.2) + itemHeight);
@@ -194,7 +194,8 @@ class _ProductListState extends State<ProductList> {
       }
     }
 
-    return SmartRefresher(
+    return 
+    SmartRefresher(
       header: MaterialClassicHeader(
         backgroundColor: Theme.of(context).colorScheme.background,
       ),

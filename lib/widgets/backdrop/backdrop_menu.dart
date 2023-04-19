@@ -66,8 +66,8 @@ class BackdropMenu extends StatefulWidget {
 }
 
 class _BackdropMenuState extends State<BackdropMenu> {
-  double minPrice = 0.0;
-  double maxPrice = 0.0;
+  double minPrice = 0;
+  double maxPrice = 10000;
   String? currentSlug;
   String? _categoryId = '-1';
   FilterSortBy? _currentSortBy;
@@ -88,13 +88,15 @@ class _BackdropMenuState extends State<BackdropMenu> {
       Provider.of<ProductModel>(context, listen: false).categoryId;
       
       String? catId;
+      int? selectedIndex;
+
 
   @override
   void initState() {
     super.initState();
     _categoryId = widget.categoryId;
     minPrice = widget.minPrice ?? 0;
-    maxPrice = widget.maxPrice ?? 0;
+    maxPrice =  5000;
     _currentSortBy = widget.sortBy;
 
     /// Support loading Blog Category inside Woo/Vendor config
@@ -231,17 +233,18 @@ class _BackdropMenuState extends State<BackdropMenu> {
         ),
         SliderTheme(
           data: SliderThemeData(
-            activeTrackColor: primaryColor,
+            activeTrackColor: Theme.of(context).primaryColor,
             inactiveTrackColor:
                 Theme.of(context).primaryColorLight.withOpacity(0.5),
-            activeTickMarkColor: Theme.of(context).primaryColorLight,
+            activeTickMarkColor: Colors.black.withOpacity(0.2),
             inactiveTickMarkColor:
                 Theme.of(context).colorScheme.secondary.withOpacity(0.5),
             overlayColor: primaryColor.withOpacity(0.2),
-            thumbColor: primaryColor,
+            thumbColor: Theme.of(context).primaryColor,
             showValueIndicator: ShowValueIndicator.always,
           ),
-          child: RangeSlider(
+          child:
+           RangeSlider(
             min: 0.0,
             max: kMaxPriceFilter,
             divisions: kFilterDivision,
@@ -266,7 +269,71 @@ class _BackdropMenuState extends State<BackdropMenu> {
       ],
     );
   }
+////
+Future<Widget> generateWidget( item,value) async {
+  await value.getAttr(id:item);
+  return 
+  // TitleAndChildWidget(
+  // title: item.name!.toUpperCase(),
+  // child:  
+  Container(
+    key: ValueKey<int>(item),
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 5,
+                                  ),
+                                  child: Wrap(
+                                          children: [
+                                            ...List.generate(
+                                              value.lstCurrentAttr.length,
+                                              (index) {
+                                                return Container(
+                                                    key: ValueKey<int>(index),
+                                                  margin: const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                                  child: FilterChip(
+                                                    selectedColor:
+                                                        Theme.of(context).primaryColor,
+                                                    backgroundColor: Theme.of(context)
+                                                        .primaryColorLight
+                                                        .withOpacity(0.3),
+                                                    label: Text(value
+                                                        .lstCurrentAttr[index].name!),
+                                                  selected: value
+                                                .lstCurrentSelectedTerms[index],
+                                                   onSelected: (val) async {
+                                                  // await value.setTerms(item.id,index);
+                                                    // value.updateAttributeSelectedItem(
+                                                    //    index, val);
+                                                 //  _onFilter();
+                                                  // printLog('ssssssssssss');
+                                                  // printLog(index);
+                                                   
+                                                   },
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ]
+                                  )
+                                  );
+// );
+  
+  
+}
 
+ Future<List<Widget>> generateWidgets(
+  item,
+   value,
+) async {
+  final widgets = <Widget>[];
+  //for (int i=0;i<2;i++){ 
+  //for (final item in items) {
+    final widget = await generateWidget(item, value);
+    widgets.add(widget);
+  //}
+  return widgets;
+}
   Widget renderAttributes() {
     return Consumer<FilterAttributeModel>(
       builder: (context, value, child) {
@@ -278,85 +345,52 @@ class _BackdropMenuState extends State<BackdropMenu> {
         var lst1 =List.from(value.lstProductAttribute!);
         var lst2= lst1.where((item)=>item.slug.contains(catId)).toList();
         printLog(lst2);
-        if (lst2?.isNotEmpty ?? false) {
-        //   var list = List<Widget>.generate(
-        //     lst2!.length,
-            
-        //     (index) {
-        //       final item = lst2![index];
-        //       return FilterOptionItem(
-        //         enabled: !value.isLoading,
-        //         onTap: () {
-        //           currentSlug = item.slug;
-        //           value.getAttr(id: item.id);
-        //         },
-        //         title: item.name!.toUpperCase(),
-        //         isValid: value.indexSelectedAttr != -1,
-        //         selected: value.indexSelectedAttr == index,
-        //       );
-        //     },
-        //   );
-          return 
-        //   ExpansionWidget(
-        //     showDivider: true,
-        //     padding: const EdgeInsets.only(
-        //       left: 15,
-        //       right: 15,
-        //       top: 15,
-        //       bottom: 10,
-        //     ),
-        //     title: Text(
-        //       S.of(context).attributes,
-        //       style: Theme.of(context).textTheme.titleLarge!.copyWith(
-        //             fontWeight: FontWeight.w700,
-        //           ),
-        //     ),
-        //     children: [
-            //  Container(
-            //      child:
-             // Column(
-                 // mainAxisSize: MainAxisSize.max,
-
-               // crossAxisAlignment: CrossAxisAlignment.stretch,
-              //  children: <Widget>[
-               //  Flexible (
-                 // flex:12, 
-      //              controller: widget.controller,
-      // physics :AlwaysScrollableScrollPhysics(),
-      //            // behavior :HitTestBehavior.translucent,
-                 // child:
-
-                  Container(
-                    height: MediaQuery.of(context).size.height /2,// 300 ,//list.length > 4 ? 100 :50,
-                    margin: const EdgeInsets.only(left: 10.0),
-                    //constraints: const BoxConstraints(maxHeight: 100),
-                    child: 
-                    ListView.builder(
-                    itemCount: lst2.length, // Replace with the number of items you want to display
-                    itemBuilder: (BuildContext context, int index) {
-                        bool enabled;
+         bool enabled;
                         bool isValid;
                         bool selected;
-                         final item = lst2![index];
-                        final ValueChanged<bool>? onExpansionChanged;
-
-                        return ExpansionTile(
-  title: Text(item!.name),
-  children: <Widget>[
-     value.isFirstLoad
-                      ? Center(
-                          child: Container(
-                            margin: const EdgeInsets.only(
-                              top: 10.0,
-                            ),
-                            width: 25.0,
-                            height: 25.0,
-                            child: const CircularProgressIndicator(
-                              strokeWidth: 2.0,
-                            ),
-                          ),
-                        )
-                      : Container(
+        if (lst2?.isNotEmpty ?? false) {
+          var list = List<Widget>.generate(
+            lst2!.length,
+            
+            (index) {
+              final item = lst2![index];
+              return Column(
+                children:[
+                      RadioListTile(
+                      //  key: ValueKey<int>(index),
+          title: Text(item!.name!),
+           value: item!.id,
+          groupValue:selectedIndex,
+          onChanged: (value1) {
+            // selectedIndex = item!.id,;
+              currentSlug = item.slug;
+               value.getAttr(id: item.id);
+            //value!.indexSelectedAttr! = index;
+            setState(() {
+             selectedIndex = value1;
+            });
+          },
+          activeColor: Theme.of(context).primaryColor, // Set the color of the radio button
+         // selectedTileColor: Colors.grey[200], /
+        ),
+        // value.isFirstLoad 
+        //               ? Center(
+        //                   child: Container(
+        //                     margin: const EdgeInsets.only(
+        //                       top: 10.0,
+        //                     ),
+        //                     width: 25.0,
+        //                     height: 25.0,
+        //                     child: const CircularProgressIndicator(
+        //                       strokeWidth: 2.0,
+        //                     ),
+        //                   ),
+        //                 )
+        //               : 
+                      selectedIndex ==  item!.id ?
+                     
+                      Container(
+                       // key: ValueKey<int>(index),
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                             vertical: 5,
@@ -370,9 +404,11 @@ class _BackdropMenuState extends State<BackdropMenu> {
                                       value.lstCurrentAttr.length,
                                       (index) {
                                         return Container(
+                                        //  key: ValueKey<int>(index),
                                           margin: const EdgeInsets.symmetric(
                                               horizontal: 5),
                                           child: FilterChip(
+                                           // key: ValueKey<int>(index),
                                             selectedColor:
                                                 Theme.of(context).primaryColor,
                                             backgroundColor: Theme.of(context)
@@ -424,31 +460,63 @@ class _BackdropMenuState extends State<BackdropMenu> {
                                       )
                                   ],
                                 ),
-                        ),
-   
-  ],
-  onExpansionChanged: (onExpansionChanged) {
-    currentSlug = item.slug;
-                  value.getAttr(id: item.id);
-                  enabled=!value.isLoading;
-                  isValid=value.indexSelectedAttr != -1;
-                  selected= value.indexSelectedAttr == index;
-    // Handle expansion state change
-  },
-);
+                        ) 
+                        
+                        :SizedBox(),
+                ]
 
-                         
-                    },
-                    ),
+              );
+          
+    
+          //     FilterOptionItem(
+          //       enabled: !value.isLoading,
+          //       onTap: () {
+          //         currentSlug = item.slug;
+          //         value.getAttr(id: item.id);
+          //       },
+          //       title: item.name!.toUpperCase(),
+          //       isValid: value.indexSelectedAttr != -1,
+          //       selected: value.indexSelectedAttr == index,
+          //     );
+             },
+           );
+          return 
+        //   ExpansionWidget(
+        //     showDivider: true,
+        //     padding: const EdgeInsets.only(
+        //       left: 15,
+        //       right: 15,
+        //       top: 15,
+        //       bottom: 10,
+        //     ),
+        //     title: Text(
+        //       S.of(context).attributes,
+        //       style: Theme.of(context).textTheme.titleLarge!.copyWith(
+        //             fontWeight: FontWeight.w700,
+        //           ),
+        //     ),
+        //     children: [
+            //  Container(
+            //      child:
+             // Column(
+                 // mainAxisSize: MainAxisSize.max,
 
-                    // GridView.count(
-                    //   scrollDirection: Axis.horizontal,
-                    //   childAspectRatio: 0.4,
-                    //   shrinkWrap: true,
-                    //   crossAxisCount:0, ///list.length > 4 ? 2 : 1,
-                    //   children: list,
-                   //  ),
-                  );
+               // crossAxisAlignment: CrossAxisAlignment.stretch,
+              //  children: <Widget>[
+               //  Flexible (
+                 // flex:12, 
+      //              controller: widget.controller,
+      // physics :AlwaysScrollableScrollPhysics(),
+      //            // behavior :HitTestBehavior.translucent,
+                 // child:
+                 Column(
+                  children:[
+                     ...list,
+                //   ]
+                //  )
+
+            
+                  ]);
                 //   value.isFirstLoad
                 //       ? Center(
                 //           child: Container(
@@ -649,50 +717,50 @@ class _BackdropMenuState extends State<BackdropMenu> {
            // renderAttributes(),
 
           /// render Apply button
-        //   if (!ServerConfig().isListingType &&
-        //       kAdvanceConfig.enableProductBackdrop)
-        //     Padding(
-        //       padding: const EdgeInsets.only(
-        //         left: 15,
-        //         right: 15,
-        //         top: 5,
-        //       ),
-        //       child: Row(
-        //         children: [
-                //   Expanded(
-                //     child: ButtonTheme(
-                //       height: 55,
-                //       child: ElevatedButton(
-                //         style: ElevatedButton.styleFrom(
-                //           elevation: 0.0,
-                //           backgroundColor: Theme.of(context).primaryColor,
-                //           shape: RoundedRectangleBorder(
-                //             borderRadius: BorderRadius.circular(3.0),
-                //           ),
-                //         ),
-                //         onPressed: () {
-                //           _onFilter(
-                //             categoryId: categoryId,
-                //             tagId: Provider.of<ProductModel>(context,
-                //                     listen: false)
-                //                 .tagId
-                //                 .toString(),
-                //           );
-                //         },
-                //         child: Text(
-                //           S.of(context).apply,
-                //           style:
-                //               Theme.of(context).textTheme.titleMedium!.copyWith(
-                //                     fontWeight: FontWeight.w700,
-                //                     color: Colors.white,
-                //                   ),
-                //         ),
-                //       ),
-                //     ),
-                //   )
-            //     ],
-            //   ),
-            // ),
+          // if (!ServerConfig().isListingType &&
+          //     kAdvanceConfig.enableProductBackdrop)
+          //   Padding(
+          //     padding: const EdgeInsets.only(
+          //       left: 15,
+          //       right: 15,
+          //       top: 5,
+          //     ),
+          //     child: Row(
+          //       children: [
+          //         Expanded(
+          //           child: ButtonTheme(
+          //             height: 55,
+          //             child: ElevatedButton(
+          //               style: ElevatedButton.styleFrom(
+          //                 elevation: 0.0,
+          //                 backgroundColor: Theme.of(context).primaryColor,
+          //                 shape: RoundedRectangleBorder(
+          //                   borderRadius: BorderRadius.circular(3.0),
+          //                 ),
+          //               ),
+          //               onPressed: () {
+          //                 _onFilter(
+          //                   categoryId: categoryId,
+          //                   tagId: Provider.of<ProductModel>(context,
+          //                           listen: false)
+          //                       .tagId
+          //                       .toString(),
+          //                 );
+          //               },
+          //               child: Text(
+          //                 S.of(context).apply,
+          //                 style:
+          //                     Theme.of(context).textTheme.titleMedium!.copyWith(
+          //                           fontWeight: FontWeight.w700,
+          //                           color: Colors.white,
+          //                         ),
+          //               ),
+          //             ),
+          //           ),
+          //         )
+          //       ],
+          //     ),
+          //   ),
 
           const SizedBox(height: 70),
         ],
