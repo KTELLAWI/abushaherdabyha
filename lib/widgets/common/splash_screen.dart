@@ -31,7 +31,7 @@ class SplashScreenIndex extends StatelessWidget {
     if (kSplashScreen.enable) {
       final boxFit = ImageTools.boxFit(
         kSplashScreen.boxFit,
-        defaultValue: BoxFit.contain,
+        defaultValue: BoxFit.fill,
       );
       final backgroundColor =
           HexColor(kSplashScreen.backgroundColor);

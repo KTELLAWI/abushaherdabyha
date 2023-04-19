@@ -102,7 +102,7 @@ Map<String, dynamic> environment ={
     "EnableBottomAddToCart": false,
     "inAppWebView": false,
     "EnableWOOCSCurrencySwitcher": false,
-    "enableProductBackdrop": false,
+    "enableProductBackdrop": true,
     "categoryImageMenu": true,
     "EnableDigitsMobileLogin": false,
     "OnBoardOnlyShowFirstTime": true,

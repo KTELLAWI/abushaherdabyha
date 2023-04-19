@@ -65,7 +65,7 @@ Future<void> checkInternetConnection() async {
       widget.onNextScreen?.call();
     
     } else {
-         showDialog(
+            showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: Text('لايوجد اتصال بالانترنت'),
@@ -73,13 +73,10 @@ Future<void> checkInternetConnection() async {
           textDirection: TextDirection.rtl,),
           actions: <Widget>[
             TextButton(
-              onPressed: () => widget.onNextScreen?.call(),
-              child: Text('Exit'),
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('خروج'),
             ),
-            TextButton(
-              onPressed: () => widget.onNextScreen?.call(),
-              child: Text('Retry'),
-            ),
+           
           ],
         ),
       );

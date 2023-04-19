@@ -421,7 +421,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   // Builder for the hide and reveal animation when the backdrop opens and closes
   Widget _buildSlideAnimation(BuildContext context, Widget? child) {
     _slideAnimation = _getEmphasizedEasingAnimation(
-      begin: const Offset(0.0, 0.0),
+      begin: const Offset(-2.0, 0.0),
       peak: const Offset(_kPeakVelocityProgress, 0.0),
       end: const Offset(0.0, 0.0),
       isForward: widget.hideController.status == AnimationStatus.forward,
@@ -455,7 +455,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet>
       child: AnimatedBuilder(
         animation: widget.hideController,
         builder: _buildSlideAnimation,
-        child:_isOpen?
+        child://widget.hideController.status != AnimationStatus.forward ?
          GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: open,
@@ -463,7 +463,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet>
             builder: _buildCart,
             animation: _controller,
           ),
-        ): SizedBox(),
+        ),//: SizedBox(),
       ),
     );
   }
