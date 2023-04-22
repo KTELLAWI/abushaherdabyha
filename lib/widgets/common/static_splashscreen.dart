@@ -6,6 +6,7 @@ import 'flux_image.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:flutter/services.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class StaticSplashScreen extends StatefulWidget {
   final String? imagePath;
@@ -67,25 +68,55 @@ Future<void> checkInternetConnection() async {
       widget.onNextScreen?.call();
     
     } else {
-            showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('لايوجد اتصال بالانترنت'),
-          content: Text('برجى تفقد الاتصال وتشغيل التطبيق مرة آخرى.',
-          textDirection: TextDirection.rtl,),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                exit(0);
-                //  Navigator.of(context).pop();
-                //   SystemNavigator.pop();
-              },
-              child: Text('خروج'),
-            ),
-           
-          ],
+      showDialog(
+  context: context,
+  builder: (context) => AlertDialog(
+    title: Text('لايوجد اتصال بالانترنت',
+    style:TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 14,
+  )),
+    content: Text('برجى تفقد الاتصال وتشغيل التطبيق مرة آخرى.',
+                 style:TextStyle(
+  fontFamily: 'cairo',
+  fontSize: 16,
+),
+        textDirection: TextDirection.rtl),
+    actions: <Widget>[
+      TextButton(
+        onPressed: () {
+          SystemNavigator.pop();
+          // exit(0);
+          //  Navigator.of(context).pop();
+          //   SystemNavigator.pop();
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xffd4af37), // set the background color
+            borderRadius: BorderRadius.circular(5), // set the border radius
+          ),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: Text(
+            'خروج',
+             style:TextStyle(
+  fontFamily: 'cairo',
+  fontSize: 14,
+)
+            //  GoogleFonts.cairo(
+            //   textStyle: TextStyle(color: Colors.white),
+            // ),
+            //Theme.of(context).textTheme.titleMedium!.copyWith(
+            //         fontSize: 14,
+            //         color: Theme.of(context).colorScheme.secondary,
+            //         //fontWeight: FontWeight.w600,
+            //       ),//TextStyle(color: Colors.white),
+          ),
         ),
-      );
+      ),
+    ],
+  ),
+);
+
       // Perform actions when there is no internet connection
       print('No internet connection. Please check your connection.');
     }
@@ -153,7 +184,15 @@ Future<void> checkInternetConnection() async {
     return Scaffold(
       backgroundColor:widget.backgroundColor,
       body: Container(
+           decoration:BoxDecoration(
+        image: new DecorationImage(
+              fit: BoxFit.cover,
+             image: AssetImage(widget.imagePath! ),
+),
+),
+      
         width:MediaQuery.of(context).size.width,
+       height: MediaQuery.of(context).size.height,
         //alignment: Alignment.center,
         // padding: EdgeInsets.only(
         //   top: widget.paddingTop,
@@ -163,12 +202,13 @@ Future<void> checkInternetConnection() async {
         // ),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            return FluxImage(
-              imageUrl: widget.imagePath!,
-              fit: widget.boxFit,
-              height: MediaQuery.of(context).size.height,//constraints.maxHeight,
-              width: MediaQuery.of(context).size.width,//constraints.maxWidth,
-            );
+            return SizedBox();
+            // FluxImage(
+            //   imageUrl: widget.imagePath!,
+            //   fit: widget.boxFit,
+            //   height: MediaQuery.of(context).size.height,//constraints.maxHeight,
+            //   width: MediaQuery.of(context).size.width,//constraints.maxWidth,
+            // );
           },
         ),
       ),

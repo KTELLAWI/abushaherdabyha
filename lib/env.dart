@@ -257,13 +257,13 @@ Map<String, dynamic> environment ={
   "firebaseDynamicLinkConfig": {
     "isEnabled": true,
     "shortDynamicLinkEnable": true,
-    "uriPrefix": "https://fluxstoreinspireui.page.link",
-    "link": "https://mstore.io/",
+    "uriPrefix": "bojeestore.page.link",
+    "link": "https://",
     "androidPackageName": "com.bojeestore.digistacks",
     "androidAppMinimumVersion": 1,
-    "iOSBundleId": "com.inspireui.mstore.flutter",
+    "iOSBundleId": "com.bojeestore.digistacks",
     "iOSAppMinimumVersion": "1.0.1",
-    "iOSAppStoreId": "1469772800"
+    "iOSAppStoreId": ""
   },
   "languagesInfo": [
     {

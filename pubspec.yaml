@@ -281,10 +281,14 @@ flutter:
     - google_fonts/
 
 ### Uncomment to use custom font
-#  fonts:
-#    - family: Your Custom Font
-#      fonts:
-#      - asset: google_fonts/GE-Hili-Book.ttf
+  fonts:
+    - family: cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Black.ttf
+        # - asset: fonts/MyCustomFont-Bold.ttf
+          weight: 700
+        # - asset: fonts/MyCustomFont-Italic.ttf
+          style: italic
 
 flutter_intl:
   enabled: true
