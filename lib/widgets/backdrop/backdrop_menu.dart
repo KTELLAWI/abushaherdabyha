@@ -89,6 +89,7 @@ class _BackdropMenuState extends State<BackdropMenu> {
       
       String? catId;
       int? selectedIndex;
+      bool isExpanded = false;
 
 
   @override
@@ -344,6 +345,10 @@ Future<Widget> generateWidget( item,value) async {
         printLog({value.lstProductAttribute!.toString()});
         var lst1 =List.from(value.lstProductAttribute!);
         var lst2= lst1.where((item)=>item.slug.contains(catId)).toList();
+        // final IconData iconData =
+        // selectedIndex ==  item!.id && isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down;
+            final double screenWidth = MediaQuery.of(context).size.width;
+
         printLog(lst2);
          bool enabled;
                         bool isValid;
@@ -355,24 +360,67 @@ Future<Widget> generateWidget( item,value) async {
             (index) {
               final item = lst2![index];
               return Column(
+                
                 children:[
-                      RadioListTile(
-                      //  key: ValueKey<int>(index),
-          title: Text(item!.name!),
-           value: item!.id,
-          groupValue:selectedIndex,
-          onChanged: (value1) {
-            // selectedIndex = item!.id,;
+                  Container(
+                    margin:const EdgeInsets.symmetric(
+                            horizontal:18,),
+      //wid: screenWidth / 2, // Set the width to half of the screen width
+      child:
+                    ElevatedButton(
+                       style: ElevatedButton.styleFrom(
+        primary: selectedIndex ==  item!.id && isExpanded ? Theme.of(context).primaryColor:Colors.white, // Set the background color here
+      ),
+                      key: ValueKey<int>(item.id),
+  onPressed: () {
+      isExpanded = !isExpanded;
+      // selectedIndex = item!.id,;
               currentSlug = item.slug;
                value.getAttr(id: item.id);
             //value!.indexSelectedAttr! = index;
             setState(() {
-             selectedIndex = value1;
+             selectedIndex = item.id;
             });
-          },
-          activeColor: Theme.of(context).primaryColor, // Set the color of the radio button
-         // selectedTileColor: Colors.grey[200], /
-        ),
+  },
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Icon(
+         selectedIndex ==  item!.id && isExpanded ? Icons.keyboard_arrow_down :Icons.keyboard_arrow_up,
+       color:selectedIndex ==  item!.id && isExpanded ? Colors.white :Colors.black
+      ), // Replace this with your desired icon
+      SizedBox(width: 5), // Add some space between the icon and text
+      Text(item!.name!,style:  Theme.of(context).textTheme.titleSmall!.copyWith(
+              fontWeight: FontWeight.w200,
+               color:  selectedIndex ==  item!.id && isExpanded ? Colors.white :Colors.black  
+            ),
+      // TextStyle(
+      //   color:  selectedIndex ==  item!.id && isExpanded ? Colors.white :Colors.black  )
+      ), // Replace this with your desired text
+    ],
+  ),
+),
+                 ),
+////
+                      
+                      
+        //               RadioListTile(
+        //               //  key: ValueKey<int>(index),
+        //   title: Text(item!.name!),
+        //    value: item!.id,
+        //   groupValue:selectedIndex,
+        //   onChanged: (value1) {
+        //     // selectedIndex = item!.id,;
+        //       currentSlug = item.slug;
+        //        value.getAttr(id: item.id);
+        //     //value!.indexSelectedAttr! = index;
+        //     setState(() {
+        //      selectedIndex = value1;
+        //     });
+        //   },
+        //   activeColor: Theme.of(context).primaryColor, // Set the color of the radio button
+        //  // selectedTileColor: Colors.grey[200], /
+        // ),
         // value.isFirstLoad 
         //               ? Center(
         //                   child: Container(
@@ -387,7 +435,7 @@ Future<Widget> generateWidget( item,value) async {
         //                   ),
         //                 )
         //               : 
-                      selectedIndex ==  item!.id ?
+                      selectedIndex ==  item!.id && isExpanded ?
                      
                       Container(
                        // key: ValueKey<int>(index),
