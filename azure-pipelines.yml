@@ -1,20 +1,60 @@
-# Android
-# Build your Android project with Gradle.
-# Add steps that test, sign, and distribute the APK, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/android
-
 trigger:
 - main
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macOS-latest'
+
+variables:
+  - name: FLUTTER_VERSION
+    value: '2.10.1'
+  - name: ANDROID_HOME
+    value: '/usr/local/share/android-sdk'
 
 steps:
-- task: Gradle@2
+- task: UsePythonVersion@0
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'assembleDebug'
+    versionSpec: '3.x'
+  displayName: 'Use Python 3.x'
+
+- task: Cache@2
+  inputs:
+    key: 'flutter | "$(Agent.OS)" | package-lock.json'
+    restoreKeys: |
+       flutter | "$(Agent.OS)"
+    path: |
+       ~/.pub-cache
+       ~/Library/Caches/flutter
+  displayName: 'Cache Flutter packages'
+
+- task: FlutterInstaller@0
+  inputs:
+    channel: 'stable'
+    version: '$(FLUTTER_VERSION)'
+
+- task: Flutter@1
+  inputs:
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    flutterToolPath: '$(flutter.flutterToolPath)'
+    target: 'lib/main.dart'
+    buildName: '1.0.0'
+    buildNumber: '$(Build.BuildId)'
+    publishMode: 'release'
+    enableAnalyzer: true
+    analyzerTool: 'dartanalyzer'
+
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '$(System.DefaultWorkingDirectory)/build/app/outputs/apk/release/app-release.apk'
+    apksign: true
+    zipalign: true
+    apksignerKeystoreFile: '$(System.DefaultWorkingDirectory)/android/app/key.jks'
+    apksignerKeystorePassword: '$(keystorePassword)'
+    apksignerKeystoreAlias: '$(keystoreAlias)'
+    apksignerKeyPassword: '$(keyPassword)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build/app/outputs/apk/release/app-release.apk'
+    ArtifactName: 'my_flutter_app'
+    publishLocation: 'Container'
+    
