@@ -1,0 +1,2 @@
+change provider sidebar to less number of instance 
+solid icons in sidebar
