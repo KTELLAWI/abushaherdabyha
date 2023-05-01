@@ -2,7 +2,7 @@ name: fstore
 publish_to: "none"
 description: Mobile commerce app by Flutter
 
-# The following defines the version and build number for your application.
+# The following defines the version and build number for your application. build om 3.0.0 and xcode 14.2
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
 # Both the version and the builder number may be overridden in flutter
