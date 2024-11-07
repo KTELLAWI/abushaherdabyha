@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_single_quotes, lines_longer_than_80_chars final
 Map<String, dynamic> environment = {
-  "appConfig":"https://abushaherdabayh.tk/wp-content/uploads/flutter_config_files/config_ar.json",//"https://abushaherdabayh.tk/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"https:/abushaherdabayh.site/wp-content/uploads/flutter_config_files/config_ar.json",
   //"lib/config/config_es.json",
   //"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_en.json",//"https://api.npoint.io/a45deb7a595945e99ca6",//"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_ar.json",//"https://api.npoint.io/82430f684a8082258a14",//"https://idealhomzqatar.com/wp-content/uploads/flutter_config_files/config_en.json",//"lib/config/config_en.json",
 
@@ -17,7 +17,7 @@ Map<String, dynamic> environment = {
   /// ➡️ lib/common/config.dart
   "serverConfig": {
     'type': 'woo',
-    'url': 'https://abushaherdabayh.tk',
+    'url': 'https://abushaherdabayh.site',
     'consumerKey': 'ck_ab96acadf6411de53039348db3a772c56ff68f13',
     'consumerSecret': 'cs_b4b9efaa348e12b5ef9302445510a8d3ece9f8a1',
 
