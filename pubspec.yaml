@@ -176,10 +176,10 @@ dependencies:
     git: https://github.com/inspireui/rive-flutter
   pull_to_refresh:
     git: https://github.com/inspireui/flutter_pulltorefresh
-  flutter_calendar_carousel:
-    git:
-      url: https://github.com/inspireui/flutter_calendar_carousel.git
-      ref: 7e1249dfdbd8cb61b7b7e1d0a48cae0eba7ad3ca
+  # flutter_calendar_carousel:
+  #   git:
+  #     url: https://github.com/inspireui/flutter_calendar_carousel.git
+  #     ref: 7e1249dfdbd8cb61b7b7e1d0a48cae0eba7ad3ca
   fwfh_text_style: ^2.22.08
   font_awesome_flutter: ^10.2.1
   flutter_launcher_icons: ^0.10.0
