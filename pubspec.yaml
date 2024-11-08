@@ -162,7 +162,7 @@ dependencies:
   fwfh_webview:
     git:
       url: https://github.com/inspireui/flutter_widget_from_html.git
-      ref: 1f471412850b2c5e558273e8e9a7900b389cf4a6
+      ref: 5a916cdbf048edb43e7763765a520e882436f4a5
       path: packages/fwfh_webview
   flutter_swiper_null_safety:
     git: https://github.com/inspireui/flutter_swiper_null_safety
