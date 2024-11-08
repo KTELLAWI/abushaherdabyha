@@ -179,7 +179,7 @@ dependencies:
   flutter_calendar_carousel:
     git:
       url: https://github.com/inspireui/flutter_calendar_carousel.git
-      ref: 6d34a1653a8b72ec900762613dada7504de8accc
+      # ref: 6d34a1653a8b72ec900762613dada7504de8accc
   fwfh_text_style: ^2.22.08
   font_awesome_flutter: ^10.2.1
   flutter_launcher_icons: ^0.10.0
