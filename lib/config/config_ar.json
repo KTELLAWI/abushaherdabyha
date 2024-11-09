@@ -1,208 +1,248 @@
 {
-  "HorizonLayout":[
-  
-    {
-      "layout":"logo",
-      "showLogo":true,
-      "showSearch":true,
-      "showMenu":true
+  "HorizonLayout": [
+      {
+          "layout": "logo",
+          "showLogo": true,
+          "showSearch": true,
+          "showMenu": true
       },
-     
       {
-    "layout":"bannerImage1",
-    "isSlider":true,
-    "marginTop":0.0,
-    "marginBottom":0.0,
-    "marginLeft":0.0,
-    "marginRight":0.0,
-    "height":0.3,
-    "fit":"fill",
-    "items":[
-    {
-      
-    "image":"https://abushaherdabayh.tk/wp-content/uploads/2022/10/meatSlider.jpg",
-    "padding":14.1,
-    "category":null
-    },
-    {
-    "padding":14.1,
-    "image":"https://abushaherdabayh.tk/wp-content/uploads/2022/10/transporationcars.jpg",
-    "category":null
-    }
-    
-    
-    ],
-    "autoPlay":true,
-    "design":"default",
-    "radius":7.6,
-    "intervalTime":5
-    },
-        {
-       "layout":"twoColumn",
-        "name":"Recent Collections",
-        "isSnapping":true,
-        "rows":3,
-        "columns":0,
-        "imageBoxfit":"fill",
-        "imageRatio":1.0397843326430722,
-        "hMargin":6,
-        "vMargin":0,
-        "hPadding":0,
-        "vPadding":0,
-        "pos":600,
-        "showStockStatus":true,
-        "enableRating":true,
-        "hideTitle":false,
-        "hideStore":false,
-        "hidePrice":false,
-        "featured":false,
-        "showHeart":false, 
-        "showCartButton":false,
-        "cartIconRadius":9,
-        "showQuantity":false,
-        "showCartIconColor":false,
-        "showCartIcon":true,
-        "enableBottomAddToCart":false,
-        "cardDesign":"glass",
-        "borderRadius":26,
-         "category":"121",
-        "tag":null},
-        {
-          "layout":"twoColumn",
-           "name":"Recent Collections",
-           "isSnapping":true,
-           "rows":3,
-           "columns":0,
-           "imageBoxfit":"fill",
-           "imageRatio":1.0397843326430722,
-           "hMargin":6,
-           "vMargin":0,
-           "hPadding":0,
-           "vPadding":0,
-           "pos":600,
-           "showStockStatus":true,
-           "enableRating":true,
-           "hideTitle":false,
-           "hideStore":false,
-           "hidePrice":false,
-           "featured":false,
-           "showHeart":false, 
-           "showCartButton":false,
-           "cartIconRadius":9,
-           "showQuantity":false,
-           "showCartIconColor":false,
-           "showCartIcon":true,
-           "enableBottomAddToCart":false,
-           "cardDesign":"glass",
-           "borderRadius":26,   
-            "category":"123",
-           "tag":null}
-  
-  
+          "layout": "bannerImage1",
+          "isSlider": true,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "height": 0.3,
+          "fit": "fill",
+          "items": [
+              {
+                  "image": "https://abushaherdabayh.store/wp-content/uploads/2022/10/meatSlider.jpg",
+                  "padding": 14.1,
+                  "category": null
+              },
+              {
+                  "padding": 14.1,
+                  "image": "https://abushaherdabayh.store/wp-content/uploads/2022/10/transporationcars.jpg",
+                  "category": null
+              }
+          ],
+          "autoPlay": true,
+          "design": "default",
+          "radius": 7.6,
+          "intervalTime": 5
+      },
+      {
+          "layout": "twoColumn",
+          "name": "Recent Collections",
+          "isSnapping": true,
+          "rows": 3,
+          "columns": 0,
+          "imageBoxfit": "fill",
+          "imageRatio": 1.0397843326430722,
+          "hMargin": 6,
+          "vMargin": 0,
+          "hPadding": 0,
+          "vPadding": 0,
+          "pos": 600,
+          "showStockStatus": true,
+          "enableRating": true,
+          "hideTitle": false,
+          "hideStore": false,
+          "hidePrice": false,
+          "featured": false,
+          "showHeart": false,
+          "showCartButton": false,
+          "cartIconRadius": 9,
+          "showQuantity": false,
+          "showCartIconColor": false,
+          "showCartIcon": true,
+          "enableBottomAddToCart": false,
+          "cardDesign": "glass",
+          "borderRadius": 26,
+          "category": "27",
+          "tag": null
+      },
+      {
+          "layout": "twoColumn",
+          "name": "Recent Collections",
+          "isSnapping": true,
+          "rows": 3,
+          "columns": 0,
+          "imageBoxfit": "fill",
+          "imageRatio": 1.0397843326430722,
+          "hMargin": 6,
+          "vMargin": 0,
+          "hPadding": 0,
+          "vPadding": 0,
+          "pos": 600,
+          "showStockStatus": true,
+          "enableRating": true,
+          "hideTitle": false,
+          "hideStore": false,
+          "hidePrice": false,
+          "featured": false,
+          "showHeart": false,
+          "showCartButton": false,
+          "cartIconRadius": 9,
+          "showQuantity": false,
+          "showCartIconColor": false,
+          "showCartIcon": true,
+          "enableBottomAddToCart": false,
+          "cardDesign": "glass",
+          "borderRadius": 26,
+          "category": "26",
+          "tag": null
+      },
+      {
+          "layout": "twoColumn",
+          "name": "Recent Collections",
+          "isSnapping": true,
+          "rows": 3,
+          "columns": 0,
+          "imageBoxfit": "fill",
+          "imageRatio": 1.0397843326430722,
+          "hMargin": 6,
+          "vMargin": 0,
+          "hPadding": 0,
+          "vPadding": 0,
+          "pos": 600,
+          "showStockStatus": true,
+          "enableRating": true,
+          "hideTitle": false,
+          "hideStore": false,
+          "hidePrice": false,
+          "featured": false,
+          "showHeart": false,
+          "showCartButton": false,
+          "cartIconRadius": 9,
+          "showQuantity": false,
+          "showCartIconColor": false,
+          "showCartIcon": true,
+          "enableBottomAddToCart": false,
+          "cardDesign": "glass",
+          "borderRadius": 26,
+          "category": "121",
+          "tag": null
+      },
+      {
+          "layout": "twoColumn",
+          "name": "Recent Collections",
+          "isSnapping": true,
+          "rows": 3,
+          "columns": 0,
+          "imageBoxfit": "fill",
+          "imageRatio": 1.0397843326430722,
+          "hMargin": 6,
+          "vMargin": 0,
+          "hPadding": 0,
+          "vPadding": 0,
+          "pos": 600,
+          "showStockStatus": true,
+          "enableRating": true,
+          "hideTitle": false,
+          "hideStore": false,
+          "hidePrice": false,
+          "featured": false,
+          "showHeart": false,
+          "showCartButton": false,
+          "cartIconRadius": 9,
+          "showQuantity": false,
+          "showCartIconColor": false,
+          "showCartIcon": true,
+          "enableBottomAddToCart": false,
+          "cardDesign": "glass",
+          "borderRadius": 26,
+          "category": "123",
+          "tag": null
+      }
   ],
-  "Setting":{
-  "StickyHeader":false,
-  "ShowChat":true,
-  "FontFamily":"Almarai",
-  "FontHeader":"Almarai",
-  "MainColor":"ff52260f",
-  "ProductListLayout":"list",
-  "TabBarConfig":{
-  "enable":true,
-  "isSafeArea":true,
-  "color":null,
-  "colorCart":null,
-  "colorIcon":"ff52260f",
-  "colorActiveIcon":"ffeac85f",
-  "iconSize":27.0,
-  "indicatorStyle":"dot",
-  "showFloatingClip":true,
-  "showFloating":true,
-  "enableOnTop":false,
-  "radiusTopLeft":0,
-  "radiusTopRight":0,
-  "radiusBottomLeft":0,
-  "radiusBottomRight":0,
-  "paddingLeft":0,
-  "paddingRight":0,
-  "paddingBottom":0,
-  "paddingTop":0,
-  "marginTop":0,
-  "marginBottom":0,
-  "marginLeft":0,
-  "marginRight":0,
-  "TabBarIndicator":{
-  "height":null,
-  "tabPosition":"bottom",
-  "topRightRadius":null,
-  "topLeftRadius":null,
-  "bottomRightRadius":null,
-  "bottomLeftRadius":null,
-  "color":null,
-  "horizontalPadding":null,
-  "verticalPadding":null,
-  "strokeWidth":null,
-  "radius":null,
-  "distanceFromCenter":null,
-  "paintingStyle":"fill"
-  },
-  "TabBarFloating":{
-  "position":2,
-  "radius":null,
-  "color":null,
-  "location":null,
-  "width":null,
-  "height":null,
-  "elevation":null,
-  "floatingType":"rectangle"}}
-  },
-  "TabBar":[
-  {
-  "icon":"assets/icons/tabs/icon-home.png",
-  "pos":100,
-  "layout":"home"
-  
-  },
-  
-  
- 
-
-      
-        {
-          "icon":"assets/icons/tabs/icon-bell.png",
-          "layout":"notify",
-         
-          "pos":200
-          
-         
-      
+  "Setting": {
+      "StickyHeader": false,
+      "ShowChat": true,
+      "FontFamily": "Almarai",
+      "FontHeader": "Almarai",
+      "MainColor": "ff52260f",
+      "ProductListLayout": "list",
+      "TabBarConfig": {
+          "enable": true,
+          "isSafeArea": true,
+          "color": null,
+          "colorCart": null,
+          "colorIcon": "ff52260f",
+          "colorActiveIcon": "ffeac85f",
+          "iconSize": 27,
+          "indicatorStyle": "dot",
+          "showFloatingClip": true,
+          "showFloating": true,
+          "enableOnTop": false,
+          "radiusTopLeft": 0,
+          "radiusTopRight": 0,
+          "radiusBottomLeft": 0,
+          "radiusBottomRight": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "TabBarIndicator": {
+              "height": null,
+              "tabPosition": "bottom",
+              "topRightRadius": null,
+              "topLeftRadius": null,
+              "bottomRightRadius": null,
+              "bottomLeftRadius": null,
+              "color": null,
+              "horizontalPadding": null,
+              "verticalPadding": null,
+              "strokeWidth": null,
+              "radius": null,
+              "distanceFromCenter": null,
+              "paintingStyle": "fill"
           },
-          {
-            "icon":"assets/icons/tabs/icon-home.png",
-            "pos":300,
-            "layout":"home"
-            
-            },
+          "TabBarFloating": {
+              "position": 2,
+              "radius": null,
+              "color": null,
+              "location": null,
+              "width": null,
+              "height": null,
+              "elevation": null,
+              "floatingType": "rectangle"
+          }
+      }
+  },
+  "TabBar": [
       {
-        "icon":"assets/icons/tabs/icon-cart2.png",
-        "layout":"cart",
-       
-        "pos":400
-        
-       
-    
-        },
-  {
-  "pos":500,
-  "showChat":false,
-  "layout":"profile",
-  
-  "icon":"assets/icons/tabs/icon-user.png"
-  }
+          "icon": "assets/icons/tabs/icon-home.png",
+          "pos": 100,
+          "layout": "home"
+      },
+      {
+          "icon": "assets/icons/tabs/icon-bell.png",
+          "layout": "notify",
+          "pos": 200
+      },
+      {
+          "icon": "assets/icons/tabs/icon-home.png",
+          "pos": 300,
+          "layout": "home"
+      },
+      {
+          "icon": "assets/icons/tabs/icon-cart2.png",
+          "layout": "cart",
+          "pos": 400
+      },
+      {
+          "pos": 500,
+          "showChat": false,
+          "layout": "profile",
+          "icon": "assets/icons/tabs/icon-user.png"
+      }
   ],
-  "Drawer":null,
-  "AppBar":null}
-
-
-
-  
+  "Drawer": null,
+  "AppBar": null
+}

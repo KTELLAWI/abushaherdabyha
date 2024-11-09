@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_single_quotes, lines_longer_than_80_chars final
 Map<String, dynamic> environment = {
-  "appConfig":"https:/abushaherdabayh.site/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"lib/config/config_ar.json",
+  //"https:/abushaherdabayh.site/wp-content/uploads/flutter_config_files/config_ar.json",
   //"lib/config/config_es.json",
   //"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_en.json",//"https://api.npoint.io/a45deb7a595945e99ca6",//"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_ar.json",//"https://api.npoint.io/82430f684a8082258a14",//"https://idealhomzqatar.com/wp-content/uploads/flutter_config_files/config_en.json",//"lib/config/config_en.json",
 
@@ -18,8 +19,8 @@ Map<String, dynamic> environment = {
   "serverConfig": {
     'type': 'woo',
     'url': 'https://abushaherdabayh.site',
-    'consumerKey': 'ck_ab96acadf6411de53039348db3a772c56ff68f13',
-    'consumerSecret': 'cs_b4b9efaa348e12b5ef9302445510a8d3ece9f8a1',
+    'consumerKey': 'ck_1522d8e2c88b48d1c36b23ac2407cf85debbc1c9',
+    'consumerSecret': 'cs_908c342beced94fc5c91dddcf0ebe415674089b1',
 
     //'blog':
      //   'https://mstore.io', //Your website woocommerce. You can remove this line if it same url
