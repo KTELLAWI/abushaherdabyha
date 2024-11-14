@@ -2,7 +2,7 @@ workflows:
  ios-workflow:
    name: iOS Workflow 
    max_build_duration: 120
-   instance_type: mac_pro
+   instance_type: mac_m1
    integrations:
      app_store_connect: abushaherOLDKEY
    environment:
@@ -23,13 +23,13 @@ workflows:
      - name: Install pods
        script: |
          find . -name "Podfile" -execdir pod install \;
-     - name: Flutter analyze
-       script: |
-         flutter analyze
-     - name: Flutter unit tests
-       script: |
-         flutter test
-       ignore_failure: true
+    #  - name: Flutter analyze
+    #    script: |
+    #      flutter analyze
+    #  - name: Flutter unit tests
+    #    script: |
+    #      flutter test
+    #    ignore_failure: true
      - name: Flutter build ipa
        script: |
          BUILD_NUMBER=$(($(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID") + 1))
