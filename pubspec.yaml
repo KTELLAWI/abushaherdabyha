@@ -195,7 +195,7 @@ dependencies:
 #   webview_flutter: ^3.0.4
 dependency_overrides:
   webview_flutter_wkwebview: ^3.1.1
-  fwfh_webview: ^0.15.4
+  fwfh_webview: ^0.16.0
     # git:
     #   url: https://github.com/inspireui/flutter_widget_from_html.git
     #   ref: 5a916cdbf048edb43e7763765a520e882436f4a5
