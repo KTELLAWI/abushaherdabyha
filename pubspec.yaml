@@ -74,7 +74,7 @@ dependencies:
   fwfh_svg: 0.7.2
   fwfh_cached_network_image: 0.7.0+2
   fwfh_url_launcher: 0.6.1+3
-  fwfh_chewie: 0.7.0+1
+  fwfh_chewie: 
 
   # MAP
   google_maps_flutter: 2.1.7
