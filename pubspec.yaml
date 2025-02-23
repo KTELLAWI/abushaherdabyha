@@ -196,7 +196,7 @@ dependencies:
   # facebook_audience_network: 1.0.0-nullsafety.0
 
 dependency_overrides:
-  webview_flutter: 3.0.4
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   flutter_lints: 2.0.1
