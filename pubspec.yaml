@@ -71,7 +71,7 @@ dependencies:
 
   # HTML render
   flutter_widget_from_html_core: 0.10.5 
-  fwfh_svg: ^0.16.0
+  fwfh_svg: 0.8.3
   fwfh_cached_network_image: 
   fwfh_url_launcher: 
   fwfh_chewie: 
