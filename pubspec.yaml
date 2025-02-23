@@ -63,7 +63,7 @@ dependencies:
 
   # WEB TOOLS
   html_unescape: 2.0.0
-  webview_flutter: 4.0.0
+  # webview_flutter: 3.0.4
   webview_flutter_web: 0.1.0+3
   responsive_builder: 0.4.2
   flutter_inappwebview: 5.7.2+3
@@ -160,10 +160,10 @@ dependencies:
       url: https://github.com/inspireui/charts.git
       path: charts_flutter
   fwfh_webview:
-    # git:
-    #   url: https://github.com/inspireui/flutter_widget_from_html.git
-    #   ref: 5a916cdbf048edb43e7763765a520e882436f4a5
-    #   path: packages/fwfh_webview
+    git:
+      url: https://github.com/inspireui/flutter_widget_from_html.git
+      ref: 5a916cdbf048edb43e7763765a520e882436f4a5
+      path: packages/fwfh_webview
   flutter_swiper_null_safety:
     git: https://github.com/inspireui/flutter_swiper_null_safety
   
@@ -195,6 +195,8 @@ dependencies:
   ### Search "Enable Facebook Ads" & uncomment to use  - https://tppr.me/9Pkf9
   # facebook_audience_network: 1.0.0-nullsafety.0
 
+dependency_overrides:
+  webview_flutter: 3.0.4
 
 dev_dependencies:
   flutter_lints: 2.0.1
