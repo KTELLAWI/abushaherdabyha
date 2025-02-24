@@ -12,14 +12,14 @@ import '../common/config/models/index.dart';
 import '../common/constants.dart';
 import '../modules/dynamic_layout/config/app_config.dart';
 import '../services/index.dart';
-import 'advertisement/index.dart' show AdvertisementConfig;
+// import 'advertisement/index.dart' show AdvertisementConfig;
 import 'cart/cart_model.dart';
 import 'category_model.dart';
 
 class AppModel with ChangeNotifier {
   AppConfig? appConfig;
   VendorType? vendorType;
-  AdvertisementConfig advertisement = const AdvertisementConfig();
+  // AdvertisementConfig advertisement = const AdvertisementConfig();
   Map? deeplink;
 
   /// Loading State setting
@@ -80,7 +80,7 @@ class AppModel with ChangeNotifier {
   AppModel([String? lang]) {
     _langCode = lang ?? kAdvanceConfig.defaultLanguage;
 
-    advertisement = AdvertisementConfig.fromJson(adConfig: kAdConfig);
+    // advertisement = AdvertisementConfig.fromJson(adConfig: kAdConfig);
     vendorType = kFluxStoreMV.contains(serverConfig['type'])
         ? VendorType.multi
         : VendorType.single;

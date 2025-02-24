@@ -104,9 +104,9 @@ class _AppInitState extends BaseScreen<AppInit> {
           }
 
           /// init Facebook & Google Ads
-          Services()
-              .advertisement
-              .initAdvertise(context.read<AppModel>().advertisement);
+          // Services()
+          //     .advertisement
+          //     .initAdvertise(context.read<AppModel>().advertisement);
         },
       );
 

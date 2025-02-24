@@ -35,7 +35,7 @@ if (flutterVersionName == null) {
 
 
 def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
+def keystorePropertiesFile = rootProject.file('keystore.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
@@ -99,7 +99,7 @@ android {
         }
 
         debug {
-            signingConfig signingConfigs.release
+             signingConfig signingConfigs.release
         }
     }
 }

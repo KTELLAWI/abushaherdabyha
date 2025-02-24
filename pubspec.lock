@@ -492,8 +492,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "7e1249dfdbd8cb61b7b7e1d0a48cae0eba7ad3ca"
-      resolved-ref: "7e1249dfdbd8cb61b7b7e1d0a48cae0eba7ad3ca"
+      ref: "6d34a1653a8b72ec900762613dada7504de8accc"
+      resolved-ref: "6d34a1653a8b72ec900762613dada7504de8accc"
       url: "https://github.com/inspireui/flutter_calendar_carousel.git"
     source: git
     version: "2.1.0"
@@ -524,7 +524,7 @@ packages:
       name: flutter_inappwebview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.3+7"
+    version: "5.7.2+3"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -709,8 +709,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/fwfh_webview"
-      ref: "1f471412850b2c5e558273e8e9a7900b389cf4a6"
-      resolved-ref: "1f471412850b2c5e558273e8e9a7900b389cf4a6"
+      ref: "5a916cdbf048edb43e7763765a520e882436f4a5"
+      resolved-ref: "5a916cdbf048edb43e7763765a520e882436f4a5"
       url: "https://github.com/inspireui/flutter_widget_from_html.git"
     source: git
     version: "0.6.2+2"
@@ -756,13 +756,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.6"
-  google_mobile_ads:
-    dependency: "direct main"
-    description:
-      name: google_mobile_ads
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -923,7 +916,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5+3"
+    version: "0.8.7"
   image_picker_android:
     dependency: transitive
     description:
@@ -944,14 +937,14 @@ packages:
       name: image_picker_ios
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5+5"
+    version: "0.8.6+9"
   image_picker_platform_interface:
     dependency: transitive
     description:
       name: image_picker_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.3"
   inspireui:
     dependency: "direct main"
     description:
