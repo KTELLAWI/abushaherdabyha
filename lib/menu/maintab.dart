@@ -4,7 +4,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_version/new_version.dart';
+// import 'package:new_version/new_version.dart';
 import 'package:provider/provider.dart';
 import 'package:fstore/common/tools/adaptive_tools.dart';
 import '../common/config.dart';
@@ -92,9 +92,9 @@ String item = "post";
     _initTabData(context);
    // toggleAnimation();
 
-    if (kAdvanceConfig.enableVersionCheck) {
-      NewVersion().showAlertIfNecessary(context: context);
-    }
+    // if (kAdvanceConfig.enableVersionCheck) {
+    //   NewVersion().showAlertIfNecessary(context: context);
+    // }
   }
 
   /// init the Event Bus listening
