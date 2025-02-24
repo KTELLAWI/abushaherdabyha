@@ -39,7 +39,7 @@ buildscript {
 
     dependencies {
         classpath 'com.google.gms:google-services:4.4.0'  // أحدث إصدار
-        classpath 'com.android.tools.build:gradle:7.3.1'  // متوافق مع targetSdkVersion 34
+        classpath 'com.android.tools.build:gradle:7.1.2'  // متوافق مع targetSdkVersion 34
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
