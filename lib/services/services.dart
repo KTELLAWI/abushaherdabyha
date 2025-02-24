@@ -6,7 +6,7 @@ import '../frameworks/wordpress/services/wordpress_mixin.dart';
 import '../modules/digits_mobile_login/services/digits_mobile_login_service_mixin.dart';
 import '../modules/firebase/firebase_notification_service.dart';
 import '../modules/firebase/firebase_service.dart';
-import '../modules/onesignal/one_signal_notification_service.dart';
+// import '../modules/onesignal/one_signal_notification_service.dart';
 import '../modules/tera_wallet/services/wallet_service_mixin.dart';
 // Enable Audio feature
 // import '../modules_ext/audio/services/audio_service_mixin.dart';
