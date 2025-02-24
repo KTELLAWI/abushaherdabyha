@@ -121,6 +121,8 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.browser:browser:1.3.0'
     // implementation 'com.google.android.play:core:2.0.0' // إضافة مباشرة
+    implementation 'com.google.android.play:core:1.10.3'
+
 
 
 
@@ -132,10 +134,15 @@ dependencies {
     // }
     // }
 }
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.android.play:core:1.10.3'
+    }
+}
 // configurations.all {
 //     resolutionStrategy {
 //         force 'com.google.android.play:core:2.0.0' // فرض الإصدار
 //     } 
 // }
-// googleServices { disableVersionCheck = true }
+googleServices { disableVersionCheck = true }
 
