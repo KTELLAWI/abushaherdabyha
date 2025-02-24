@@ -46,7 +46,7 @@ class Services
     if (isIos || isAndroid) {
       if (kOneSignalKey['enable'] ?? false) {
         notificationService =
-            OneSignalNotificationService(appID: kOneSignalKey['appID']);
+            // OneSignalNotificationService(appID: kOneSignalKey['appID']);
       } else {
         if (_instance.firebase.isEnabled) {
           notificationService = FirebaseNotificationService();
