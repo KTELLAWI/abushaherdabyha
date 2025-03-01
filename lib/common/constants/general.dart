@@ -44,7 +44,7 @@ enum BookStatus { booked, unavailable, waiting, confirmed, cancelled, error }
 const kSizeLeftMenu = 250.0;
 
 class SettingConstants {
-  static const aboutUsUrl = 'https://inspireui.com/about';
+  static const aboutUsUrl = '';
 }
 
 class SplashScreenTypeConstants {

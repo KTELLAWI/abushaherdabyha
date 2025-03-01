@@ -715,7 +715,7 @@ Expanded(
                 context,
                 MaterialPageRoute(
                   builder: (context) => WebView(
-                    url: 'https://inspireui.com',
+                    url: '',
                     title: S.of(context).webView,
                   ),
                 ),

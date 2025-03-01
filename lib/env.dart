@@ -839,7 +839,7 @@ Map<String, dynamic> environment = {
     "merchantIdentifier": "",
     "merchantCountryCode": "US",
     "useV1": false,
-    "returnUrl": "fluxstore://inspireui.com",
+    "returnUrl": "",
 
     /// Enable this automatically captures funds when the customer authorizes the payment.
     /// Disable will Place a hold on the funds when the customer authorizes the payment,

@@ -150,11 +150,11 @@ class DefaultConfig {
 
     /// If page id null
     /// Privacy Policies page Url. Accessible in the app via Settings > Privacy menu.
-    'PrivacyPoliciesPageUrl': 'https://mstore.io/',
+    'PrivacyPoliciesPageUrl': '',
 
-    'SupportPageUrl': 'https://support.inspireui.com/',
+    'SupportPageUrl': '',
 
-    'DownloadPageUrl': 'https://mstore.io/#download',
+    'DownloadPageUrl': '',
 
     'SocialConnectUrl': [
       {

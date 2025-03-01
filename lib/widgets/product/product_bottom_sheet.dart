@@ -382,7 +382,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet>
         width: _widthAnimation.value,
         height: _heightAnimation.value,
         decoration: BoxDecoration(
-          color: Colors.transparent,//Theme.of(context).backgroundColor,
+          color: Theme.of(context).backgroundColor,
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(25.0),
           ),
