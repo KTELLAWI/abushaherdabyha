@@ -336,7 +336,7 @@ class DefaultConfig {
     //The link your app will open
     'link': 'https://mstore.io/',
     //----------* Android Setting *----------//
-    'androidPackageName': 'store.digistacks.abushaher',
+    'androidPackageName': 'online.digistacks.abushaher',
     'androidAppMinimumVersion': 1,
     //----------* iOS Setting *----------//
     'iOSBundleId': 'com.inspireui.mstore.flutter',

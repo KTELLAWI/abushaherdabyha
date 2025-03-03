@@ -38,7 +38,7 @@ Map<String, dynamic> environment = {
   },
   "storeIdentifier": {
     "disable": true,
-    "android": "store.digistacks.abushaher",
+    "android": "online.digistacks.abushaher",
     "ios": "6444722624"
   },
   "advanceConfig": {
@@ -412,7 +412,7 @@ Map<String, dynamic> environment = {
     //The link your app will open
     "link": "",
     //----------* Android Setting *----------//
-    "androidPackageName": "store.digistacks.abushaher",
+    "androidPackageName": "online.digistacks.abushaher",
     "androidAppMinimumVersion": 1,
     //----------* iOS Setting *----------//
     "iOSBundleId": "",
