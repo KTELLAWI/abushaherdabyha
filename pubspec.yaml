@@ -94,7 +94,7 @@ dependencies:
   sms_autofill: 2.2.0
 
   # PUSH NOTIFICATION
-  firebase_messaging: 11.4.1
+  firebase_messaging: 14.3.0
   notification_permissions: 0.6.1
   flutter_local_notifications: 9.6.0
   # onesignal_flutter: 5.0.4
