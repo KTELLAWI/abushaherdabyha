@@ -39,7 +39,7 @@ dependencies:
   shared_preferences: 2.0.15
   collection: 1.16.0
   quiver: 3.1.0
-  async: 2.9.0
+  # async: 2.9.0
   html: 0.15.0
   vector_math: 2.1.2
   # 2.1.2
@@ -48,12 +48,13 @@ dependencies:
 
   # FIREBASE PACKAGES
   firebase_core: ^2.0.0
-  firebase_analytics: ^10.0.0
+  firebase_messaging: ^14.0.0
   firebase_auth: ^4.0.0
-  firebase_remote_config: ^3.0.0
+  firebase_analytics: ^10.0.0
+  firebase_remote_config: ^4.0.0
   firebase_dynamic_links: ^5.0.0
   cloud_firestore: ^4.0.0
-  firebase_messaging: ^14.0.0
+  async: 2.8.2
 
   # firebase_core: 1.17.1
   # firebase_analytics: 9.1.9
