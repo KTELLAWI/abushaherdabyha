@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io' show HttpClient, SecurityContext;
 import 'dart:typed_data';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -101,6 +102,14 @@ void main() {
 
     ResponsiveSizingConfig.instance.setCustomBreakpoints(
         const ScreenBreakpoints(desktop: 900, tablet: 600, watch: 100));
+
+    // Activate App Check
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.playIntegrity, // For Android
+      appleProvider: AppleProvider.appAttest, // For iOS/macOS
+      // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
+    );
+
     runApp(
      App(languageCode: languageCode)
       );
