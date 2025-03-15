@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_single_quotes, lines_longer_than_80_chars final
 Map<String, dynamic> environment = {
-  "appConfig":"https://abushaherdabayh.site/wp-content/uploads/flutter_config_files/config_ar.json",
+  "appConfig":"lib/config/config_ar.json",
   //"https:/abushaherdabayh.site/wp-content/uploads/flutter_config_files/config_ar.json",
   //"lib/config/config_es.json",
   //"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_en.json",//"https://api.npoint.io/a45deb7a595945e99ca6",//"https://idealhomz.com/wp-content/uploads/flutter_config_files/config_ar.json",//"https://api.npoint.io/82430f684a8082258a14",//"https://idealhomzqatar.com/wp-content/uploads/flutter_config_files/config_en.json",//"lib/config/config_en.json",
@@ -38,7 +38,7 @@ Map<String, dynamic> environment = {
   },
   "storeIdentifier": {
     "disable": true,
-    "android": "online.digistacks.abushaher",
+    "android": "store.digistacks.abushaher",
     "ios": "6444722624"
   },
   "advanceConfig": {
@@ -412,7 +412,7 @@ Map<String, dynamic> environment = {
     //The link your app will open
     "link": "",
     //----------* Android Setting *----------//
-    "androidPackageName": "online.digistacks.abushaher",
+    "androidPackageName": "store.digistacks.abushaher",
     "androidAppMinimumVersion": 1,
     //----------* iOS Setting *----------//
     "iOSBundleId": "",
