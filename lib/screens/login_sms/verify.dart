@@ -100,6 +100,7 @@ class _VerifyCodeState extends State<VerifyCode>
               verificationCompleted: (PhoneAuthCredential credential) {},
               forceResendingToken: _resendToken,
               verificationFailed: verifyFailed,
+              
             );
       };
 
