@@ -202,7 +202,7 @@ class FirebaseServices extends BaseFirebaseServices {
         timeout: const Duration(seconds: 120),
         verificationCompleted: verificationCompleted,
         verificationFailed: verificationFailed,
-        forceRecaptchaFlow:false,
+        // forceRecaptchaFlow:false,
         forceResendingToken: forceResendingToken);
   }
 
