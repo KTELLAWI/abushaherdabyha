@@ -710,6 +710,22 @@ class WooCommerceService extends BaseServices {
     String? token,
     String? langCode,
   }) async {
+    final List<Map<String, dynamic>> paymentMethods2 = [
+  {
+    "id": "bacs",
+    "title": "تحويل بنكي",
+    "method_title": "حوالة مصرفية مباشرة",
+    "description":
+        "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account."
+  },
+  {
+    "id": "cod",
+    "title": "الدفع عند الاستلام",
+    "method_title": "الدفع نقدًا عند الاستلام",
+    "description": "الدفع عند الاستلام"
+  }
+];
+
     try {
       if (isBookingProduct(cartModel!)) {
         return getPaymentMethodsByWooApi();
@@ -718,7 +734,7 @@ class WooCommerceService extends BaseServices {
       final params = Order().toJson(cartModel, null, false);
 
       var list = <PaymentMethod>[];
-      final response = await httpPost(
+      // final response = await httpPost(
           '$domain/wp-json/api/flutter_woo/payment_methods?lang=$langCode'
               .toUri()!,
           body: convert.jsonEncode(params),
@@ -726,15 +742,15 @@ class WooCommerceService extends BaseServices {
             'Content-Type': 'application/json',
             'User-Cookie': token ?? '',
           });
-      final body = convert.jsonDecode(response.body);
+   //   final body = convert.jsonDecode(paymentMethods2);
 
-      if (response.statusCode == 200) {
-        for (var item in body) {
+    //  if (response.statusCode == 200) {
+        for (var item in paymentMethods2) {
           list.add(PaymentMethod.fromJson(item));
         }
-      } else if (body['message'] != null) {
-        throw Exception(body['message']);
-      }
+      // } else if (body['message'] != null) {
+      //   throw Exception(body['message']);
+      // }
       return list;
     } catch (err) {
       rethrow;
