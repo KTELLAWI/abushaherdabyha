@@ -735,13 +735,13 @@ class WooCommerceService extends BaseServices {
 
       var list = <PaymentMethod>[];
       // final response = await httpPost(
-          '$domain/wp-json/api/flutter_woo/payment_methods?lang=$langCode'
-              .toUri()!,
-          body: convert.jsonEncode(params),
-          headers: {
-            'Content-Type': 'application/json',
-            'User-Cookie': token ?? '',
-          });
+          // '$domain/wp-json/api/flutter_woo/payment_methods?lang=$langCode'
+          //     .toUri()!,
+          // body: convert.jsonEncode(params),
+          // headers: {
+          //   'Content-Type': 'application/json',
+          //   'User-Cookie': token ?? '',
+          // });
    //   final body = convert.jsonDecode(paymentMethods2);
 
     //  if (response.statusCode == 200) {
