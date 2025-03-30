@@ -202,9 +202,9 @@ dependencies:
   ### Search "Enable Facebook Ads" & uncomment to use  - https://tppr.me/9Pkf9
   # facebook_audience_network: 1.0.0-nullsafety.0
 
-dependency_overrides:
-  firebase_app_check: 0.3.0
-  firebase_core: ^3.0.0
+# dependency_overrides:
+#   firebase_app_check: 0.3.0
+#   firebase_core: ^3.0.0
  
 dev_dependencies:
   flutter_lints: 2.0.1
