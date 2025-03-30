@@ -40,7 +40,7 @@ dependencies:
   shared_preferences: 2.0.15
   collection: 1.16.0
   quiver: 3.1.0
-  async: 2.11.0
+  async: 2.8.2
   html: 0.15.0
   vector_math: 2.1.2
   # 2.1.2
@@ -69,13 +69,21 @@ dependencies:
   # firebase_remote_config: 4.4.7
   # firebase_dynamic_links: 5.5.7
   # cloud_firestore: 4.17.5
-  firebase_core: 3.12.1
-  firebase_auth: 5.5.1
-  firebase_analytics: 11.4.4
-  firebase_app_check: 0.3.2+4
-  firebase_remote_config: 5.0.2
-  firebase_dynamic_links: 6.0.2
-  cloud_firestore: 5.6.5
+  # firebase_core: 3.12.1
+  # firebase_auth: 5.5.1
+  # firebase_analytics: 11.4.4
+  # firebase_app_check: 0.3.2+4
+  # firebase_remote_config: 5.0.2
+  # firebase_dynamic_links: 6.0.2
+  # cloud_firestore: 5.6.5
+  firebase_core: ^2.24.0
+  firebase_app_check: ^0.3.1
+  firebase_auth: ^4.11.0
+  firebase_analytics: ^10.8.0
+  firebase_remote_config: ^4.2.0
+  firebase_dynamic_links: ^5.3.0
+  cloud_firestore: ^4.8.0
+  firebase_messaging: ^14.7.0  
 
   # STATE MANAGEMENT
   provider: 6.0.3
@@ -112,7 +120,7 @@ dependencies:
 
   # PUSH NOTIFICATION
   # firebase_messaging: 14.3.0
-  firebase_messaging: 15.0.3
+  # firebase_messaging: 15.0.3
   notification_permissions: 0.6.1
   # flutter_local_notifications: 9.6.0
   flutter_local_notifications: 18.0.1  ##flutter 3.24
