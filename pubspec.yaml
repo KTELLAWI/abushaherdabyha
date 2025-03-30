@@ -64,7 +64,7 @@ dependencies:
   # 
   firebase_app_check: ^0.3.2+4
   firebase_core: 2.32.0      # Latest stable (supports Flutter 3.x)
-  firebase_analytics: ^11.4.4  # Updated analytics
+  firebase_analytics: 11.1.0  # Updated analytics
   firebase_auth: 4.20.0      # Latest auth
   firebase_remote_config: 4.4.7
   firebase_dynamic_links: 5.5.7
