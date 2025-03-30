@@ -1,8 +1,9 @@
+
 {
   "project_info": {
     "project_number": "429613332755",
     "project_id": "abushaherdabiha",
-    "storage_bucket": "abushaherdabiha.firebasestorage.app"
+    "storage_bucket": "abushaherdabiha.appspot.com"
   },
   "client": [
     {
@@ -14,12 +15,8 @@
       },
       "oauth_client": [
         {
-          "client_id": "429613332755-ah5v474gecp7camiegbag8qh7oi5c4ne.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "online.digistacks.abushaher",
-            "certificate_hash": "CD83ACAFF76D8B69EEA170770EE588C2E42E1CFA"
-          }
+          "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
@@ -31,40 +28,8 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "429613332755-r7995go66jtaitbvj4kenr8l8ru38jt9.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "online.digistacks.abushaher",
-                "app_store_id": "6444722624"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:429613332755:android:c6c8c80e1bcc725ad9c2e6",
-        "android_client_info": {
-          "package_name": "store.digistacks.abushaher"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCeE3V6Tk4SDZcE0r_Ku7IvqZa498WxII"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "429613332755-r7995go66jtaitbvj4kenr8l8ru38jt9.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "online.digistacks.abushaher",
-                "app_store_id": "6444722624"
-              }
+              "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
+              "client_type": 3
             }
           ]
         }
