@@ -41,7 +41,7 @@ dependencies:
   quiver: 3.1.0
   async: 2.8.2
   html: 0.15.0
-  vector_math: 2.1.2
+  vector_math: 2.1.4
   # 2.1.2
   path: 1.8.1
   flutter_svg: 1.1.0
