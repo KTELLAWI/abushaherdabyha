@@ -62,7 +62,7 @@ dependencies:
   # cloud_firestore: 4.4.5
   # firebase_app_check: ^0.1.1+14
   # 
-  firebase_app_check: ^0.3.2+4
+  firebase_app_check: 0.3.0+3
   firebase_core: 2.32.0      # Latest stable (supports Flutter 3.x)
   firebase_analytics: 10.10.7  # Updated analytics
   firebase_auth: 4.20.0      # Latest auth
