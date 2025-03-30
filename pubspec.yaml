@@ -74,7 +74,7 @@ dependencies:
   firebase_analytics: 11.4.4
   firebase_app_check: 0.3.2+4
   firebase_remote_config: 4.3.4
-  firebase_dynamic_links: 5.4.4
+  # firebase_dynamic_links: 5.4.4
   cloud_firestore: 5.6.5
 
   # STATE MANAGEMENT
@@ -242,6 +242,8 @@ dependency_overrides:
   intl: 0.19.0
   collection: 1.18.0
   http: ^1.2.2
+  firebase_dynamic_links: 5.4.4
+
 
 flutter_icons:
   # android: "launcher_icon"
