@@ -75,6 +75,13 @@ void main() {
       /// Init Firebase settings due to version 0.5.0+ requires to.
       /// Use await to prevent any usage until the initialization is completed.
       await Services().firebase.init();
+          // Activate App Check
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.playIntegrity, // For Android
+      appleProvider: AppleProvider.appAttest, // For iOS/macOS
+      // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
+    );
+
       await Configurations().loadRemoteConfig();
     }
     await DependencyInjection.inject();
@@ -103,12 +110,6 @@ void main() {
     ResponsiveSizingConfig.instance.setCustomBreakpoints(
         const ScreenBreakpoints(desktop: 900, tablet: 600, watch: 100));
 
-    // Activate App Check
-    await FirebaseAppCheck.instance.activate(
-      androidProvider: AndroidProvider.playIntegrity, // For Android
-      appleProvider: AppleProvider.appAttest, // For iOS/macOS
-      // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
-    );
 
     runApp(
      App(languageCode: languageCode)
