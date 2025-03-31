@@ -59,7 +59,7 @@ dependencies:
   firebase_remote_config: 3.0.15
   firebase_dynamic_links: 5.0.17
   cloud_firestore: 4.4.5
-  firebase_app_check: 0.1.1+1
+  firebase_app_check: 0.1.1+14
   #  ^0.1.1+14 
 
   # STATE MANAGEMENT

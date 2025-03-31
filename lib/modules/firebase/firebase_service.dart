@@ -7,6 +7,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 import '../../common/config.dart';
 import '../../common/constants.dart';
@@ -39,6 +40,12 @@ class FirebaseServices extends BaseFirebaseServices {
   Future<void> init() async {
     var startTime = DateTime.now();
     await Firebase.initializeApp();
+          // Activate App Check
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.playIntegrity, // For Android
+      // appleProvider: AppleProvider.appAttest, // For iOS/macOS
+      // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
+    );
     _isEnabled = kAdvanceConfig.enableFirebase;
 
     /// Not require Play Services
