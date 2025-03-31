@@ -146,7 +146,7 @@ configurations.all {
         force 'com.google.android.play:integrity:1.1.0' // فرض الإصدار
     } 
 }
-googleServices { disableVersionCheck = true }
+// googleServices { disableVersionCheck = true }
 configurations {
     all*.exclude group: 'com.google.android.play', module: 'core'
     // all*.exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
