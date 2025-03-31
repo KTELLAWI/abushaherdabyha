@@ -40,12 +40,12 @@ class FirebaseServices extends BaseFirebaseServices {
   Future<void> init() async {
     var startTime = DateTime.now();
     await Firebase.initializeApp();
-          // Activate App Check
-    await FirebaseAppCheck.instance.activate(
-      androidProvider: AndroidProvider.playIntegrity, // For Android
-      // appleProvider: AppleProvider.appAttest, // For iOS/macOS
-      // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
-    );
+    //       // Activate App Check
+    // await FirebaseAppCheck.instance.activate(
+    //   androidProvider: AndroidProvider.playIntegrity, // For Android
+    //   // appleProvider: AppleProvider.appAttest, // For iOS/macOS
+    //   // webRecaptchaSiteKey: kWebRecaptchaSiteKey, // For web
+    // );
     _isEnabled = kAdvanceConfig.enableFirebase;
 
     /// Not require Play Services
