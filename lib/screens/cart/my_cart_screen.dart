@@ -118,7 +118,7 @@ class _MyCartState extends State<MyCart> with SingleTickerProviderStateMixin {
 
          if (!Provider.of<AppModel>(context, listen: false).darkTheme)  
                   Image.network(
-            "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,

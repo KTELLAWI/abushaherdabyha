@@ -313,7 +313,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
             child: Stack(
               children: [
           //           Image.network(
-          //   "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/appBackground.png",
+          //   "https://abushaherdabayh.site/wp-content/uploads/2022/10/appBackground.png",
           //   height: MediaQuery.of(context).size.height,
           //   width: MediaQuery.of(context).size.width,
           //   fit: BoxFit.cover,
@@ -330,7 +330,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
                         child: Column(
                           children: <Widget>[
           //                             Image.network(
-          //   "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/appBackground.png",
+          //   "https://abushaherdabayh.site/wp-content/uploads/2022/10/appBackground.png",
           //   height: MediaQuery.of(context).size.height,
           //   width: MediaQuery.of(context).size.width,
           //   fit: BoxFit.cover,

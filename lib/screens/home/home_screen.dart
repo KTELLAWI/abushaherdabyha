@@ -104,13 +104,13 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
 {
   // 
 //"image":"https://i.imgur.com/qlr2tP6.png",
-"image":"https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/meatSlider.jpg",
+"image":"https://abushaherdabayh.site/wp-content/uploads/2022/10/meatSlider.jpg",
 "padding":14.1,
 "category":null
 },
 {
 "padding":14.1,
-"image":"https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/transporationcars.jpg",
+"image":"https://abushaherdabayh.site/wp-content/uploads/2022/10/transporationcars.jpg",
 "category":null
 },
 
@@ -183,7 +183,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
             children: <Widget>[
               !Provider.of<AppModel>(context, listen: true).darkTheme ? 
                Image.network(
-            "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,

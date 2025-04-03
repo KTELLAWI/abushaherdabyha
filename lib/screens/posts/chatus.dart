@@ -344,7 +344,7 @@ final config1 = BannerConfig.fromJson(config);
 
           if(!Provider.of<AppModel>(context, listen: false).darkTheme )    
                         Image.network(
-            "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -597,7 +597,7 @@ Align(
                   //                     image: new DecorationImage(
                   //                         fit: BoxFit.cover,
                   //                         image:  !isDarkTheme? new NetworkImage(
-                  //                              "https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg") : null,),
+                  //                              "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg") : null,),
                   // ) 
                   padding: const EdgeInsets.symmetric(
                       horizontal: 5.0, vertical: 5.0),
