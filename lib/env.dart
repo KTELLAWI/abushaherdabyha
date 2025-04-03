@@ -18,7 +18,7 @@ Map<String, dynamic> environment = {
   /// ➡️ lib/common/config.dart
   "serverConfig": {
     'type': 'woo',
-    'url': 'https://abushaher-f6afbkd9cygcaagj.germanywestcentral-01.azurewebsites.net',
+    'url': 'https://abushaher.vps.webdock.cloud',
     'consumerKey': 'ck_1522d8e2c88b48d1c36b23ac2407cf85debbc1c9',
     'consumerSecret': 'cs_908c342beced94fc5c91dddcf0ebe415674089b1',
 
