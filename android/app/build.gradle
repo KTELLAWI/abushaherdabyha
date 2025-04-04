@@ -207,7 +207,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 34
-    namespace "online.digistacks.abushaher"
+    namespace "store.digistacks.abushaher"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -228,7 +228,7 @@ android {
     }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "online.digistacks.abushaher"
+        applicationId "store.digistacks.abushaher"
         minSdkVersion 23
         targetSdkVersion 34
 
