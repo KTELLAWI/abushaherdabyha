@@ -1,9 +1,8 @@
-
 {
   "project_info": {
     "project_number": "429613332755",
     "project_id": "abushaherdabiha",
-    "storage_bucket": "abushaherdabiha.appspot.com"
+    "storage_bucket": "abushaherdabiha.firebasestorage.app"
   },
   "client": [
     {
@@ -15,8 +14,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "429613332755-ah44eouq9p05ovj23qggsgujp8o8nm7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "online.digistacks.abushaher",
+            "certificate_hash": "cd83acaff76d8b69eea170770ee588c2e42e1cfa"
+          }
         }
       ],
       "api_key": [
@@ -28,8 +31,12 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
-              "client_type": 3
+              "client_id": "429613332755-r7995go66jtaitbvj4kenr8l8ru38jt9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "online.digistacks.abushaher",
+                "app_store_id": "6444722624"
+              }
             }
           ]
         }
