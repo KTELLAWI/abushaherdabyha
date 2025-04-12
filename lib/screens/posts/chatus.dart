@@ -226,56 +226,56 @@ class _ChatUsState extends State<ChatUs>{
   @override
   Widget build(BuildContext context)  {
     final isDarkTheme = Provider.of<AppModel>(context).darkTheme;
-final Map <String , dynamic >config = 
+final config = 
+<String , dynamic >{
+'layout':'bannerImage',
+'design':'swiper',
+'fit':'fitWidth',
+'marginLeft':0,
+'items':[
 {
-"layout":"bannerImage",
-"design":"swiper",
-"fit":"fitWidth",
-"marginLeft":0,
-"items":[
-{
-"image":"https://i.imgur.com/t76x6mp.jpg"
+'image':'https://i.imgur.com/t76x6mp.jpg'
 },
 {
-"image":"https://i.imgur.com/j1bhlY7.jpg"
+'image':'https://i.imgur.com/j1bhlY7.jpg'
 },
 
 ],
-"marginBottom":0,
-"height":0.45,
-"marginRight":0,
-"marginTop":10,
-"radius":0,
-"padding":0,
-"title":{
-"isSafeArea":false,
-"showSearch":false,
-"usePrimaryColor":true,
-"borderInput":false,
-"title":"",
-"alignment":"centerLeft",
-"fontWeight":400,
-"fontSize":25,
-"textOpacity":1,
-"marginLeft":16,
-"marginRight":0,
-"marginBottom":0,
-"marginTop":0,
-"paddingLeft":5,
-"paddingRight":15,
-"paddingTop":0,
-"paddingBottom":0,
-"height":50,
-"rotate":[]
+'marginBottom':0,
+'height':0.45,
+'marginRight':0,
+'marginTop':10,
+'radius':0,
+'padding':0,
+'title':{
+'isSafeArea':false,
+'showSearch':false,
+'usePrimaryColor':true,
+'borderInput':false,
+'title':'',
+'alignment':'centerLeft',
+'fontWeight':400,
+'fontSize':25,
+'textOpacity':1,
+'marginLeft':16,
+'marginRight':0,
+'marginBottom':0,
+'marginTop':0,
+'paddingLeft':5,
+'paddingRight':15,
+'paddingTop':0,
+'paddingBottom':0,
+'height':50,
+'rotate':[]
 },
-"isSlider":true,
-"autoPlay":false,
-"intervalTime":3,
-"showNumber":true,
-"isBlur":false,
-"showBackground":false,
-"upHeight":0,
-"key":"46rwu38h34"};
+'isSlider':true,
+'autoPlay':false,
+'intervalTime':3,
+'showNumber':true,
+'isBlur':false,
+'showBackground':false,
+'upHeight':0,
+'key':'46rwu38h34'};
 //{
 //   "layout":"bannerImage",
 //   "design":"stack",
@@ -344,7 +344,7 @@ final config1 = BannerConfig.fromJson(config);
 
           if(!Provider.of<AppModel>(context, listen: false).darkTheme )    
                         Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -355,7 +355,7 @@ Scaffold(
     appBar:      AppBar(
            // systemOverlayStyle: SystemUiOverlayStyle.light,
             title: Text( context.isRtl?
-              'تواصل معنا':"Contact us",
+              'تواصل معنا':'Contact us',
               style: Theme.of(context)
                   .textTheme
                   .headline6
@@ -418,18 +418,18 @@ Scaffold(
                   // Expanded( 
                   //   child:  
                     IconButton(
-                      onPressed:  () async => await launch ("https://wa.me/966544851622"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () async => await launch ('https://wa.me/966544851622'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.whatsapp, color:isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                     IconButton(
-                      onPressed:  () async=>await launch("tel:966544851622"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () async=>await launch('tel:966544851622'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.phone, color: isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                  // ),
                   // Expanded( 
                   //   child: 
                      IconButton(
-                      onPressed:  ()async => await launch("sms://966544851622"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  ()async => await launch('sms://966544851622'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.sms, color: isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                  // ),
@@ -526,18 +526,18 @@ Text(context.isRtl?
                   // Expanded( 
                   //   child:  
                     IconButton(
-                      onPressed:  () async => await launch ("https://www.twitter.com/abushaher_ksa"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () async => await launch ('https://www.twitter.com/abushaher_ksa'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.twitter, color:isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                     IconButton(
-                      onPressed:  () async=>await launch("https://www.snapchat.com/add/abushaher.ksa?share_id=UQofC3YX7c0&locale=ar-AE"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () async=>await launch('https://www.snapchat.com/add/abushaher.ksa?share_id=UQofC3YX7c0&locale=ar-AE'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.snapchat, color:isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                  // ),
                   // Expanded( 
                   //   child: 
                      IconButton(
-                      onPressed:  ()async => await launch("https://www.instagram.com/abushaher.ksa"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  ()async => await launch('https://www.instagram.com/abushaher.ksa'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.instagram, color:isDarkTheme ? Colors.white.withOpacity(0.6):Color(0xff52260f), size: 30.0)
                     ),
                  // ),

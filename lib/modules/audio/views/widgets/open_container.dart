@@ -712,7 +712,7 @@ class _OpenContainerRoute<T> extends ModalRoute<T> {
             );
           }
 
-          final Animation<double> curvedAnimation = CurvedAnimation(
+          final curvedAnimation = CurvedAnimation(
             parent: animation,
             curve: Curves.fastOutSlowIn,
             reverseCurve:

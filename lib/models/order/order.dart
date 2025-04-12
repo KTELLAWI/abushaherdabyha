@@ -722,10 +722,9 @@ class Order {
         params['customer_note'] = 'URL:${cartModel.address!.mapUrl!}';
       }
       if (kEnableCustomerNote &&
-          cartModel.notes != null &&
-          cartModel.notes!.isNotEmpty) {
+          cartModel.notes.isNotEmpty) {
         if (params['customer_note'] != null) {
-          params['customer_note'] += '\n${cartModel.notes!}';
+          params['customer_note'] += '\n${cartModel.notes}';
         } else {
           params['customer_note'] = cartModel.notes;
         }
@@ -970,8 +969,8 @@ class Order {
     }
 
     var noteOrder = <String>[];
-    if (cartModel.notes?.isNotEmpty ?? false) {
-      noteOrder.add('CustomerNote: ${cartModel.notes!}\n');
+    if (cartModel.notes.isNotEmpty ?? false) {
+      noteOrder.add('CustomerNote: ${cartModel.notes}\n');
       noteOrder.add(NotionDataTools.newlineListData);
     }
     if (cartModel.productVariationInCart.isNotEmpty) {

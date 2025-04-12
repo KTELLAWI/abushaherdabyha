@@ -56,19 +56,19 @@ class DynamicLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-final Map<String,dynamic> config2 = {
+final config2 = <String,dynamic>{
    // "layout":"twoColumn",
    // "name":"Recent Collections",
-    "isSnapping":true,
-    "rows":3,
-    "columns":0,
-    "imageBoxfit":"contain",
-    "imageRatio":1.0397843326430722,
-    "hMargin":6,
-    "vMargin":0,
-    "hPadding":0,
-    "vPadding":0,
-    "pos":600,
+    'isSnapping':true,
+    'rows':3,
+    'columns':0,
+    'imageBoxfit':'contain',
+    'imageRatio':1.0397843326430722,
+    'hMargin':6,
+    'vMargin':0,
+    'hPadding':0,
+    'vPadding':0,
+    'pos':600,
     // "showStockStatus":true,
     // "enableRating":true,
     // "hideTitle":false,
@@ -85,7 +85,7 @@ final Map<String,dynamic> config2 = {
     // "cardDesign":"glass",
     // "borderRadius":26,
     // "category":"27",
-    "tag":null};
+    'tag':null};
 
 
 
@@ -127,7 +127,7 @@ var categories = category.categories;
         Padding(
           padding: const EdgeInsets.only(left:10,right:10,bottom:10,top:50),
         child:
-        HeaderView(
+        const HeaderView(
           headerText: ' وش محتاج اليوم من عنا' ,
         ),
         );
@@ -194,7 +194,7 @@ var categories = category.categories;
             var configValue = CategoryConfig.fromJson(config);
             var listCategoryName =
                 categoryList.map((key, value) => MapEntry(key, value.name));
-            void _onShowProductList(CategoryItemConfig item) {
+            void onShowProductList(CategoryItemConfig item) {
               FluxNavigate.pushNamed(
                 RouteList.backdrop,
                 arguments: BackDropArguments(
@@ -208,7 +208,7 @@ var categories = category.categories;
               return CategoryMenuWithProducts(
                 config: configValue,
                 listCategoryName: listCategoryName,
-                onShowProductList: _onShowProductList,
+                onShowProductList: onShowProductList,
               );
             }
 
@@ -216,14 +216,14 @@ var categories = category.categories;
               return CategoryTexts(
                 config: configValue,
                 listCategoryName: listCategoryName,
-                onShowProductList: _onShowProductList,
+                onShowProductList: onShowProductList,
               );
             }
 
             return CategoryIcons(
               config: configValue,
               listCategoryName: listCategoryName,
-              onShowProductList: _onShowProductList,
+              onShowProductList: onShowProductList,
             );
           },
         );

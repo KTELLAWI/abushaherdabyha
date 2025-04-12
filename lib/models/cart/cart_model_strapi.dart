@@ -137,7 +137,7 @@ class CartModelStrapi
     shippingMethod = null;
     paymentMethod = null;
     couponObj = null;
-    notes = "";
+    notes = '';
     notifyListeners();
   }
 

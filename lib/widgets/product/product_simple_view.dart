@@ -79,7 +79,7 @@ class ProductSimpleView extends StatelessWidget {
     }
 
     /// Product Pricing
-    Widget productPricing = Wrap(
+    var productPricing = Wrap(
       crossAxisAlignment: WrapCrossAlignment.end,
       children: <Widget>[
         Text(

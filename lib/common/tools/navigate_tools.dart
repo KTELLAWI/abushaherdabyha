@@ -176,7 +176,7 @@ class NavigateTools {
   static void navigateAfterLogin(user, context) {
 
 //void _showTopFlash({FlashBehavior style = FlashBehavior.fixed}) {
-  FlashBehavior style = FlashBehavior.fixed;
+  var style = FlashBehavior.fixed;
 	showFlash(
 	context: context,
 	duration: const Duration(seconds: 4),
@@ -191,7 +191,7 @@ class NavigateTools {
 		behavior: style,
 		position: FlashPosition.top,
 		child: FlashBar(
-			title: Text('${S.of(context).welcome}',style:TextStyle(color:Colors.white)),
+			title: Text(S.of(context).welcome,style:TextStyle(color:Colors.white)),
 			content: Text('${user.name} !'),
 			// primaryAction: TextButton(
 			// onPressed: () {},

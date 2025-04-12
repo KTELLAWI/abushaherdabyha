@@ -77,7 +77,7 @@ class _ScrollingPageIndicatorState extends State<ScrollingPageIndicator> {
         ? widget.visibleDotCount
         : widget.itemCount;
     final width = (itemCount - 1) * widget.dotSpacing + widget.dotSelectedSize;
-    final Widget child = SizedBox(
+    final child = SizedBox(
       width: widget.orientation == Axis.horizontal
           ? width
           : widget.dotSelectedSize,
@@ -176,13 +176,13 @@ class _Painter extends CustomPainter {
           }
 
           if (dot - _visibleFramePosition < currentScaleDistance) {
-            final calculatedDiameter = diameter! *
+            final calculatedDiameter = diameter *
                 (dot - _visibleFramePosition) /
                 currentScaleDistance;
             diameter = min(diameter, calculatedDiameter);
           } else if (dot - _visibleFramePosition >
               width - currentScaleDistance) {
-            final calculatedDiameter = diameter! *
+            final calculatedDiameter = diameter *
                 (-dot + _visibleFramePosition + width) /
                 currentScaleDistance;
             diameter = min(diameter, calculatedDiameter);
@@ -194,10 +194,10 @@ class _Painter extends CustomPainter {
 
         if (orientation == Axis.horizontal) {
           canvas.drawCircle(Offset(dot - _visibleFramePosition, height / 2),
-              diameter! / 2, _paint);
+              diameter / 2, _paint);
         } else {
           canvas.drawCircle(Offset(height / 2, dot - _visibleFramePosition),
-              diameter! / 2, _paint);
+              diameter / 2, _paint);
         }
       }
     }

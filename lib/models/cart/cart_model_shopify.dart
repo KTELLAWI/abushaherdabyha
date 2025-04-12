@@ -211,7 +211,7 @@ class CartModelShopify
     shippingMethod = null;
     paymentMethod = null;
     couponObj = null;
-    notes = "";
+    notes = '';
     notifyListeners();
   }
 

@@ -519,7 +519,7 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
       ),
     );
 
-    Animation<double> opacity = CurvedAnimation(
+    var opacity = CurvedAnimation(
       curve: const Interval(0.33, 1.0, curve: Curves.linear),
       parent: animation,
     );

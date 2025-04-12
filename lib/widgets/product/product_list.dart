@@ -156,7 +156,7 @@ class _ProductListState extends State<ProductList> {
       );
     }
 
-    Widget typeList = const SizedBox();
+    var typeList = const SizedBox();
 
     if (widget.layout != 'pinterest') {
       if (widget.layout == 'listTile') {

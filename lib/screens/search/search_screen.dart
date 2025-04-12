@@ -218,7 +218,7 @@ class _StateSearchScreen extends State<SearchScreen>
 
   Widget _renderHeader() {
     final screenSize = MediaQuery.of(context).size;
-    Widget headerContent = const SizedBox(height: 10.0);
+    var headerContent = const SizedBox(height: 10.0);
     if (!widget.isModal) {
       headerContent = AnimatedContainer(
         height: isVisibleSearch ? 0.1 : 58,

@@ -129,7 +129,7 @@ class PriceTools {
         number = formatCurrency.format(price);
       }
  //defaultCurrency.symbol
-      return number + '  ' + defaultCurrency.symbol;
+      return '$number  ${defaultCurrency.symbol}';
       // defaultCurrency.symbolBeforeTheNumber
       //     ? defaultCurrency.symbol + number
       //     : defaultCurrency.symbol + number  ;
@@ -192,7 +192,7 @@ class PriceTools {
         number = formatCurrency.format(price);
       }
  //defaultCurrency.symbol
-      return number + '  ' +" defaultCurrency.symbol" ;
+      return number + '  ' +' defaultCurrency.symbol' ;
       // defaultCurrency.symbolBeforeTheNumber
       //     ? defaultCurrency.symbol + number
       //     : defaultCurrency.symbol + number  ;

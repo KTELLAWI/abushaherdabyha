@@ -89,7 +89,7 @@ class _BackdropTitle extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = CurvedAnimation(
+    final animation = CurvedAnimation(
       parent: listenable as Animation<double>,
       curve: const Interval(0.0, 0.78),
     );

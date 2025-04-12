@@ -103,7 +103,7 @@ class _PicSwiperState extends State<PicSwiper>
                 ExtendedImageGesturePageView.builder(
                   itemBuilder: (BuildContext context, int index) {
                     var item = widget.pics[index].picUrl!;
-                    Widget image = ExtendedImage.network(
+                    var image = ExtendedImage.network(
                       item,
                       fit: BoxFit.contain,
                       enableSlideOutPage: true,

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import '../../../common/constants.dart';
 import '../constants/endpoint.dart';
 import '../models/index.dart';
 import 'tiktok_base_service.dart';

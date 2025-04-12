@@ -1,4 +1,3 @@
-import '../../common/constants.dart';
 import '../../common/tools.dart';
 
 class ProductAttribute {

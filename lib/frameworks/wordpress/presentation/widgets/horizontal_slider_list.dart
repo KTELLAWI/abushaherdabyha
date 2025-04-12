@@ -55,7 +55,7 @@ class _HorizontalSliderListState extends State<HorizontalSliderList> {
     final imageBorder =
         Tools.formatDouble(widget.config!['imageBorder'] ?? 3.0);
 
-    int _buildItemCount(List<Blog>? list, int itemNumber) {
+    int buildItemCount(List<Blog>? list, int itemNumber) {
       if (list!.length % itemNumber == 0) {
         // ignore: unnecessary_parenthesis
         return (list.length ~/ itemNumber);
@@ -114,7 +114,7 @@ class _HorizontalSliderListState extends State<HorizontalSliderList> {
                     padding: const EdgeInsets.only(left: 10),
                     height: 520,
                     child: PageView.builder(
-                        itemCount: _buildItemCount(value, 3),
+                        itemCount: buildItemCount(value, 3),
                         controller: _pageController,
                         itemBuilder: (context, index) {
                           final data = value.skip(index * 3).take(3);

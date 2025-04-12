@@ -1373,7 +1373,7 @@ class ProductsScreenState extends State<ProductsScreen>
         productModel.categoryName ??
         S.of(context).products;
 
-    Widget buildMain = 
+    var buildMain = 
     LayoutBuilder(
       builder: (context, constraint) {
         return FractionallySizedBox(
@@ -1537,7 +1537,7 @@ class ProductsScreenState extends State<ProductsScreen>
                           //   search: searchText,
                           // )
                         },
-                        filterMenu: (scrollController) => BackdropMenu(
+                        filterMenu: (scrollController) => const BackdropMenu(
                           //onFilter: onFilter,
                           // categoryId: newCategoryId,
                           // sortBy: _currentFilterSortBy,

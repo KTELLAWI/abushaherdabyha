@@ -319,7 +319,7 @@ mixin ProductVariantMixin1 {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(3),
                 ),
-                child: product!.id =='2441' ||product!.id =='2440' ?
+                child: product.id =='2441' ||product.id =='2440' ?
                  QuantitySelection1(
                   height: 32.0,
                   expanded: true,

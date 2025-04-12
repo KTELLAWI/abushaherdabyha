@@ -292,7 +292,7 @@ import '../../../models/index.dart' show CartModel, Product, ProductModel;
 import '../../cart/cart_screen.dart';
 import '../product_detail_screen.dart';
 //import '../widgets/index.dart';
-import "package:fstore/screens/detail/themes/custom_container_shape_border.dart";
+import 'package:fstore/screens/detail/themes/custom_container_shape_border.dart';
 
 class HalfSizeLayout extends StatefulWidget {
   final Product? product;
@@ -339,10 +339,10 @@ class _HalfSizeLayoutState extends State<HalfSizeLayout>
 
 
   Widget _getLowerLayer({width, height,product}) {
-    final _height = height ?? MediaQuery.of(context).size.height;
-    final _width = width ?? MediaQuery.of(context).size.width;
+    final height0 = height ?? MediaQuery.of(context).size.height;
+    final width0 = width ?? MediaQuery.of(context).size.width;
     var totalCart = Provider.of<CartModel>(context).totalCartQuantity;
-    var heartproduct = product.price ?? "";
+    var heartproduct = product.price ?? '';
     print(heartproduct);
     ///
    
@@ -561,12 +561,12 @@ class _HalfSizeLayoutState extends State<HalfSizeLayout>
   }
 
   Widget _getUpperLayer({width}) {
-    final _width = width ?? MediaQuery.of(context).size.width;
+    final width0 = width ?? MediaQuery.of(context).size.width;
 
     return Material(
       color: Colors.transparent,
       child: Container(
-        width: _width,
+        width: width0,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -612,17 +612,17 @@ class _HalfSizeLayoutState extends State<HalfSizeLayout>
 
   @override
   Widget build(BuildContext context) {
-    final _height =  MediaQuery.of(context).size.height;
-    final _width = MediaQuery.of(context).size.width;
+    final height =  MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     var totalCart = Provider.of<CartModel>(context).totalCartQuantity;
-    var heartproduct = widget.product ?? "";
+    var heartproduct = widget.product ?? '';
         var isDarkTheme = Provider.of<AppModel>(context, listen: false).darkTheme;
 
     // var heartproduct2 = widget.product.price ?? "";
    return Stack(
         children: <Widget>[
           Image.asset(
-            "assets/images/appbackground.png",
+            'assets/images/appbackground.png',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,

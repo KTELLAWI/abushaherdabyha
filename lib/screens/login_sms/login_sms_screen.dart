@@ -135,7 +135,7 @@ class LoginSMSScreenState<T extends LoginSMSScreen> extends State<T>
   }
 
   Future<void> loginSMS(context) async {
- FirebaseMessaging.instance.subscribeToTopic("general");
+ FirebaseMessaging.instance.subscribeToTopic('general');
 
     if (phoneNumber == null) {
       Tools.showSnackBar(
@@ -212,7 +212,7 @@ class LoginSMSScreenState<T extends LoginSMSScreen> extends State<T>
             children: [
                     if(!Provider.of<AppModel>(context, listen: false).darkTheme )    
                         Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -241,10 +241,10 @@ class LoginSMSScreenState<T extends LoginSMSScreen> extends State<T>
       //           ],
          // borderRadius: BorderRadius.circular(25),
            borderRadius: const BorderRadius.only(
-            topLeft: const Radius.circular(30.0),
-            topRight: const Radius.circular(30.0),
-             bottomLeft: const Radius.circular(30.0),
-            bottomRight: const Radius.circular(30.0),
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+             bottomLeft: Radius.circular(30.0),
+            bottomRight: Radius.circular(30.0),
   ),
                       ),     
                       child:

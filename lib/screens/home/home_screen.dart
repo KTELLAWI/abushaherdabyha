@@ -76,7 +76,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
                   lang =langCode;
                 });
 
-    print("hommmmmmmmmmmmmmmmmmmmmmmmmmm");
+    print('hommmmmmmmmmmmmmmmmmmmmmmmmmm');
     //print(products);
     //final pp =  getProductLayout(context);
   //  print(pp);
@@ -84,56 +84,56 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
     //Layout.isDisplayDesktop(context)
     //         ? kMaxProductWidth
     //         : constraint.maxWidth;
-     final Map<String,dynamic> logoConfig =  {
-  "layout":"logo",
-  "showLogo":true,
-  "showSearch":true,
-  "showMenu":true
+     final logoConfig =  <String,dynamic>{
+  'layout':'logo',
+  'showLogo':true,
+  'showSearch':true,
+  'showMenu':true
   };
   var configl = LogoConfig.fromJson(logoConfig);
-  final Map<String,dynamic> config4banner ={
-"layout":"bannerImage1",
-"isSlider":true,
-"marginTop":0.0,
-"marginBottom":0.0,
-"marginLeft":0.0,
-"marginRight":0.0,
-"height":0.3,
-"fit":"fill",
-"items":[
+  final config4banner =<String,dynamic>{
+'layout':'bannerImage1',
+'isSlider':true,
+'marginTop':0.0,
+'marginBottom':0.0,
+'marginLeft':0.0,
+'marginRight':0.0,
+'height':0.3,
+'fit':'fill',
+'items':[
 {
   // 
 //"image":"https://i.imgur.com/qlr2tP6.png",
-"image":"https://abushaherdabayh.site/wp-content/uploads/2022/10/meatSlider.jpg",
-"padding":14.1,
-"category":null
+'image':'https://abushaherdabayh.site/wp-content/uploads/2022/10/meatSlider.jpg',
+'padding':14.1,
+'category':null
 },
 {
-"padding":14.1,
-"image":"https://abushaherdabayh.site/wp-content/uploads/2022/10/transporationcars.jpg",
-"category":null
+'padding':14.1,
+'image':'https://abushaherdabayh.site/wp-content/uploads/2022/10/transporationcars.jpg',
+'category':null
 },
 
 
 ],
-"autoPlay":true,
-"design":"default",
-"radius":7.6,
-"intervalTime":5
+'autoPlay':true,
+'design':'default',
+'radius':7.6,
+'intervalTime':5
 };
-    final Map<String,dynamic> config2 = {
+    final config2 = <String,dynamic>{
    // "layout":"twoColumn",
    // "name":"Recent Collections",
-    "isSnapping":true,
-    "rows":3,
-    "columns":0,
-    "imageBoxfit":"fill",
-    "imageRatio":1.0397843326430722,
-    "hMargin":6,
-    "vMargin":0,
-    "hPadding":0,
-    "vPadding":0,
-    "pos":600,
+    'isSnapping':true,
+    'rows':3,
+    'columns':0,
+    'imageBoxfit':'fill',
+    'imageRatio':1.0397843326430722,
+    'hMargin':6,
+    'vMargin':0,
+    'hPadding':0,
+    'vPadding':0,
+    'pos':600,
     // "showStockStatus":true,
     // "enableRating":true,
     // "hideTitle":false,
@@ -150,7 +150,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
     // "cardDesign":"glass",
     // "borderRadius":26,
     // "category":"27",
-    "tag":null};
+    'tag':null};
    // final Map<String ,dynamic> jsonData =
 
     printLog('[Home] build');
@@ -183,7 +183,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
             children: <Widget>[
               !Provider.of<AppModel>(context, listen: true).darkTheme ? 
                Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -235,7 +235,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
   // width: MediaQuery.of(context).size.width * 0.4,
   // child:
 
-                  langCode == "ar" ?
+                  langCode == 'ar' ?
                   ProductList(
                 config: ProductConfig.fromJson(appModel2!.jsonData['HorizonLayout'][2]),
                 cleanCache: false)
@@ -244,7 +244,7 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
                 cleanCache: false),
                 //),
                  //SizedBox(height:5),
-               langCode == "ar" ?
+               langCode == 'ar' ?
                    ProductList(
                 config: ProductConfig.fromJson(appModel2!.jsonData['HorizonLayout'][3]),
                 cleanCache: false) :

@@ -258,7 +258,7 @@ class _StateProductVariant extends State<ProductVariant> {
   }
 
   List<Widget> getBuyButtonWidget() {
-    String note = "";
+    var note = '';
     if (product.id=='29' || product.id=='27' ){
       quantity=5;
     }

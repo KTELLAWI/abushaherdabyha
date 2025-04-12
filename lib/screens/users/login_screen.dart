@@ -227,7 +227,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
       }
     }
 
-    void _login(context) async {
+    void login(context) async {
       if (username.text.isEmpty || password.text.isEmpty) {
         Tools.showSnackBar(
             ScaffoldMessenger.of(context), S.of(context).pleaseInput);
@@ -248,7 +248,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
       }
     }
 
-    void _loginSMS(context) {
+    void loginSMS(context) {
       if (widget.loginSms != null) {
         widget.loginSms!();
         return;
@@ -284,7 +284,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
       }
     }
 
-    void _loginGoogle(context) async {
+    void loginGoogle(context) async {
       await _playAnimation();
       await widget.loginGoogle(
           success: (user) {
@@ -403,7 +403,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
                                   as AnimationController,
                               onTap: () {
                                 if (!isLoading) {
-                                  _login(context);
+                                  login(context);
                                 }
                               },
                             ),
@@ -469,7 +469,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
                                   ),
                                 if (kLoginSetting.showGoogleLogin)
                                   InkWell(
-                                    onTap: () => _loginGoogle(context),
+                                    onTap: () => loginGoogle(context),
                                     child: Container(
                                       padding: const EdgeInsets.all(12),
                                       decoration: BoxDecoration(
@@ -485,7 +485,7 @@ class _LoginPageState extends BaseScreen<LoginScreen>
                                   ),
                                 if (kLoginSetting.showSMSLogin)
                                   InkWell(
-                                    onTap: () => _loginSMS(context),
+                                    onTap: () => loginSMS(context),
                                     child: Container(
                                       padding: const EdgeInsets.all(12),
                                       decoration: BoxDecoration(

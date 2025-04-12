@@ -56,7 +56,7 @@ class _PostScreenState extends State<PostScreen> with AppBarMixin {
               children:[
                   if(Provider.of<AppModel>(context, listen: false).darkTheme ==false)    
                         Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,

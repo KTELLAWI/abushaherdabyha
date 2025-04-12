@@ -40,7 +40,7 @@ class IconFloatingAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    Widget icon = Builder(
+    var icon = Builder(
       builder: (context) {
         var iconColor = Colors.white;
         var isImage = item['icon'].contains('/');

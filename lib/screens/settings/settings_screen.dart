@@ -1366,7 +1366,7 @@ class SettingScreenState extends State<SettingScreen>
       
       if (!Provider.of<AppModel>(context, listen: false).darkTheme)  
                   Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -1442,9 +1442,9 @@ class SettingScreenState extends State<SettingScreen>
                                   if (user != null && user.name != null)
                                   SizedBox(height:20),
                                   if (user != null && user.email != null && user.email!.isNotEmpty && context.isRtl )
-                                   Text(" مرحبا ${user.name!} ", textAlign:TextAlign.center),
+                                   Text(' مرحبا ${user.name!} ', textAlign:TextAlign.center),
                                    if (user != null && user.email != null && user.email!.isNotEmpty && !context.isRtl )
-                                  Text(" Wlecome ${user.name!} ", textAlign:TextAlign.center),
+                                  Text(' Wlecome ${user.name!} ', textAlign:TextAlign.center),
 
                                    
                                  
@@ -1522,7 +1522,7 @@ class SettingScreenState extends State<SettingScreen>
                                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(10),
                                         ))),
-                                      onPressed: ()=> _showConfirmDeleteAccountDialog(),
+                                      onPressed: _showConfirmDeleteAccountDialog,
                 
                                       child:
                                       Padding(padding: EdgeInsets.all(3),
@@ -1545,7 +1545,7 @@ class SettingScreenState extends State<SettingScreen>
                                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(10),
                                         ))),
-                                      onPressed: ()=> _onLogout(),
+                                      onPressed: _onLogout,
                 
                                       child:
                                       Padding(padding: EdgeInsets.all(3),
@@ -1674,10 +1674,10 @@ class SettingScreenState extends State<SettingScreen>
                 ],
          // borderRadius: BorderRadius.circular(25),
            borderRadius: const BorderRadius.only(
-            topLeft: const Radius.circular(30.0),
-            topRight: const Radius.circular(30.0),
-             bottomLeft: const Radius.circular(30.0),
-            bottomRight: const Radius.circular(30.0),
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+             bottomLeft: Radius.circular(30.0),
+            bottomRight: Radius.circular(30.0),
   ),
                       
                  
@@ -1695,7 +1695,7 @@ class SettingScreenState extends State<SettingScreen>
                 // height:MediaQuery.of(context).size.height,
                 child:Center(
               child:
-                   Image.network("https://abushaherdabayh.site/wp-content/uploads/2022/10/profile.png",height: 90),            
+                   Image.network('https://abushaherdabayh.site/wp-content/uploads/2022/10/profile.png',height: 90),            
             )
               ),
               Container(
@@ -1878,12 +1878,6 @@ class _SettingItem extends StatelessWidget {
 
   const _SettingItem({
     Key? key,
-    this.icon,
-    this.iconWidget,
-    this.title,
-    this.titleWidget,
-    this.trailing,
-    this.onTap,
   }) : super(key: key);
 
   @override

@@ -34,7 +34,7 @@ class TabBarIcon extends StatelessWidget {
       );
     }
 
-    Widget icon = Builder(
+    var icon = Builder(
       builder: (context) {
         var iconColor = IconTheme.of(context).color;
         var isImage = item.icon.contains('/');

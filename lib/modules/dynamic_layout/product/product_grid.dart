@@ -112,8 +112,8 @@ class ProductGrid extends StatelessWidget {
             //color:Colors.red,
            /// color: Colors.lightBlue.withOpacity(0.5),
             borderRadius: const BorderRadius.only(
-              topLeft: const Radius.circular(20.0),
-               topRight: const Radius.circular(20.0),
+              topLeft: Radius.circular(20.0),
+               topRight: Radius.circular(20.0),
             )
             ),
 

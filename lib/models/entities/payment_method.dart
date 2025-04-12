@@ -1,6 +1,5 @@
 import 'package:quiver/strings.dart';
 
-import '../../common/constants.dart';
 import '../serializers/payment.dart';
 
 class PaymentMethod {

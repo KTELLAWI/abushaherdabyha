@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../common/constants.dart';
 import '../serializers/shipping.dart';
 
 class ShippingMethod {

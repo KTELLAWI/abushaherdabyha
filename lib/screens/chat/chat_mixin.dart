@@ -157,7 +157,7 @@ class ChatMixin {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (imageData.isNotEmpty)
-        Image.network("https://i.imgur.com/6DH2Sle.png", width: 30, fit: BoxFit.contain),
+        Image.network('https://i.imgur.com/6DH2Sle.png', width: 30, fit: BoxFit.contain),
           //Image.network(imageData, width: 5, fit: BoxFit.cover),
         if (imageData.isEmpty)
           Icon(

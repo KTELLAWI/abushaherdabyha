@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
       final double radius;
     
       CustomContainerShapeBorder({
-        this.height: 400.0,
-        this.width: 500.0,
-        this.fillColor: Colors.white,
-        this.radius: 50.0,
+        this.height = 400.0,
+        this.width = 500.0,
+        this.fillColor = Colors.white,
+        this.radius = 50.0,
       });
       @override
       void paint(Canvas canvas, Size size) {
-        Path path = new Path();
+        var path = Path();
         path.moveTo(0.0, -radius);
         path.lineTo(0.0, -(height - radius));
         path.conicTo(0.0, -height, radius, -height, 1);

@@ -361,7 +361,7 @@ mixin ProductVariantMixin {
 
                   //borderRadius: BorderRadius.circular(3),
                 ),
-                child: product!.id =='2441' ||product!.id =='2440' || product!.id == "3486" || product!.id == "3484" ?
+                child: product.id =='2441' ||product.id =='2440' || product.id == '3486' || product.id == '3484' ?
                  QuantitySelection1(
                   height: 32.0,
                   expanded: true,
@@ -499,7 +499,7 @@ mixin ProductVariantMixin {
                   if (note!.isNotEmpty) {
                   //  print('note is $note');
                     Provider.of<CartModel>(context, listen: false)
-                        .setOrderNotes(note!);
+                        .setOrderNotes(note);
                   }
                    printLog('note is ');
                   addToCart(true, inStock || allowBackorder);

@@ -158,7 +158,7 @@ class ShoppingCartRow extends StatelessWidget {
                              // if (idState )
                               
   	                            
-                                        if ( id == "2440" || id == "2441" || id == "3486" || id == "3484") 
+                                        if ( id == '2440' || id == '2441' || id == '3486' || id == '3484') 
                                          QuantitySelection1(
                                   enabled: onChangeQuantity != null,
                                   width: 60,
@@ -174,7 +174,7 @@ class ShoppingCartRow extends StatelessWidget {
                                // if (kProductDetail.showStockQuantity)
                             //  if (widget.product!.id != 29 || widget.product!.id != 27 )
                                  //   if (product!.options != null && options != null)
-                                   if ( id != "2440" && id != "2441" && id != "3486" && id != "3484") 
+                                   if ( id != '2440' && id != '2441' && id != '3486' && id != '3484') 
                                    QuantitySelection(
                                   enabled: onChangeQuantity != null,
                                   width: 60,

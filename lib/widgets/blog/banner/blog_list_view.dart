@@ -116,7 +116,7 @@ class _StateBlogListView extends BaseScreen<BlogListView> {
               header: const WaterDropHeader(),
               footer: CustomFooter(
                 builder: (BuildContext context, LoadStatus? mode) {
-                  Widget body = const SizedBox();
+                  var body = const SizedBox();
                   if (mode == LoadStatus.idle) {
                     body = Text(S.of(context).pullToLoadMore);
                   } else if (mode == LoadStatus.loading) {

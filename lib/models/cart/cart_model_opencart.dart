@@ -147,7 +147,7 @@ class CartModelOpencart
     shippingMethod = null;
     paymentMethod = null;
     resetCoupon();
-    notes = "";
+    notes = '';
     notifyListeners();
   }
 

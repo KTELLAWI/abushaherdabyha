@@ -46,14 +46,14 @@ class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate ,Sin
   String? selectedId;
   bool isPaying = false;
 final ScrollController _scrollController = ScrollController();
-bool _confirm = false;
+final bool _confirm = false;
   late AnimationController _animationController;
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
 
     _animationController.forward();
@@ -65,7 +65,7 @@ bool _confirm = false;
       Provider.of<PaymentMethodModel>(context, listen: false).getPaymentMethods(
           cartModel: cartModel,
           shippingMethod: cartModel.shippingMethod,
-          token: userModel.user != null ? userModel.user!.cookie : null,
+          token: userModel.user?.cookie,
           langCode: langCode);
 
       if (kPaymentConfig.enableReview != true) {
@@ -80,16 +80,16 @@ bool _confirm = false;
       }
     });
   }
- int _selectedIndex = 0;
+ final int _selectedIndex = 0;
 
-  List<String> _tabs = ["Home", "Finance", "Cards", "Crypto", "History"];
+  final List<String> _tabs = ['Home', 'Finance', 'Cards', 'Crypto', 'History'];
   @override
   Widget build(BuildContext context) {
     final cartModel = Provider.of<CartModel>(context);
     final currencyRate = Provider.of<AppModel>(context).currencyRate;
     final paymentMethodModel = Provider.of<PaymentMethodModel>(context);
     final taxModel = Provider.of<TaxModel>(context);
-    final ScrollController _scrollController = ScrollController();
+    final scrollController = ScrollController();
 
     return 
     Stack(
@@ -210,8 +210,8 @@ bool _confirm = false;
         //width: widthVal,
         decoration:  BoxDecoration(
            borderRadius: const BorderRadius.only(
-            bottomRight:const Radius.circular(50.0),
-          bottomLeft:const Radius.circular(50.0),
+            bottomRight:Radius.circular(50.0),
+          bottomLeft:Radius.circular(50.0),
             ),
        // color: Provider.of<AppModel>(context, listen: false).darkTheme ? Colors.black.withOpacity(0.7): Colors.transparent,//Colors.grey.withOpacity(0.6),
 
@@ -225,8 +225,8 @@ bool _confirm = false;
         ),
         child: ClipRRect(
          borderRadius: const BorderRadius.only(
-           topRight:const Radius.circular(50.0),
-          topLeft:const Radius.circular(50.0),
+           topRight:Radius.circular(50.0),
+          topLeft:Radius.circular(50.0),
            ),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
@@ -243,8 +243,8 @@ bool _confirm = false;
                  decoration:  BoxDecoration(
                    // color:Provider.of<AppModel>(context, listen: false).darkTheme ? Colors.green.withOpacity(0.5):  Colors.transparent,
         borderRadius: const BorderRadius.only(
-           topRight:const Radius.circular(50.0),
-          topLeft:const Radius.circular(50.0),
+           topRight:Radius.circular(50.0),
+          topLeft:Radius.circular(50.0),
            ),
             border: Border.all(
                     color: const Color(0xff52260f),
@@ -431,59 +431,59 @@ bool _confirm = false;
   }
 
   void placeOrder(PaymentMethodModel paymentMethodModel, CartModel cartModel) {
-    final Map <String , dynamic >config = 
+    final config = 
+<String , dynamic >{
+'layout':'bannerImage',
+'design':'swiper',
+'fit':'fitWidth',
+'marginLeft':0,
+'items':[
 {
-"layout":"bannerImage",
-"design":"swiper",
-"fit":"fitWidth",
-"marginLeft":0,
-"items":[
-{
-"image":"https://i.imgur.com/t76x6mp.jpg"
+'image':'https://i.imgur.com/t76x6mp.jpg'
 },
 {
-"image":"https://i.imgur.com/j1bhlY7.jpg"
+'image':'https://i.imgur.com/j1bhlY7.jpg'
 },
 
 ],
-"marginBottom":0,
-"height":0.45,
-"marginRight":0,
-"marginTop":10,
-"radius":0,
-"padding":0,
-"title":{
-"isSafeArea":false,
-"showSearch":false,
-"usePrimaryColor":true,
-"borderInput":false,
-"title":"",
-"alignment":"centerLeft",
-"fontWeight":400,
-"fontSize":25,
-"textOpacity":1,
-"marginLeft":16,
-"marginRight":0,
-"marginBottom":0,
-"marginTop":0,
-"paddingLeft":5,
-"paddingRight":15,
-"paddingTop":0,
-"paddingBottom":0,
-"height":50,
-"rotate":[]
+'marginBottom':0,
+'height':0.45,
+'marginRight':0,
+'marginTop':10,
+'radius':0,
+'padding':0,
+'title':{
+'isSafeArea':false,
+'showSearch':false,
+'usePrimaryColor':true,
+'borderInput':false,
+'title':'',
+'alignment':'centerLeft',
+'fontWeight':400,
+'fontSize':25,
+'textOpacity':1,
+'marginLeft':16,
+'marginRight':0,
+'marginBottom':0,
+'marginTop':0,
+'paddingLeft':5,
+'paddingRight':15,
+'paddingTop':0,
+'paddingBottom':0,
+'height':50,
+'rotate':[]
 },
-"isSlider":true,
-"autoPlay":false,
-"intervalTime":3,
-"showNumber":true,
-"isBlur":false,
-"showBackground":false,
-"upHeight":0,
-"key":"46rwu38h34"};
+'isSlider':true,
+'autoPlay':false,
+'intervalTime':3,
+'showNumber':true,
+'isBlur':false,
+'showBackground':false,
+'upHeight':0,
+'key':'46rwu38h34'};
 
 final config1 = BannerConfig.fromJson(config);
-    final ScrollController _scrollController = ScrollController();
+    final scrollController = ScrollController();
     final currencyRate =
         Provider.of<AppModel>(context, listen: false).currencyRate;
 
@@ -1220,22 +1220,22 @@ class _CardSliderState extends State<CardSlider> {
 
     _cardInfoList = [
       CardInfo(
-        userName: "Nasser Alqahtani",
-        iban:"333333333333333333333333",
-        accountNumber:"2222222222222222",
-        bankLogo:"https://i.imgur.com/t76x6mp.jpg",
-        bankName:"",
+        userName: 'Nasser Alqahtani',
+        iban:'333333333333333333333333',
+        accountNumber:'2222222222222222',
+        bankLogo:'https://i.imgur.com/t76x6mp.jpg',
+        bankName:'',
         leftColor: Color.fromARGB(255, 10, 10, 10),
         rightColor: Color.fromARGB(255, 10, 10, 10),
         // leftColor: Color.fromARGB(255, 255, 255, 255),
         // rightColor: Color.fromARGB(255, 255, 255, 255),
       ),
       CardInfo(
-        userName: "Nasser Alqahtani",
-        iban:"333333333333333333333333",
-        accountNumber:"2222222222222222",
-        bankLogo:"https://i.imgur.com/j1bhlY7.jpg",
-        bankName:"",
+        userName: 'Nasser Alqahtani',
+        iban:'333333333333333333333333',
+        accountNumber:'2222222222222222',
+        bankLogo:'https://i.imgur.com/j1bhlY7.jpg',
+        bankName:'',
         leftColor: Color.fromARGB(255, 10, 10, 10),
         rightColor: Color.fromARGB(255, 10, 10, 10),
       ),
@@ -1270,8 +1270,8 @@ class _CardSliderState extends State<CardSlider> {
       // ),
     ];
 
-    for (int i = 0; i < _cardInfoList.length; i++) {
-      CardInfo cardInfo = _cardInfoList[i];
+    for (var i = 0; i < _cardInfoList.length; i++) {
+      var cardInfo = _cardInfoList[i];
       if (i == 0) {
         cardInfo.positionY = positionY_line1;
         cardInfo.opacity = 1.0;
@@ -1288,10 +1288,10 @@ class _CardSliderState extends State<CardSlider> {
     _cardInfoList = _cardInfoList.reversed.toList();
   }
 
-  _cardBuild() {
-    List widgetList = [];
+  List _cardBuild() {
+    var widgetList = [];
 
-    for (CardInfo cardInfo in _cardInfoList) {
+    for (var cardInfo in _cardInfoList) {
       widgetList.add(Positioned(
         top: cardInfo.positionY,
         child: Transform(
@@ -1442,7 +1442,7 @@ class _CardSliderState extends State<CardSlider> {
 
     void updatePosition(CardInfo cardInfo, double firstCardAreaIdx, int index) {
       // cardInfo.positionY += offsetY;
-      double currentCardAreaIdx = firstCardAreaIdx + index;
+      var currentCardAreaIdx = firstCardAreaIdx + index;
       if (currentCardAreaIdx < 0) {
         cardInfo.positionY = positionY_line1 + currentCardAreaIdx * 5;
 
@@ -1497,15 +1497,15 @@ class _CardSliderState extends State<CardSlider> {
       }
     }
 
-    double firstCardAreaIdx = scrollOffsetY / _middleAreaHeight;
+    var firstCardAreaIdx = scrollOffsetY / _middleAreaHeight;
     print(firstCardAreaIdx);
     setState(() {
       // CardInfo cardInfo = _cardInfoList.last;
       // updatePosition(cardInfo, firstCardAreaIdx, 0);
     });
 
-    for (int i = 0; i < _cardInfoList.length; i++) {
-      CardInfo cardInfo = _cardInfoList[_cardInfoList.length - 1 - i];
+    for (var i = 0; i < _cardInfoList.length; i++) {
+      var cardInfo = _cardInfoList[_cardInfoList.length - 1 - i];
       updatePosition(cardInfo, firstCardAreaIdx, i);
       setState(() {
         // cardInfo.positionY += offsetY;
@@ -1540,7 +1540,7 @@ class _CardSliderState extends State<CardSlider> {
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                "",
+                '',
                 style: TextStyle(
                     color: Color.fromARGB(255, 18, 71, 162),
                     fontSize: 16,

@@ -11,7 +11,7 @@ mixin CartMixin {
 
   PaymentMethod? paymentMethod;
 
-  String notes = "";
+  String notes = '';
   String? currency;
   Map<String, dynamic>? currencyRates;
 

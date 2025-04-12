@@ -238,7 +238,7 @@ class CartModelBigCommerce
     shippingMethod = null;
     paymentMethod = null;
     resetCoupon();
-    notes = "";
+    notes = '';
     rewardTotal = 0;
     walletAmount = 0;
     taxesTotal = 0;

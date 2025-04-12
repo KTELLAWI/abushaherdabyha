@@ -36,19 +36,19 @@ class UserUpdateModel extends ChangeNotifier {
 
   void _initAllController() {
     userEmail.text = _user!.email!;
-    userDisplayName.text = _user!.name!;
-    userFirstName.text = _user!.firstName!;
-    userLastName.text = _user!.lastName!;
+    userDisplayName.text = _user.name!;
+    userFirstName.text = _user.firstName!;
+    userLastName.text = _user.lastName!;
 
-    avatar = _user!.picture;
+    avatar = _user.picture;
 
-    shippingAddress1.text = _user!.shipping?.address1 ?? '';
-    shippingAddress2.text = _user!.shipping?.address2 ?? '';
-    shippingCity.text = _user!.shipping?.city ?? '';
-    shippingPostcode.text = _user!.shipping?.postCode ?? '';
-    shippingState.text = _user!.shipping?.state ?? '';
-    shippingCountry.text = _user!.shipping?.country ?? '';
-    shippingCompany.text = _user!.shipping?.company ?? '';
+    shippingAddress1.text = _user.shipping?.address1 ?? '';
+    shippingAddress2.text = _user.shipping?.address2 ?? '';
+    shippingCity.text = _user.shipping?.city ?? '';
+    shippingPostcode.text = _user.shipping?.postCode ?? '';
+    shippingState.text = _user.shipping?.state ?? '';
+    shippingCountry.text = _user.shipping?.country ?? '';
+    shippingCompany.text = _user.shipping?.company ?? '';
   }
 
   void _updateState(state) {

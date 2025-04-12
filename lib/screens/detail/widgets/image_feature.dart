@@ -20,7 +20,7 @@ class ImageFeature extends StatelessWidget {
         ? productVariation.imageFeature
         : product!.imageFeature;
 
-    void _onShowGallery(context, [index = 0]) {
+    void onShowGallery(context, [index = 0]) {
       Navigator.push(
         context,
         PageRouteBuilder(pageBuilder: (context, __, ___) {
@@ -33,7 +33,7 @@ class ImageFeature extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         return FlexibleSpaceBar(
           background: GestureDetector(
-            onTap: () => _onShowGallery(context),
+            onTap: () => onShowGallery(context),
             child: Stack(
               children: <Widget>[
                 Positioned(

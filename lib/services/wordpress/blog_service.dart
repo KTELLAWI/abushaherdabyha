@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import '../../common/config.dart';
-import '../../common/constants.dart';
 import '../../models/entities/paging_response.dart';
 import '../../models/index.dart';
 import 'blognews_api.dart';

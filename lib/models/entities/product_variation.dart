@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '../../common/config.dart';
-import '../../common/constants.dart';
 import '../../services/service_config.dart';
 import 'product.dart';
 import 'product_attribute.dart';

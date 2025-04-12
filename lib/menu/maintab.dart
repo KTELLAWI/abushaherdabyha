@@ -56,7 +56,7 @@ class MainTabsState extends CustomOverlayState<MainTabs>
   late AnimationController _animationController;
   AppSetting get appSetting =>
       Provider.of<AppModel>(context, listen: false).appConfig!.settings;
-String item = "post";
+String item = 'post';
   final navigators = <int, GlobalKey<NavigatorState>>{};
 
   /// TabBar variable
@@ -259,7 +259,7 @@ print(tabController.index);
       builder: (context, child) {
         // Related Scale and Translate values
          double slide = rightSlide*_animationController.value;
-        double scale = 1 - (_animationController!.value * 0.3);
+        var scale = 1 - (_animationController!.value * 0.3);
 
         return 
         // Container( 
@@ -283,7 +283,7 @@ print(tabController.index);
           children:[ 
              if (!Provider.of<AppModel>(context, listen: false).darkTheme)  
                   Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -564,7 +564,7 @@ print(tabController.index);
             filter: ImageFilter.blur(sigmaX:0.0, sigmaY: 0.0),
             child:
                       InkWell(
-                        onTap:()=>toggleAnimation(),
+                        onTap:toggleAnimation,
                         child: AnimatedIcon(
                         progress: _animationController,
                         icon: AnimatedIcons.menu_close,
@@ -600,7 +600,7 @@ print(tabController.index);
                 SizedBox(),
               ),
               _animationController.isDismissed ? 
-              BottomSheetSmartChat(): SizedBox(),
+              const BottomSheetSmartChat(): SizedBox(),
           //      ChangeNotifierProvider<ListOrderHistoryModel>(
           //   create: (context) => 
           //   ListOrderHistoryModel(
@@ -978,13 +978,13 @@ extension TabBarMenuExtention on MainTabsState {
 class CustomMenuClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    Paint paint = Paint();
+    var paint = Paint();
     paint.color = Colors.white;
 
     final width = size.width;
     final height = size.height;
 
-    Path path = Path();
+    var path = Path();
     //path.moveTo(0, 0);
     path.moveTo(0, 0);
     path.quadraticBezierTo(0, 8, 10, 16);
@@ -1002,13 +1002,13 @@ class CustomMenuClipper extends CustomClipper<Path> {
 class CustomMenuClipperRight extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    Paint paint = Paint();
+    var paint = Paint();
     paint.color = Colors.white;
 
     final width = size.width;
     final height = size.height;
 
-    Path path = Path();
+    var path = Path();
     //path.moveTo(0, 0);
     path.moveTo(width, 0);
     path.quadraticBezierTo(width, 8, width-10, 16);

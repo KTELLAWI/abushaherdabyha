@@ -62,10 +62,10 @@ class _RiveSplashScreenState extends State<RiveSplashScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration:BoxDecoration(
-        image: new DecorationImage(
+        image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: new NetworkImage(
-                                               "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg"))
+                                          image: NetworkImage(
+                                               'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg'))
       ),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,

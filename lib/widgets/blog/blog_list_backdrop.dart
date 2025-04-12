@@ -133,7 +133,7 @@ class _BlogListBackdropState extends State<BlogListBackdrop> {
       return const SizedBox();
     }
 
-    Widget typeList = const SizedBox();
+    var typeList = const SizedBox();
 
     switch (widget.layout) {
       case 'listTile':

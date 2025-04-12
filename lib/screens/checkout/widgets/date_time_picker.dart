@@ -2,10 +2,10 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../../../common/constants.dart';
 import '../../../generated/l10n.dart';
-import 'package:provider/provider.dart';
 import '../../../models/index.dart'
     show AppModel, CartModel, ProductWishListModel, User, UserModel;
 

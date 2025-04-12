@@ -38,7 +38,7 @@ class ProductGlass extends StatelessWidget with ActionButtonMixin {
    
    final s =  PriceTools.getCurrencyFormatted(
                           item.price ??  '0', null)!;
-    Widget productImage = Stack(
+    var productImage = Stack(
       children: <Widget>[
         ClipRRect(
           borderRadius:
@@ -113,7 +113,7 @@ class ProductGlass extends StatelessWidget with ActionButtonMixin {
       ],
     );
 
-    Widget productInfo = Column(
+    var productInfo = Column(
                        //  mainAxisAlignment:MainAxisAlignment.start,
 
    //  mainAxisSize: MainAxisSize.max,
@@ -190,8 +190,8 @@ class ProductGlass extends StatelessWidget with ActionButtonMixin {
       //           ],
          // borderRadius: BorderRadius.circular(25),
            borderRadius: const BorderRadius.only(
-            topLeft: const Radius.circular(25.0),
-            topRight: const Radius.circular(25.0),
+            topLeft: Radius.circular(25.0),
+            topRight: Radius.circular(25.0),
            // bottomRight:const Radius.circular(30.0),
          //  bottomLeft:const Radius.circular(60.0),
   ),
@@ -280,8 +280,8 @@ class ProductGlass extends StatelessWidget with ActionButtonMixin {
                 ],
          // borderRadius: BorderRadius.circular(25),
            borderRadius: const BorderRadius.only(
-            topLeft: const Radius.circular(25.0),
-            topRight: const Radius.circular(25.0),
+            topLeft: Radius.circular(25.0),
+            topRight: Radius.circular(25.0),
            // bottomRight:const Radius.circular(30.0),
          //  bottomLeft:const Radius.circular(60.0),
   ),

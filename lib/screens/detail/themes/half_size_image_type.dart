@@ -76,7 +76,7 @@ bool loadingState = true;
   void initState() {
     super.initState();
    
-           Future.delayed(Duration(seconds:2), () {
+           Future.delayed(const Duration(seconds:2), () {
                   
 
                    setState((){
@@ -148,10 +148,10 @@ void addToCart([bool buyNow = false, bool inStock = false]) {
   }
 
  List<Widget> getBuyButtonWidget() {
-    if (product!.id=='29' || product!.id=='27' ){
+    if (product.id=='29' || product.id=='27' ){
       quantity=5;
     }
-    var fullNote = product!.name! + ":" + note!.text!;
+    var fullNote = "${product!.name!}:" + note!.text!;
     return services.widget.getBuyButtonWidget(context, productVariation,
         widget!.product!, mapAttribute, getMaxQuantity(), quantity, addToCart, (val) {
       quantity = val;
@@ -261,7 +261,7 @@ void onSelectProductVariantButton({
         children: <Widget>[
           Provider.of<AppModel>(context, listen: true).darkTheme ? Container():
             Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/appBackground.png",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/appBackground.png',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -454,7 +454,7 @@ void onSelectProductVariantButton({
                 minHeight: 18,
               ),
               child: Text(
-                "totalCart.toString()",
+                'totalCart.toString()',
                 style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -539,7 +539,7 @@ void onSelectProductVariantButton({
           //  ),
                      // ProductTitle(widget.product),
                       SizedBox(height:15),
-                      if (widget!.product!.id == '2440' ||widget!.product!.id ==   '2441' || widget!.product!.id == "3486" || widget!.product!.id == "3484")
+                      if (widget!.product!.id == '2440' ||widget!.product!.id ==   '2441' || widget!.product!.id == '3486' || widget!.product!.id == '3484')
                       Text( context.isRtl ?'أقل كمية هي 5 كليو غرام' : 'Minimum is 5 KG',textAlign:TextAlign.start),
                     // ProductVariantButton(widget.product,false),
                     
@@ -629,7 +629,7 @@ void onSelectProductVariantButton({
   @override
   Widget build(BuildContext context) {
         var totalCart = Provider.of<CartModel>(context).totalCartQuantity;
-         if (product!.id =='2440' ||product!.id =='2441' )
+         if (product.id =='2440' ||product.id =='2441' )
     {
        setState((){
                     
@@ -670,7 +670,7 @@ void onSelectProductVariantButton({
           children: [
          Provider.of<AppModel>(context, listen: true).darkTheme ? Container(color:Colors.transparent):
             Image.network(
-            "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg",
+            'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg',
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
@@ -935,7 +935,7 @@ void onSelectProductVariantButton({
             ),
 
           if(loadingState)
-            LoadingWidget(),
+            const LoadingWidget(),
           //  LoadingOverlay(
           //    isLoading:loadingState,
           //    color:Colors.white,

@@ -198,13 +198,13 @@ class OptionSelection extends StatelessWidget {
       builder: (BuildContext context) {
         return 
         Container(
-           decoration: new BoxDecoration(
+           decoration: BoxDecoration(
                                      // shape: BoxShape.circle,
                                      // border: new Border.all(color: Colors.black),
-                                      image: new DecorationImage(
+                                      image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: new NetworkImage(
-                                               "https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg"))),
+                                          image: NetworkImage(
+                                               'https://abushaherdabayh.site/wp-content/uploads/2022/10/80a181e2-1e50-491e-8872-e1b8d4cd7d4d.jpg'))),
                             
 child:
        

@@ -260,7 +260,7 @@ class _StateProductVariantButton extends State<ProductVariantButton> {
 //   }
 
   List<Widget> getBuyButtonWidget() {
-    String note = "";
+    var note = '';
     if (product.id=='29' || product.id=='27' ){
       quantity=5;
     }
@@ -313,7 +313,7 @@ class _StateProductVariantButton extends State<ProductVariantButton> {
                  // addToCart(true,true,);
                     //code to execute when this button is pressed.
                 }, 
-                child: Text("Elevated Button") 
+                child: Text('Elevated Button') 
               )
             ),
             ),
@@ -337,7 +337,7 @@ class _StateProductVariantButton extends State<ProductVariantButton> {
                  // variantKey.currentState.addToCart();
                     //code to execute when this button is pressed.
                 }, 
-                child: Text("Elevated Button") 
+                child: Text('Elevated Button') 
               )
             ),
             )
@@ -363,7 +363,7 @@ class _StateProductVariantButton extends State<ProductVariantButton> {
                      addToCart(true,true,);
                     //code to execute when this button is pressed.
                 }, 
-                child: Text("Elevated Button") 
+                child: Text('Elevated Button') 
               )
             ),
          

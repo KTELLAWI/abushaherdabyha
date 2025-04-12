@@ -122,7 +122,7 @@ class _HomeLayoutState extends State<HomeLayout> with AppBarMixin {
         (element) => element['layout'] == 'logo',
         orElse: () => Map<String, dynamic>.from({}));
     var config = LogoConfig.fromJson(logoConfig);
-var d =  MainTabs();
+var d =  const MainTabs();
     /// customize theme
     // config
     //   ..opacity = 0.9

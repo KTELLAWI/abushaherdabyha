@@ -51,11 +51,11 @@ class Tools {
       if (data.lengthInBytes < 50 * 1024) {
         appJson = utf8.decode(data.buffer.asUint8List());
       } else {
-        String _utf8decode(ByteData data) {
+        String utf8decode(ByteData data) {
           return utf8.decode(data.buffer.asUint8List());
         }
 
-        appJson = _utf8decode(data);
+        appJson = utf8decode(data);
       }
       return List<dynamic>.from(jsonDecode(appJson));
     } catch (e) {

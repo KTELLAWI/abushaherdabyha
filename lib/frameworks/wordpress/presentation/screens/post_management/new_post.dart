@@ -121,7 +121,7 @@ class _NewPostScreenState extends State<NewPostScreen>
     var user = Provider.of<UserModel>(context, listen: false).user;
 
     // ignore: always_declare_return_types
-    _submitPost(context) {
+    submitPost(context) {
       if (title == null ||
           content == null ||
           category == null ||
@@ -348,7 +348,7 @@ class _NewPostScreenState extends State<NewPostScreen>
                       titleButton: S.of(context).submit,
                       onTap: () {
                         if (!isLoading) {
-                          _submitPost(context);
+                          submitPost(context);
                         }
                       },
                     ),

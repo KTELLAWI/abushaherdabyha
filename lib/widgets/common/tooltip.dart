@@ -303,7 +303,7 @@ class _TooltipState extends State<Tooltip> with SingleTickerProviderStateMixin {
     // We create this widget outside of the overlay entry's builder to prevent
     // updated values from happening to leak into the overlay when the overlay
     // rebuilds.
-    final Widget overlay = Directionality(
+    final overlay = Directionality(
       textDirection: Directionality.of(context),
       child: _TooltipOverlay(
         message: widget.message,
@@ -417,7 +417,7 @@ class _TooltipState extends State<Tooltip> with SingleTickerProviderStateMixin {
         tooltipTheme.showDuration ??
         _defaultShowDuration;
 
-    Widget result = GestureDetector(
+    var result = GestureDetector(
       behavior: HitTestBehavior.opaque,
       onLongPress: _handleLongPress,
       onTapDown: (_) => _handleLongPress(),

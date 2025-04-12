@@ -62,7 +62,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
       );
     }
 
-    Widget productInfo = Column(
+    var productInfo = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 10),

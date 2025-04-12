@@ -80,7 +80,7 @@ class _LanguageScreenState extends State<LanguageScreen> with AppBarMixin {
     }
 
     return AnimatedContainer(
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
                 transform: Matrix4.identity()
                 ..translate(0.5),
                //..scale(0.01),

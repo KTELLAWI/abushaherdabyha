@@ -39,8 +39,8 @@ import 'package:location/location.dart';
 class SideBarMenu extends StatefulWidget {
   //SideBarMenu();
    final  _callback;
-  SideBarMenu({ required toggleCoinCallback()}) :
-       _callback = toggleCoinCallback!;
+  SideBarMenu({ required Function() toggleCoinCallback}) :
+       _callback = toggleCoinCallback;
   MenuBarState createState() => MenuBarState();
 }
 
@@ -113,7 +113,7 @@ Future<void> share() async {
   //   print(result);
   // }
 //}
-Location location = new Location();
+Location location = Location();
 
 //bool _serviceEnabled;
 PermissionStatus? _permissionGranted;
@@ -174,7 +174,7 @@ PermissionStatus? _permissionGranted;
             backgroundColor: !Provider.of<AppModel>(context, listen: true).darkTheme? Theme.of(context).primaryColor  : Color(0xffeac85f),//Colors.greenAccent[400],
             radius: 20,
             child: Text(
-              "${user!.fullName![0]}",
+              '${user!.fullName![0]}',
               style: style.copyWith(fontWeight: FontWeight.w600,fontSize:20,
               color:!Provider.of<AppModel>(context, listen: true).darkTheme?  Color(0xffeac85f) :Theme.of(context).primaryColor,//Color(0xff1B1D26) 
               ),//TextStyle(fontSize: 25, color: iconsColor),
@@ -399,19 +399,19 @@ PermissionStatus? _permissionGranted;
             ),
                 onTap: () {
                 if (context.isRtl){ 
-                langState.changeLanguage("en", context)
+                langState.changeLanguage('en', context)
                 .then((value) {
              setState(() {});
-              _showLoading("en"
+              _showLoading('en'
               );
               widget?._callback();
             });
           
                 } else{
-                  langState.changeLanguage("ar", context)
+                  langState.changeLanguage('ar', context)
                 .then((value) {
              setState(() {});
-              _showLoading("ar"
+              _showLoading('ar'
               );
               widget?._callback();
             });
@@ -477,18 +477,18 @@ PermissionStatus? _permissionGranted;
                   // Expanded( 
                   //   child:  
                     IconButton(
-                      onPressed:  () =>_launchURL("https://www.instagram.com/abushaher.ksa"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () =>_launchURL('https://www.instagram.com/abushaher.ksa'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.instagramSquare, color:iconsColor, size: 25.0)
                     ),
                     IconButton(
-                      onPressed:  () =>_launchURL("https://www.snapchat.com/add/abushaher.ksa?share_id=UQofC3YX7c0&locale=ar-AE"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () =>_launchURL('https://www.snapchat.com/add/abushaher.ksa?share_id=UQofC3YX7c0&locale=ar-AE'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.snapchatSquare, color:iconsColor, size: 25.0)
                     ),
                  // ),
                   // Expanded( 
                   //   child: 
                      IconButton(
-                      onPressed:  () =>_launchURL("https://www.twitter.com/abushaher_ksa"),//_addToCart(context, enableBottomSheet),
+                      onPressed:  () =>_launchURL('https://www.twitter.com/abushaher_ksa'),//_addToCart(context, enableBottomSheet),
                       icon:  Icon(FontAwesomeIcons.twitterSquare, color:iconsColor, size: 25.0)
                     ),
                  // ),

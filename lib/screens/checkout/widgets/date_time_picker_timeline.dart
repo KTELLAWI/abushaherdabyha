@@ -13,7 +13,7 @@ class TimeLine extends StatefulWidget {
 }
 
 class _TimeLineState extends State<TimeLine> {
-  DatePickerController _controller = DatePickerController();
+  final DatePickerController _controller = DatePickerController();
 
   DateTime _selectedValue = DateTime.now();
 
@@ -48,7 +48,7 @@ class _TimeLineState extends State<TimeLine> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("You Selected:"),
+              Text('You Selected:'),
               Padding(
                 padding: EdgeInsets.all(10),
               ),
@@ -73,7 +73,7 @@ class _TimeLineState extends State<TimeLine> {
                   DateTime.now(),
                   width: 60,
                   height: 80,
-                  locale : "ar_DZ",
+                  locale : 'ar_DZ',
                   daysCount:30,
                   controller: _controller,
                   initialSelectedDate: DateTime.now(),

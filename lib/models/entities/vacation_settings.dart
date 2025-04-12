@@ -1,4 +1,3 @@
-import '../../common/constants.dart';
 
 import '../../generated/l10n.dart';
 

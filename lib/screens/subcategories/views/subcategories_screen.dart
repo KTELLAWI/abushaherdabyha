@@ -71,7 +71,7 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
             slivers: [
               Consumer<SubcategoryModel>(
                 builder: (context, subcategoryModel, child) {
-                  Widget title = const Align(
+                  var title = const Align(
                     alignment: Alignment.centerLeft,
                     child: Skeleton(width: 120, height: 38),
                   );

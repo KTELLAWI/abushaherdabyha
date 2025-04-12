@@ -94,7 +94,7 @@ class FirebaseServices extends BaseFirebaseServices {
   @override
   void loginFirebaseApple({authorizationCode, identityToken}) async {
     if (FirebaseServices().isEnabled) {
-      final AuthCredential credential = OAuthProvider('apple.com').credential(
+      final credential = OAuthProvider('apple.com').credential(
         accessToken: String.fromCharCodes(authorizationCode),
         idToken: String.fromCharCodes(identityToken),
       );
@@ -105,7 +105,7 @@ class FirebaseServices extends BaseFirebaseServices {
   @override
   void loginFirebaseFacebook({token}) async {
     if (FirebaseServices().isEnabled) {
-      AuthCredential credential = FacebookAuthProvider.credential(token);
+      var credential = FacebookAuthProvider.credential(token);
       await FirebaseServices().auth!.signInWithCredential(credential);
     }
   }
@@ -113,7 +113,7 @@ class FirebaseServices extends BaseFirebaseServices {
   @override
   void loginFirebaseGoogle({token}) async {
     if (FirebaseServices().isEnabled) {
-      AuthCredential credential =
+      var credential =
           GoogleAuthProvider.credential(accessToken: token);
       await FirebaseServices().auth!.signInWithCredential(credential);
     }

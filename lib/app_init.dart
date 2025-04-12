@@ -4,8 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screens/checkout/widgets/success.dart';
-import 'screens/checkout/widgets/date_time_picker_timeline.dart';
+
 import 'common/config.dart';
 import 'common/constants.dart';
 import 'models/index.dart'
@@ -20,6 +19,8 @@ import 'models/index.dart'
 import 'modules/dynamic_layout/config/app_config.dart';
 import 'screens/base_screen.dart';
 import 'screens/blog/models/list_blog_model.dart';
+import 'screens/checkout/widgets/date_time_picker_timeline.dart';
+import 'screens/checkout/widgets/success.dart';
 import 'services/index.dart';
 import 'widgets/common/splash_screen.dart';
 

@@ -281,7 +281,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
 
   @override
   Widget build(BuildContext context) {
-    Location location = new Location();
+    var location = Location();
      var deliveryOptions=[];
     //value ="dddvvv";
     final options = ['الفترة الصباحية','الفترة المسائية'];
@@ -297,19 +297,19 @@ class _ShippingAddressState extends State<ShippingAddress> {
  final cartModel = Provider.of<CartModel>(context, listen: false);
 //print(value);
   final now = DateTime.now();
-        final later = now.add( Duration(days: 0,));
+        final later = now.add( const Duration(days: 0,));
 
       
       //////////////////
       Widget delivertDateScroller = DatePicker(
         later,
-        locale: context.isRtl ? "ar_DZ": "en_US",
+        locale: context.isRtl ? 'ar_DZ': 'en_US',
   onDateChange: (DateTime datetime) {
          orderDeliveryDate = OrderDeliveryDate(datetime) ;
-        orderDeliveryDate!.dateString = DateFormat.yMd('en_US').format(datetime)  ;
-        orderDeliveryDate!.deliveryDate = context.isRtl ? DateFormat.yMMMMEEEEd('ar_DZ').format(datetime)+ "  " + value :  DateFormat.yMMMMEEEEd('en_US').format(datetime)+ "  " + value ;
+        orderDeliveryDate.dateString = DateFormat.yMd('en_US').format(datetime)  ;
+        orderDeliveryDate.deliveryDate = context.isRtl ? DateFormat.yMMMMEEEEd('ar_DZ').format(datetime)+ '  ' + value :  DateFormat.yMMMMEEEEd('en_US').format(datetime)+ '  ' + value ;
         cartModel.selectedDate = orderDeliveryDate;
-        print(orderDeliveryDate!.dateString);
+        print(orderDeliveryDate.dateString);
         setState((){
  datePicker = DateFormat.yMd('en_US').format(datetime) ;
  thereis = true;
@@ -331,10 +331,10 @@ class _ShippingAddressState extends State<ShippingAddress> {
       Widget deliveryWidget = DateTimePicker(
        onChanged: (DateTime datetime) {
          orderDeliveryDate = OrderDeliveryDate(datetime) ;
-        orderDeliveryDate!.dateString = DateFormat.yMd('en_US').format(datetime)  ;
-        orderDeliveryDate!.deliveryDate =  DateFormat.yMMMMEEEEd('ar_DZ').format(datetime)+ "  " + value ;
+        orderDeliveryDate.dateString = DateFormat.yMd('en_US').format(datetime)  ;
+        orderDeliveryDate.deliveryDate =  DateFormat.yMMMMEEEEd('ar_DZ').format(datetime)+ '  ' + value ;
         cartModel.selectedDate = orderDeliveryDate;
-        print(orderDeliveryDate!.dateString);
+        print(orderDeliveryDate.dateString);
         setState((){
  datePicker = DateFormat.yMd('en_US').format(datetime) ;
         });
@@ -400,7 +400,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                     children: <Widget>[
                       TextFormField(
                         autocorrect: false,
-                        initialValue: "",//address!.firstName,
+                        initialValue: '',//address!.firstName,
                         autofillHints: const [AutofillHints.givenName],
                         decoration:
                             InputDecoration(
@@ -444,7 +444,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                       ),
                       TextFormField(
                         autocorrect: false,
-                        initialValue:  "",//address!.firstName,
+                        initialValue:  '',//address!.firstName,
                         autofillHints: const [AutofillHints.telephoneNumber],
                         focusNode: _phoneNode,
                         decoration: InputDecoration(
@@ -1099,14 +1099,14 @@ print(value);
   /// on tap to Next Button
   void _onNext() {
     {  
-      if (_formKey.currentState!.validate() && value != null && Provider.of<CartModel>(context, listen: false).selectedDate !=null && thereis! ) {
+      if (_formKey.currentState!.validate() && Provider.of<CartModel>(context, listen: false).selectedDate !=null && thereis! ) {
         if (!googlePlace){
         showDialog(
           context: context,
           useRootNavigator: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text(" Insert Address by Google maps\n يرجى تحديد الموقع من خلال الخريطة",style:TextStyle(fontSize:13)),
+              title: Text(' Insert Address by Google maps\n يرجى تحديد الموقع من خلال الخريطة',style:TextStyle(fontSize:13)),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
@@ -1171,10 +1171,8 @@ print(value);
       Object? firstState = states.firstWhereOrNull(
           (o) => o.id.toString() == address!.state.toString());
 
-      if (firstState != null) {
-        value = address!.state;
-      }
-      return DropdownButton(
+      value = address!.state;
+          return DropdownButton(
         items: items,
         value: value,
         onChanged: (dynamic val) {

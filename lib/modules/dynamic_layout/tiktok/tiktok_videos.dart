@@ -258,7 +258,7 @@ extension on InAppWebViewController {
     String? html;
 
     html = await evaluateJavascript(source: 'window.document.body.innerText;');
-    if (html != null && html.isNotEmpty) return html;
+    if (html.isNotEmpty) return html;
     return '';
   }
 }

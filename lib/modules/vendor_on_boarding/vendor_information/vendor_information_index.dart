@@ -161,7 +161,7 @@ class _VendorInformationState extends State<VendorInformation> {
               title: Text(titles[_currentSlide - 1]),
               actions: [
                 TextButton(
-                  onPressed: () => widget.onFinish(),
+                  onPressed: widget.onFinish,
                   child: Text(S.of(context).skip),
                 ),
               ],

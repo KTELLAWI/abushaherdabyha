@@ -100,7 +100,7 @@ class _TimelineTrackingState extends State<TimelineTracking> {
       StatusOrder? statusCurrent,
       required bool isActive,
       bool showLine = true}) {
-    Widget date = SizedBox(
+    var date = SizedBox(
       width: isAxisVertical ? MediaQuery.of(context).size.width * 0.2 : null,
       height: 25.0,
       child: Align(
@@ -142,7 +142,7 @@ class _TimelineTrackingState extends State<TimelineTracking> {
           : const SizedBox()
     ];
 
-    Widget content = SizedBox(
+    var content = SizedBox(
         width: MediaQuery.of(context).size.width * 0.5,
         height: description.isEmpty ? 25.0 : null,
         child: Align(

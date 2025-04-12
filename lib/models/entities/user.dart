@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../common/constants.dart';
 import '../../common/tools.dart';
 import '../serializers/user.dart';
 import 'user_address.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import '../../../../models/index.dart' ;
 
 import '../../../../common/constants.dart';
 import '../../../../common/tools.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../models/index.dart' ;
 import '../../../../models/order/order.dart';
 import '../../index.dart';
 

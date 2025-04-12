@@ -4,7 +4,6 @@ import 'dart:convert' as convert;
 import 'package:http_auth/http_auth.dart';
 
 import '../../../common/config.dart';
-import '../../../common/constants.dart';
 
 class PaypalServices {
   String domain = kPaypalConfig['production'] == true
