@@ -7,7 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
-import 'package:sms_autofill/sms_autofill.dart';
+// import 'package:sms_autofill/sms_autofill.dart';
 
 import '../../common/constants.dart';
 import '../../common/tools.dart';
@@ -36,7 +36,9 @@ class VerifyCode extends StatefulWidget {
 }
 
 class _VerifyCodeState extends State<VerifyCode>
-    with TickerProviderStateMixin, CodeAutoFill {
+    with TickerProviderStateMixin{ 
+    //  CodeAutoFill
+     // {
   late AnimationController _loginButtonController;
   bool isLoading = false;
 
@@ -48,14 +50,14 @@ class _VerifyCodeState extends State<VerifyCode>
   int? _resendToken;
   String? _verId;
 
-  @override
-  void codeUpdated() {
-    if (mounted && code != null && code!.isNotEmpty) {
-      _loginSMS(code, context);
-      setState(() {});
-      Tools.hideKeyboard(context);
-    }
-  }
+  // @override
+  // void codeUpdated() {
+  //   if (mounted && code != null && code!.isNotEmpty) {
+  //     _loginSMS(code, context);
+  //     setState(() {});
+  //     Tools.hideKeyboard(context);
+  //   }
+  // }
 
   Future<void> _verifySuccessStreamListener(credential) async {
     if (mounted) {
@@ -73,7 +75,7 @@ class _VerifyCodeState extends State<VerifyCode>
     _verId = widget.verId;
     widget.verifySuccessStream?.listen(_verifySuccessStreamListener);
 
-    listenForCode();
+    // listenForCode();
 
     onTapRecognizer = TapGestureRecognizer()
       ..onTap = () {
@@ -115,7 +117,7 @@ class _VerifyCodeState extends State<VerifyCode>
     widget.verifySuccessStream?.listen(null);
     _loginButtonController.dispose();
     _pinCodeController.dispose();
-    cancel();
+    // cancel();
     super.dispose();
   }
 
