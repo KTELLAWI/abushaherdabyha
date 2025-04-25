@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "429613332755",
-    "project_id": "abushaherdabiha",
-    "storage_bucket": "abushaherdabiha.appspot.com"
+    "project_number": "593869006389",
+    "project_id": "abusher-5b211",
+    "storage_bucket": "abusher-5b211.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:429613332755:android:70e15e96c9f49a1cd9c2e6",
+        "mobilesdk_app_id": "1:593869006389:android:9acaff88495b752657337c",
         "android_client_info": {
           "package_name": "online.digistacks.abushaher"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBCeE3V6Tk4SDZcE0r_Ku7IvqZa498WxII"
+          "current_key": "AIzaSyDiYN87kLH2v5pPfQI54Q5kQUT2Hrgg_nM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "429613332755-vuep4jtrl9tv3esoqrkksvfgkm75jimd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
