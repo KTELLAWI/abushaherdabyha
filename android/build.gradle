@@ -8,7 +8,7 @@
 //             url 'https://maven.zohodl.com'
 //         }
     }
-}
+//}
 
 rootProject.buildDir = '../build'
 // Ref: https://github.com/flutter/flutter/issues/153281#issuecomment-2292201697
