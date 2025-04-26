@@ -5,12 +5,14 @@ buildscript {
     }
     dependencies {
         // ...
-        // OneSignal-Gradle-Plugin
-        // classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.14.0'
-     
-
-        // classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.6, 0.99.99]'
     }
+}
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
 }
 
 def localProperties = new Properties()
@@ -19,11 +21,6 @@ if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
         localProperties.load(reader)
     }
-}
-
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -36,23 +33,47 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def envProperties = new Properties()
+def envPropsFile = rootProject.file('../configs/env.props')
+def envPropertiesFile = rootProject.file('../configs/env.properties')
 
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+if (envPropertiesFile.exists() && envPropsFile.exists()) {
+    println "====================================================================="
+    println "⚠️  Warning: env.properties is deprecated, please rename to env.props"
+    println "====================================================================="
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-// apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+if (envPropertiesFile.exists() && !envPropsFile.exists()) {
+    println "================================================================="
+    println "⚠️  Warning: env.properties is deprecated and should not be used"
+    println "🪄️  env.properties has been renamed to env.props automatically"
+    println "================================================================="
+
+    ant.move file: '../../configs/env.properties', tofile: '../../configs/env.props'
+}
+
+envPropsFile = rootProject.file('../configs/env.props')
+envPropertiesFile = rootProject.file('../configs/env.properties')
+
+if (envPropsFile.exists()) {
+    println "🔧 Loading configs from configs/env.props...\n"
+    envPropsFile.withReader('UTF-8') { reader ->
+        envProperties.load(reader)
+    }
+} else {
+    if (envPropertiesFile.exists()) {
+        println "🔧 Loading configs from configs/env.properties...\n"
+        envPropertiesFile.withReader('UTF-8') { reader ->
+            envProperties.load(reader)
+        }
+    }
+}
 
 
 android {
     compileSdkVersion 34
-    namespace "online.digistacks.abushaher"
+
+    ndkVersion "25.1.8937393"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -62,18 +83,18 @@ android {
         checkReleaseBuilds false
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.warnings = false
     }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "online.digistacks.abushaher"
+        applicationId envProperties.getProperty('androidPackageName', '')
         minSdkVersion 23
         targetSdkVersion 34
 
@@ -81,29 +102,68 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        // // Zoho SalesIQ Mobilisten
+        // Comment resConfigs "en" to fix Zoho SaleIQ not support
+        // multi-language on Android.
+        // Un-comment to reduce build size.
         resConfigs "en"
+
+        // Using manifestPlaceholders will replace the param on
+        // AndroidManifest.xml file with the correct value.
+        // For example: <meta-data android:name="default-url"
+        // android:value="${websiteUrl}" />
+        // will be <meta-data android:name="default-url" android:value="inspireui.com" />
+        manifestPlaceholders += [
+                envatoPurchaseCode           : envProperties.getProperty('envatoPurchaseCode', ''),
+                websiteUrl                   : envProperties.getProperty('websiteUrl', ''),
+                websiteDomain                : envProperties.getProperty('websiteDomain', ''),
+                customScheme                 : envProperties.getProperty('customScheme', ''),
+                googleApiKeyAndroid          : envProperties.getProperty('googleApiKeyAndroid', ''),
+                adMobAppIdAndroid            : envProperties.getProperty('adMobAppIdAndroid', ''),
+                facebookClientToken          : envProperties.getProperty('facebookClientToken', ''),
+                facebookLoginProtocolScheme  : envProperties.getProperty('facebookLoginProtocolScheme', ''),
+                branchKeyLive                : envProperties.getProperty('branchKeyLive', ''),
+                branchKeyTest                : envProperties.getProperty('branchKeyTest', ''),
+                branchLiveLinkDomain         : envProperties.getProperty('branchLiveLinkDomain', ''),
+                branchLiveAlternateLinkDomain: envProperties.getProperty('branchLiveAlternateLinkDomain', ''),
+                branchTestLinkDomain         : envProperties.getProperty('branchTestLinkDomain', ''),
+                branchTestAlternateLinkDomain: envProperties.getProperty('branchTestAlternateLinkDomain', '')
+        ]
+
+        // If you use resValue, it will generate a resource of the type you
+        // specify into your app's res directory.
+        resValue 'string', 'facebookAppId', envProperties.getProperty('facebookAppId', '')
+
+        // Not sure why we need to use appName as resValue.
+        resValue 'string', 'app_name', envProperties.getProperty('appName', '')
+        // Notification color for Firebase
+        resValue 'color', 'notification_color', '#' + envProperties.getProperty('notificationColor', 'FF2EB0FE')
+
+        // Notification color for OneSignal
+        resValue 'string', 'onesignal_notification_accent_color', envProperties.getProperty('notificationColor', 'FF2EB0FE')
     }
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            keyAlias envProperties.getProperty('keyAlias', '')
+            keyPassword envProperties.getProperty('keyPassword', '')
+            storeFile rootProject.file('../configs/' + envProperties.getProperty('storeFile', ''))
+            storePassword envProperties.getProperty('storePassword', '')
         }
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // Signing with the debug keys for now, so flutter run --release works.
             signingConfig signingConfigs.release
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug {
-             signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -113,7 +173,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -121,37 +180,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.browser:browser:1.3.0'
-    implementation 'com.google.android.play:asset-delivery:2.2.1'
-    implementation 'com.google.android.play:asset-delivery-ktx:2.2.1'
-    // implementation 'com.google.android.gms:play-services-base:18.2.0'
-    // implementation 'com.google.android.play:core:2.0.0' // إضافة مباشرة
-    // implementation 'com.google.android.play:core:1.10.3'
-
-
-
-
-    // constraints {
-    // implementation('com.google.android.play:core') {
-    //     version {
-    //         strictly '1.10.3'
-    //     }
-    // }
-    // }
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
 }
-// configurations.all {
-//     resolutionStrategy {
-//         force 'com.google.android.play:core:1.10.3'
-//     }
-// }
-// configurations.all {
-//     resolutionStrategy {
-//         force 'com.google.android.play:integrity:1.1.0' // فرض الإصدار
-//     } 
-// }
+
 googleServices { disableVersionCheck = true }
-configurations {
-    all*.exclude group: 'com.google.android.play', module: 'core'
-    // all*.exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
-}
-
-
